@@ -172,7 +172,12 @@ footer p {
 
     .navbar-nav>li>a {
         line-height: normal;
+		border-left: 1px solid black;
     }
+a[href*="contact.html"]{
+	    line-height: normal;
+		border-right: 1px solid black;
+}
 
     .navbar-nav {
         display: table;
