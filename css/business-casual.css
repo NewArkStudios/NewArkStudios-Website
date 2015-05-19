@@ -147,7 +147,7 @@ footer p {
         letter-spacing: 3px;
         color: #fff;
     }
-
+	/*=======================NAVBAR MODIFIFACTIONS====================*/
     .navbar {
         border-radius: 0;
     }
@@ -174,12 +174,16 @@ footer p {
         line-height: normal;
 		border-left: 1px solid black;
     }
-a[href*="contact.html"]{
+	
+	a[href*="contact.html"]{		/*			|	MenuBarHack-------*/
 	    line-height: normal;
 		border-right: 1px solid black;
-}
-
-    .navbar-nav {
+	}
+	/*================================================================*/
+	/*.col-md-4{								|	Contact Box-------		
+		
+	}*/
+	.navbar-nav {
         display: table;
         float: none;
         margin: 0 auto;
