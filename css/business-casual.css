@@ -4,6 +4,7 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+ /* page formatting -- BACKGROUND IMAGE/PROPERTIES */
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background: url('../img/bg.jpg') no-repeat center center fixed;
@@ -13,6 +14,7 @@ body {
     -o-background-size: cover;
 }
 
+/* sets fonts for all headings */
 h1,
 h2,
 h3,
