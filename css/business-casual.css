@@ -78,14 +78,16 @@ hr {
     max-width: 250px;
     border-color: #999999;
 }
-
+/*main box here!*/
 .box {
     margin-bottom: 20px;
     padding: 30px 15px;
-    background: #fff;
-    background: rgba(255,255,255,0.9);
+    background: #2b3033;
+    background: gba(34,34,34,0.9);
 }
-
+/*original colors*/
+/*gba(255,255,255,0.9)*/
+/*fff*/
 .intro-text {
     text-transform: uppercase;
     font-size: 1.25em;
@@ -103,10 +105,10 @@ hr {
     float: none;
     margin: 0 auto 0;
 }
-
+/*This is where the footer is changed*/
 footer {
-    background: #fff;
-    background: rgba(255,255,255,0.9);
+    background: #2b3033;
+    background: rgba(34,34,34,0.9);
 }
 
 footer p {
@@ -161,11 +163,11 @@ footer p {
     .navbar {
         min-height: 0;
     }
-
+/*top bar modifications*/
     .navbar-default {
         border: none;
         background: #fff;
-        background: rgba(255,255,255,0.9);
+        background: rgba(34,34,34,0.9);
     }
 
     .nav>li>a {
