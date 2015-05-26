@@ -25,12 +25,13 @@ h6 {
     font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
+    color: #6e6e6e;
 }
-
+/*<-------------- this part is for general text ------>*/
 p {
     font-size: 1.25em;
     line-height: 1.6;
-    color: #000;
+    color: #6e6e6e;
 }
 
 hr {
@@ -88,17 +89,19 @@ hr {
 /*original colors*/
 /*gba(255,255,255,0.9)*/
 /*fff*/
+/*<-----------text for the title to lower intro statement------->*/
 .intro-text {
     text-transform: uppercase;
     font-size: 1.25em;
     font-weight: 400;
     letter-spacing: 1px;
+    color: #6e6e6e;
 }
-
+/*border around the bottom left cup image*/
 .img-border {
     float: none;
     margin: 0 auto 0;
-    border: #999999 solid 1px;
+    border: #222222 solid 5px;
 }
 
 .img-left {
