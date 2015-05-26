@@ -1,0 +1,6 @@
+BG: 04B6DA
+Note: IF there is an option for background of the banner
+
+
+Twitter theme: 05C7E3
+Note: If (the BG hex code) too dark for the 'theme'
