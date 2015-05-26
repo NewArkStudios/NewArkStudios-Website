@@ -79,7 +79,7 @@ hr {
     max-width: 250px;
     border-color: #999999;
 }
-/*main box here!*/
+/*main center box here!*/
 .box {
     margin-bottom: 20px;
     padding: 30px 15px;
@@ -118,7 +118,7 @@ footer p {
     margin: 0;
     padding: 50px 0;
 }
-
+/*title name*/
 @media screen and (min-width:768px) {
     .brand {
         display: inherit;
@@ -130,7 +130,7 @@ footer p {
         font-size: 5em;
         font-weight: 700;
         line-height: normal;
-        color: #fff;
+        color: #2d2d2d;
     }
 
     .top-divider {
@@ -141,7 +141,7 @@ footer p {
         float: left;
         margin-right: 25px;
     }
-
+/*below title text*/
     .address-bar {
         display: inherit;
         margin: 0;
@@ -152,7 +152,7 @@ footer p {
         font-size: 1.25em;
         font-weight: 400;
         letter-spacing: 3px;
-        color: #fff;
+        color: #2d2d2d;
     }
 	/*=======================NAVBAR MODIFIFACTIONS====================*/
     .navbar {
@@ -175,17 +175,18 @@ footer p {
 
     .nav>li>a {
         padding: 35px;
-    }
 
+    }
+/*<----both together are the line dashes on the top bar----->*/
     .navbar-nav>li>a {
         line-height: normal;
-		border-left: 1px solid black;
+		border-left: 1px solid #6e6e6e;
     }
-	
 	a[href*="contact.html"]{		/*			|	MenuBarHack-------*/
 	    line-height: normal;
-		border-right: 1px solid black;
+		border-right: 1px solid #6e6e6e;
 	}
+    
 	/*================================================================*/
 	/*.col-md-4{								|	Contact Box-------		
 		
