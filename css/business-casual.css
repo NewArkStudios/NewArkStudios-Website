@@ -186,7 +186,20 @@ footer p {
 	    line-height: normal;
 		border-right: 1px solid #6e6e6e;
 	}
+    /*<--------hovering over the navigation bar ----------->*/
+    .navbar-nav>li:hover{
+        background-color: #ffffff;
+    }
     
+/*<-------------general links and hovering over them------>*/
+    a{
+          color: #d73419;  
+    }
+    a:hover{
+
+         text-decoration: none;
+         color: #b11900;
+    }
 	/*================================================================*/
 	/*.col-md-4{								|	Contact Box-------		
 		
