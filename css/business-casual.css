@@ -39,6 +39,24 @@ hr {
     border-color: #999999;
 }
 
+
+.whatis{
+    color:#d73419;
+
+}
+
+
+/*<-----------------changes color of the read more text----------------->*/
+.btn-default{
+
+    color:#d73419;
+}
+.btn-default:hover{
+
+    color:#b11900;
+}
+
+
 .brand,
 .address-bar {
     display: none;
@@ -141,18 +159,18 @@ footer p {
         float: left;
         margin-right: 25px;
     }
-/*below title text*/
+/*<------------------below title text--------------------->*/
     .address-bar {
         display: inherit;
         margin: 0;
         padding: 0 0 40px;
         text-align: center;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        text-shadow: 1px 1px 2px rgba(34,34,34,0.7);
         text-transform: uppercase;
-        font-size: 1.25em;
+        font-size: 1.5em;
         font-weight: 400;
         letter-spacing: 3px;
-        color: #2d2d2d;
+        color: #d73419;
     }
 	/*=======================NAVBAR MODIFIFACTIONS====================*/
     .navbar {
