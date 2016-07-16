@@ -12,20 +12,43 @@
 			})
 
 			// route for the about page
-			.when('/about', {
-				templateUrl : 'pages/about.html',
-				controller  : 'aboutController'
+			.when('/team', {
+				templateUrl : 'pages/team.html',
+				controller  : 'teamController'
+			})
+
+            // route for the contact page
+			.when('/games', {
+				templateUrl : 'pages/games.html',
+				controller  : 'gamesController'
 			})
 
 			// route for the contact page
+			.when('/update', {
+				templateUrl : 'pages/update.html',
+				controller  : 'updateController'
+			})
+
+            // route for the home page
+			.when('/forum', {
+				templateUrl : 'pages/forum.html',
+				controller  : 'forumController'
+			})
+
+            // route for the home page
 			.when('/contact', {
 				templateUrl : 'pages/contact.html',
 				controller  : 'contactController'
-			});
+			})
 
-		 // use the HTML5 History API , initalize url retrieval patterns
-        $locationProvider.html5Mode(true);
+		// use the HTML5 History API , initalize url retrieval patterns
+        // Normally used for clean urls without # but that causes problems
+        //    $locationProvider.html5Mode(true);
 	});
+
+
+// Code for Controllers ***********************************************************
+
 
 	// create the controller and inject Angular's $scope retrieve location
 	App.controller('mainController', function($scope, $location) {
@@ -37,11 +60,24 @@
 
 	});
 
-	App.controller('aboutController', function($scope) {
+	App.controller('teamController', function($scope) {
 		$scope.message = 'Look! I am an about page.';
 
 	});
 
-	App.controller('contactController', function($scope) {
+	App.controller('gamesController', function($scope) {
+		$scope.message = 'Games Page controller test';
+	});
+
+    App.controller('updateController', function($scope) {
+		$scope.message = 'Update Controller test';
+	});
+
+    App.controller('forumController', function($scope) {
+		$scope.message = 'Forum controller test';
+	});
+
+    App.controller('contactController', function($scope) {
 		$scope.message = 'Contact us! JK. This is just a demo.';
 	});
+   
