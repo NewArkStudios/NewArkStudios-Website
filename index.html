@@ -4,34 +4,46 @@
 <html ng-app="App">
 
 <head>
+    <base href="/github-stuff/NewArkStudios.github.io/" />
 
-<base href="/" />
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-  <!-- SCROLLS -->
-  <link rel="stylesheet" href="css/bootstrap.css" />
-
-  <!-- SPELLS -->
-  <script src="js/angular.min.js"></script>
-  <script src="js/angular-route.js"></script>
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+    <!-- SPELLS -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </head>
 
 <!-- define angular controller -->
 <body ng-controller="mainController">
 
-  <nav style="color:rgb(0, 128, 128);" ng-hide="isActive('/about')" class="navbar navbar-default">
+  <nav id="main-navbar" style="color:rgb(0, 128, 128); margin-bottom:0;" ng-hide="isActive('/about')" class="navbar navbar-default">
     <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Angular Routing Example</a>
-      </div>
+            <div class="navbar-header">
+                <!-- New ark studios logo currently difficult to place will discuss  -->
+                <!--<img class="navbar-brand" src="images/NASLogo.png"/>-->
+                <a class="navbar-brand" href="#">New Ark Studios</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>  
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
-        <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
-      </ul>
+           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav navbar-right">
+                 <li><a href="#team"><i class="fa fa-shield"></i> Our Team</a></li>
+                 <li><a href="#games"><i class="fa fa-comment"></i>Games</a></li>
+                 <li><a href="#update"><i class="fa fa-comment"></i>Updates</a></li>
+                 <li><a href="#forum"><i class="fa fa-comment"></i>Forums</a></li>
+                 <li><a href="#contact"><i class="fa fa-comment"></i> Contact Us</a></li>
+               </ul>
+           <div>
     </div>
   </nav>
 
@@ -44,9 +56,9 @@
   </div>
   
   <footer class="text-center">
-    <p>View the tutorial on <a href="http://scotch.io/tutorials/javascript/single-page-apps-with-angularjs-routing-and-templating">Modified with additional hidden function, $locationProvider</a></p>
+    <p>This is a test <a href="#">many of which should link to somewhere</a></p>
   
-    <p>View a tutorial on <a href="http://scotch.io/tutorials/javascript/animating-angularjs-apps-ngview">Animating Your Angular Single Page App</a></p>
+    <p>View <a href="#">Check out stuff, this is a footer</a></p>
   </footer>
   
 </body>
