@@ -49,6 +49,8 @@
 
 // Code for Controllers ***********************************************************
 
+    // quick note if you want to do clean transitions between pages start display none and transition through
+    // before doing that as well also remove page slowly
 
 	// create the controller and inject Angular's $scope retrieve location
 	App.controller('mainController', function($scope, $location) {
@@ -57,6 +59,8 @@
 		$scope.isActive = function(viewLocation) {
 		    return viewLocation === $location.path();
 		};
+
+        console.log($('body'));
 
 	});
 

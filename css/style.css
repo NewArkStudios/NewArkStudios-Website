@@ -9,3 +9,18 @@
         padding-bottom:0.25em;
     }
 }
+
+/* Normal laptop size  */
+div.profile-container {
+    overflow:auto;
+}
+
+img.logo-icon {
+    width:24px;
+    height:24px;
+}
+
+img.profile-img {
+    width:25%;
+    margin: 0.5em 0.75em 0.25em 0.25em;
+}
