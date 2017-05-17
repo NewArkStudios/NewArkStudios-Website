@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::get('/test', function () {
-    return "This is a test";
-});
+Route::get('/', 'PagesController@home')->name('home');
+
