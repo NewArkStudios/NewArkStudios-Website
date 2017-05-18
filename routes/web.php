@@ -11,9 +11,8 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
+// Home route
+// PagesController(at)home is the controller then function
+// name is a named route
 Route::get('/', 'PagesController@home')->name('home');
 
