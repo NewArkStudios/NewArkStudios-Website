@@ -1,97 +1,50 @@
-<!doctype html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	  @extends('layouts.masters.main')
 
-        <title>Laravel</title>
+	  @section('page-content')
+	      <!-- Main jumbotron for a primary marketing message or call to action -->
+	      <div class="jumbotron">
+	        <h1>Theme example</h1>
+	        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
+	      </div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        
-        <!--This is a test of asset gathering-->
-        <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+	      <div class="page-header">
+	        <h1>Buttons</h1>
+	      </div>
+	      <p>
+	        <button type="button" class="btn btn-lg btn-default">Default</button>
+	        <button type="button" class="btn btn-lg btn-primary">Primary</button>
+	        <button type="button" class="btn btn-lg btn-success">Success</button>
+	        <button type="button" class="btn btn-lg btn-info">Info</button>
+	        <button type="button" class="btn btn-lg btn-warning">Warning</button>
+	        <button type="button" class="btn btn-lg btn-danger">Danger</button>
+	        <button type="button" class="btn btn-lg btn-link">Link</button>
+	      </p>
+	      <p>
+	        <button type="button" class="btn btn-default">Default</button>
+	        <button type="button" class="btn btn-primary">Primary</button>
+	        <button type="button" class="btn btn-success">Success</button>
+	        <button type="button" class="btn btn-info">Info</button>
+	        <button type="button" class="btn btn-warning">Warning</button>
+	        <button type="button" class="btn btn-danger">Danger</button>
+	        <button type="button" class="btn btn-link">Link</button>
+	      </p>
+	      <p>
+	        <button type="button" class="btn btn-sm btn-default">Default</button>
+	        <button type="button" class="btn btn-sm btn-primary">Primary</button>
+	        <button type="button" class="btn btn-sm btn-success">Success</button>
+	        <button type="button" class="btn btn-sm btn-info">Info</button>
+	        <button type="button" class="btn btn-sm btn-warning">Warning</button>
+	        <button type="button" class="btn btn-sm btn-danger">Danger</button>
+	        <button type="button" class="btn btn-sm btn-link">Link</button>
+	      </p>
+	      <p>
+	        <button type="button" class="btn btn-xs btn-default">Default</button>
+	        <button type="button" class="btn btn-xs btn-primary">Primary</button>
+	        <button type="button" class="btn btn-xs btn-success">Success</button>
+	        <button type="button" class="btn btn-xs btn-info">Info</button>
+	        <button type="button" class="btn btn-xs btn-warning">Warning</button>
+	        <button type="button" class="btn btn-xs btn-danger">Danger</button>
+	        <button type="button" class="btn btn-xs btn-link">Link</button>
+	      </p>
+      @stop
