@@ -11,8 +11,11 @@
 |
 */
 
-// Home route
-// PagesController(at)home is the controller then function
-// name is a named route
+/* Home route
+   PagesController(at)home is the controller then function
+   name is a named route */
 Route::get('/', 'PagesController@home')->name('home');
 
+// generate all necessary authentication routes
+// http://stackoverflow.com/questions/39196968/laravel-5-3-new-authroutes
+Auth::routes();
