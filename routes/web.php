@@ -19,3 +19,7 @@ Route::get('/', 'PagesController@home')->name('home');
 // generate all necessary authentication routes
 // http://stackoverflow.com/questions/39196968/laravel-5-3-new-authroutes
 Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
