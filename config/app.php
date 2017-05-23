@@ -139,7 +139,10 @@ return [
 
         /*
          * Laravel Framework Service Providers...
+         * Peter Added new addition of debugger
+         * https://laravel-news.com/laravel-debugbar
          */
+        Barryvdh\Debugbar\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -192,6 +195,7 @@ return [
 
     'aliases' => [
 
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
