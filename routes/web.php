@@ -20,4 +20,12 @@ Route::get('/', 'PagesController@home')->name('home');
 // http://stackoverflow.com/questions/39196968/laravel-5-3-new-authroutes
 Auth::routes();
 
+/**
+* Grouped routing for threads
+*/
+Route::group(['prefix' => 'thread'], function(){
+
+    Route::get('post', 'ForumController@getPost')->name('get_post');
+
+});
 
