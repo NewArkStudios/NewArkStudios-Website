@@ -34,4 +34,10 @@ php artisan migrate:install
 
 php artisan migrate
 ```
+To make new databases in laravel simply call
+
+```
+php artisan migrate:<migration_name> --create=<table_name>
+```
+
 If run into errors delete migrations table and already existing tables
