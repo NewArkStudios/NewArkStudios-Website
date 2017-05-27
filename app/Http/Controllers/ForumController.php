@@ -9,7 +9,7 @@ class ForumController extends Controller
     /*
     * Get forum post
     */
-    public function getPost(){
+    public function get_post(){
         return view('pages.thread');
     }
 }
