@@ -29,7 +29,7 @@ Route::group(['prefix' => 'thread'], function(){
     Route::get('post', 'ForumController@get_post')->name('get_post');
 
     // Route for submitting forum thread
-    Route::get('make_post', 'ForumController@make_post')->name('make_post');
+    Route::post('make_post', 'ForumController@make_post')->name('make_post');
 
 });
 
