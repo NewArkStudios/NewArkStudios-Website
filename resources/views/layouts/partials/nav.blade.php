@@ -17,7 +17,7 @@
             <li><a href="{{ url('/devteam') }}">Dev Team</a></li>
 
             <!--Forums link subject to change -->
-            <li><a href="{{ route('get_post') }}">Forums</a></li>
+            <li><a href="{{ route('view_categories') }}">Forums</a></li>
             <li><a href="{{ url('/contact') }}">Contact</a></li>
             @if (Auth::guest())
                 <li><a href="{{ route('login') }}">Login</a></li>

@@ -26,10 +26,18 @@ Auth::routes();
 Route::group(['prefix' => 'thread'], function(){
 
     // Route for making post UI Wise
-    Route::get('post', 'ForumController@get_post')->name('get_post');
+    Route::get('view_categories', 'ForumController@view_categories')->name('view_categories');
 
     // Route for submitting forum thread
     Route::post('make_post', 'ForumController@make_post')->name('make_post');
 
 });
 
+/**
+* Routing for threading categories, display all posts under the category
+* TODO possibly do pinned posts
+*/
+Route::get('thread_category/{category_id}', 'ForumController@get_post_list');
+
+// Route for making post UI Wise
+Route::get('create_post/{category_id}', 'ForumController@get_post');
