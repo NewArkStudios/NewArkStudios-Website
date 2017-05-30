@@ -32,7 +32,6 @@ class ForumController extends Controller
         // save values
         $post->save();
 
-        // redirect user to place prior to login
-        return redirect()->intended('/');
+        return redirect();
     }
 }
