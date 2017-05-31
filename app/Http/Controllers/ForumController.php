@@ -12,8 +12,9 @@ class ForumController extends Controller
     * Get forum post
     */
     public function get_post($category_id){
-        $categories = Category::all();
-        return view('pages.thread', compact('categories'));
+
+        $category_name = Category::where('id', $category_id)->value('name');
+        return view('pages.thread', ["category_id" => $category_id, "category_name" => $category_name]);
     }
 
     /*
@@ -32,7 +33,7 @@ class ForumController extends Controller
         // save values
         $post->save();
 
-        return redirect();
+        return redirect('/thanks_post');
     }
 
     /*

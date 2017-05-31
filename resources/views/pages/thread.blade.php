@@ -31,11 +31,9 @@
                                 <label for="category" class="col-md-4 control-label">Category</label>
 
                                 <div class="col-md-6">
-                                    <!-- Change Categories later -->
+                                    <!-- Change Categories later, possibly be able to add to any for now one -->
                                     <select id="category" name="category" class="form-control">
-                                        @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @endforeach
+                                            <option value="{{$category_id}}">{{$category_name}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -44,8 +42,7 @@
                                 <label for="body" class="col-md-4 control-label">Body</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="body" class="form-control" name="body" required>
-                                    </textarea>
+                                    <textarea id="body" class="form-control" name="body" required></textarea>
 
                                     @if ($errors->has('body'))
                                         <span class="help-block">
