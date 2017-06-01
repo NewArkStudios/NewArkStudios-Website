@@ -42,6 +42,9 @@ Route::get('thread_category/{category_id}', 'ForumController@get_post_list');
 // Route for making post UI Wise
 Route::get('create_post/{category_id}', 'ForumController@get_post');
 
+// Route for individual post
+Route::get('post/{post_id}', 'ForumController@display_post');
+
 // Route thanks for posting
 Route::get('/thanks_post', function() {
     return view('pages.thread_thanks_post');

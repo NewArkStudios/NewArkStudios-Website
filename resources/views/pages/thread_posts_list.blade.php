@@ -14,7 +14,7 @@
                     <!-- Visually this will be updated later -->
                     @if (count($posts['posts']) > 0)
                         @foreach($posts['posts'] as $post)
-                            <h2>{{$post->title}}</h2>
+                            <a href="{{url('/post/'.$post->id)}}">{{$post->title}}</a>
                             <p>{{$post->created_at}}</p>
                             <p>{{$post->body}}</p>
                             <br>

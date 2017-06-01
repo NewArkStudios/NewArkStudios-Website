@@ -36,6 +36,12 @@ class ForumController extends Controller
         return redirect('/thanks_post');
     }
 
+    public function display_post($post_id) {
+        
+        $post = Post::where('id', $post_id)->get();
+        return $post;
+    }
+
     /*
     * Display categories that can be viewed by user
     */
