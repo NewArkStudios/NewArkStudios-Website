@@ -41,3 +41,7 @@ php artisan migrate:<migration_name> --create=<table_name>
 ```
 
 If run into errors delete migrations table and already existing tables
+
+
+## Additional Notes and Tasks to Do Later
+-Forget Password sending
