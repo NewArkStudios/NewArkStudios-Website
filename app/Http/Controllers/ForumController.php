@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class ForumController extends Controller
 {
@@ -26,6 +27,7 @@ class ForumController extends Controller
         $post = new Post();
 
         // set table values
+        $post->user_id = Auth::user()->id;
         $post->category_id = $request['category'];
         $post->title = $request['title'];
         $post->body = $request['body'];
@@ -37,7 +39,7 @@ class ForumController extends Controller
     }
 
     public function display_post($post_id) {
-        
+
         $post = Post::where('id', $post_id)->get();
         return $post;
     }

@@ -17,6 +17,7 @@
                             <a href="{{url('/post/'.$post->id)}}">{{$post->title}}</a>
                             <p>{{$post->created_at}}</p>
                             <p>{{$post->body}}</p>
+                            <p>{{$post->user}}</p>
                             <br>
                         @endforeach
                     @else
