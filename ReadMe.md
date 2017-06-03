@@ -40,6 +40,18 @@ To make new databases in laravel simply call
 php artisan migrate:<migration_name> --create=<table_name>
 ```
 
+To seed a database, in "DatabaseSeeder.php" add
+'''
+    $this->call(<SeedName>::class);
+'''
+Create the seed with 
+'''
+    php artisan make:seeder <SeedName>
+    // once complete and coded for seed with
+    php artisan db:seed
+'''
+
+
 If run into errors delete migrations table and already existing tables
 
 
