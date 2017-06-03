@@ -17,4 +17,8 @@ class Reply extends Model
         return $this->belongsTo('App\Models\Post');
     }
 
+    // This function allows us to call items sharing the reference
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }

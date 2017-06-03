@@ -31,6 +31,9 @@ Route::group(['prefix' => 'thread'], function(){
     // Route for submitting forum thread
     Route::post('make_post', 'ForumController@make_post')->name('make_post');
 
+    // Route for replying to forum post
+    Route::post('make_reply', 'ForumController@make_reply')->name('make_reply');
+
 });
 
 /**
