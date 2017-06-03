@@ -40,8 +40,9 @@ class ForumController extends Controller
 
     public function display_post($post_id) {
 
-        $post = Post::where('id', $post_id)->get();
-        return $post;
+        $post = Post::where('id', $post_id)->first();
+        $replies = $post->replies;
+        return view('pages.thread_post', ["post"=>$post, "replies"=>$replies]);
     }
 
     /*
@@ -57,6 +58,9 @@ class ForumController extends Controller
     */
     public function get_post_list($category_id) {
         $posts = Post::where('category_id', $category_id)->get();
-        return view('pages.thread_posts_list', ['posts' => compact('posts'), 'category_id' => $category_id]);
+        $category = Category::where('id', $category_id)->first();
+
+        //TODO CHECK FOR EMPTY CATEGEORIES
+        return view('pages.thread_posts_list', ['posts' => compact('posts'), 'category' => $category]);
     }
 }
