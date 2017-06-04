@@ -19,6 +19,7 @@
             <!--Forums link subject to change -->
             <li><a href="{{ route('view_categories') }}">Forums</a></li>
             <li><a href="{{ url('/contact') }}">Contact</a></li>
+
             @if (Auth::guest())
                 <li><a href="{{ route('login') }}">Login</a></li>
                 <li><a href="{{ route('register') }}">Register</a></li>
@@ -27,15 +28,14 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
-
                 <ul class="dropdown-menu" role="menu">
                 <li>
+                <a href="{{route('profile')}}">Profile</a>
                 <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                 Logout
                 </a>
-
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
                 </form>
@@ -43,6 +43,7 @@
                 </ul>
                 </li>
             @endif
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>

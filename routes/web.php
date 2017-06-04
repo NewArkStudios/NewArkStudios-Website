@@ -52,3 +52,14 @@ Route::get('post/{post_id}', 'ForumController@display_post');
 Route::get('/thanks_post', function() {
     return view('pages.thread_thanks_post');
 });
+
+
+/**
+* Grouped routing for threads for account handling
+*/
+Route::group(['prefix' => 'account'], function(){
+
+    // Route for viewing profile information
+    Route::get('profile', 'AccountController@display_profile')->name('profile');
+
+});
