@@ -10,7 +10,7 @@
                 <div class="panel-body">
                 <!-- Visually this will be updated later -->
                     @foreach($categories as $category)
-                        <a href="{{url('/thread_category/'. $category->id)}}">{{$category->name}}</a>
+                        <a href="{{url('/thread_category/'. $category->slug)}}">{{$category->name}}</a>
                         <br>
                     @endforeach
                 </div>

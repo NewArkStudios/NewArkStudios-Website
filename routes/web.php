@@ -40,10 +40,10 @@ Route::group(['prefix' => 'thread'], function(){
 * Routing for threading categories, display all posts under the category
 * TODO possibly do pinned posts
 */
-Route::get('thread_category/{category_id}', 'ForumController@get_post_list');
+Route::get('thread_category/{slug}', 'ForumController@get_post_list');
 
 // Route for making post UI Wise
-Route::get('create_post/{category_id}', 'ForumController@get_post');
+Route::get('create_post/{slug}', 'ForumController@get_post');
 
 // Route for individual post
 Route::get('post/{slug}', 'ForumController@display_post');

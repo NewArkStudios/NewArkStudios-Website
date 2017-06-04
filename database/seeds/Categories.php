@@ -14,17 +14,20 @@ class Categories extends Seeder
     {
         DB::table('categories')->insert([
             'id' => '1',
-            'name' => 'General'
+            'name' => 'General',
+            'slug' => 'General'
         ]);
 
         DB::table('categories')->insert([
             'id' => '2',
-            'name' => 'Bug Reports'
+            'name' => 'Bug Reports',
+            'slug' => 'Bug-Reports'
         ]);
 
         DB::table('categories')->insert([
             'id' => '3',
-            'name' => 'Easter Egg Hunt'
+            'name' => 'Easter Egg Hunt',
+            'slug' => 'Easter-Egg-Hunt'
         ]);
     }
 }

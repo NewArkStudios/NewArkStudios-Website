@@ -13,10 +13,10 @@ class ForumController extends Controller
     /*
     * Get forum post
     */
-    public function get_post($category_id){
+    public function get_post($slug){
 
-        $category_name = Category::where('id', $category_id)->value('name');
-        return view('pages.thread', ["category_id" => $category_id, "category_name" => $category_name]);
+        $category = Category::where('slug', $slug)->first();
+        return view('pages.thread', ["category_id" => $category->id, "category_name" =>  $category->name]);
     }
 
     /*
@@ -101,9 +101,9 @@ class ForumController extends Controller
     /**
     * Display list of all posts available under the category
     */
-    public function get_post_list($category_id) {
-        $posts = Post::where('category_id', $category_id)->get();
-        $category = Category::where('id', $category_id)->first();
+    public function get_post_list($slug) {
+        $category = Category::where('slug', $slug)->first();
+        $posts = Post::where('category_id', $category->id)->get();
 
         //TODO CHECK FOR EMPTY CATEGEORIES
         return view('pages.thread_posts_list', ['posts' => compact('posts'), 'category' => $category]);

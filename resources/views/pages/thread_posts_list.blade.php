@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     {{$category->name}}
-                    <a href="{{url('/create_post/' . $category->id)}}">Make a post</a>
+                    <a href="{{url('/create_post/' . $category->slug)}}">Make a post</a>
                 </div>
 
                 <div class="panel-body">
