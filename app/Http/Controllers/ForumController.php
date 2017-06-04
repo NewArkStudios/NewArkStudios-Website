@@ -31,12 +31,37 @@ class ForumController extends Controller
         $post->user_id = Auth::user()->id;
         $post->category_id = $request['category'];
         $post->title = $request['title'];
+        $post->slug = $this->make_slug($request['title']);
         $post->body = $request['body'];
 
         // save values
         $post->save();
 
         return redirect('/thanks_post');
+    }
+
+    /*
+    * Make a unique URL based on the title
+    */
+    private function make_slug($title) {
+        $url = str_slug($title, '-');
+
+        $counter = 1;
+        
+        // check if entry exists
+        if (Post::where('slug', $url)->exists()) {
+
+            $exists = true;
+            while ($exists) {
+                $url = str_slug($title . "-" . (string)$counter, '-');
+                if (!(Post::where('slug', $url)->exists())) {
+                    $exists = false; // is this necessary
+                    return $url;
+                } else 
+                    $counter = ++$counter;
+            }
+        } else
+            return $url;
     }
 
     /*
@@ -55,12 +80,12 @@ class ForumController extends Controller
         // save values
         $reply->save();
 
-        return redirect('/thanks_post');
+        return redirect()->back();
     }
 
-    public function display_post($post_id) {
+    public function display_post($slug) {
 
-        $post = Post::where('id', $post_id)->first();
+        $post = Post::where('slug', $slug)->first();
         $replies = $post->replies;
         return view('pages.thread_post', ["post"=>$post, "replies"=>$replies]);
     }

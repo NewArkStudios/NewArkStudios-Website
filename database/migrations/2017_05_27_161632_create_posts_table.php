@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->string('slug')->unique(); //used to create unique urls
             $table->text('title');
             $table->text('body');
             $table->timestamps();
