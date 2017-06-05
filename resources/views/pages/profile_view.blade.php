@@ -13,17 +13,11 @@
                     <div>
                         @if($bio)
                             {{$info}}
-                        @else
-                            Hey create your bio here:
-                            <br>
                         @endif
 
                         @if($age || $birthday)
                             {{$age}}
                             {{$birthday}}
-                        @else
-                            enter your birthday:
-                            <br>
                         @endif
 
                     </div>

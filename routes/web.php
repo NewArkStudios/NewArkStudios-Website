@@ -60,6 +60,8 @@ Route::get('/thanks_post', function() {
 Route::group(['prefix' => 'account'], function(){
 
     // Route for viewing profile information
-    Route::get('profile', 'AccountController@display_profile')->name('profile');
+    //Route::get('profile', 'AccountController@display_profile')->name('profile');
 
 });
+
+Route::get('profile/{profile_slug}', 'AccountController@display_profile');

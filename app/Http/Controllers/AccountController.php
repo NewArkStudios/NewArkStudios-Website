@@ -9,29 +9,23 @@ use App\User;
 
 class AccountController extends Controller
 {
-    public function display_profile() {
-        
-        // check if user is not logged in else display profile
-        if (Auth::guest()) {
-            return redirect('/register');
-        } else {
-            $user_id = Auth::user()->id;
-            $user = User::where('id', $user_id)->first();
+    public function display_profile($profile_slug) {
 
-            // note we shouldn't pass all information, because hashing and salt
-            // can be reversed with serious effort. Pass what is only necessary in terms
-            // of user information.
+        $user = User::where('name', $profile_slug)->first();
 
-            $user_info = [
-                "name" => $user->name,
-                "bio" => ($user->bio) ? $user->bio : false,
-                "age" => ($user->age) ? $user->bio :false,
-                'birthday' => ($user->birthday) ? $user->birthday : false,
-                "email" => $user->email
-            ];
+        // note we shouldn't pass all information, because hashing and salt
+        // can be reversed with serious effort. Pass what is only necessary in terms
+        // of user information.
 
-            return view('pages.profile_view', $user_info);
-        }
+        $user_info = [
+            "name" => $user->name,
+            "bio" => ($user->bio) ? $user->bio : false,
+            "age" => ($user->age) ? $user->bio :false,
+            'birthday' => ($user->birthday) ? $user->birthday : false,
+            "email" => $user->email
+        ];
+
+        return view('pages.profile_view', $user_info);
 
     }
 }

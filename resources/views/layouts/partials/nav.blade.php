@@ -30,7 +30,7 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                 <li>
-                <a href="{{route('profile')}}">Profile</a>
+                <a href="{{url('profile/' . Auth::user()->name)}}">Profile</a>
                 <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
