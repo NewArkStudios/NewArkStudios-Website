@@ -13,10 +13,6 @@ class AccountController extends Controller
 
         $user = User::where('name', $profile_slug)->first();
 
-        // note we shouldn't pass all information, because hashing and salt
-        // can be reversed with serious effort. Pass what is only necessary in terms
-        // of user information.
-
         $user_info = [
             "name" => $user->name,
             "bio" => ($user->bio) ? $user->bio : false,
@@ -27,5 +23,11 @@ class AccountController extends Controller
 
         return view('pages.profile_view', $user_info);
 
+    }
+
+    public function display_edit_profile() {
+
+        $user = Auth::user();
+        return view('pages.profile_edit', $user);
     }
 }
