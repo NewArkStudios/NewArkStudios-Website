@@ -26,7 +26,6 @@ class AccountController extends Controller
     }
 
     public function display_edit_profile() {
-
         $user = Auth::user();
         return view('pages.profile_edit', $user);
     }
