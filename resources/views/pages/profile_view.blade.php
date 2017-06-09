@@ -12,7 +12,7 @@
                     <h2>{{$email}}</h2>
                     <div>
                         @if($bio)
-                            {{$info}}
+                            {{$bio}}
                         @endif
 
                         @if($age || $birthday)
