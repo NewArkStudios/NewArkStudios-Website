@@ -11,13 +11,13 @@
                     <h2>{{$name}}</h2>
                     
                     <!-- update route -->
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('make_reply') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('update_profile_post') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('bio') ? ' has-error' : '' }}">
                             <div class="row">
                                 <label for="bio" class="col-md-1 control-label">Bio</label>
                                 <div class="col-md-6">
-                                    <textarea id="bio" class="form-control" name="bio" required>{{$bio}}</textarea>
+                                    <textarea id="bio" class="form-control" name="bio">{{$bio}}</textarea>
                                     @if ($errors->has('bio'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('bio') }}</strong>
@@ -57,18 +57,6 @@
                                             @endfor
                                         </select>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <label class="col-md-1 control-label">email</label>
-                                <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                                @endif
-                            </div>
                             </div>
                         </div>
 

@@ -62,6 +62,8 @@ Route::group(['prefix' => 'account'], function(){
     // Route for viewing profile information
     Route::get('profile', 'AccountController@display_edit_profile')->name('update_profile');
 
+    Route::post('update_profile_post', 'AccountController@update_profile_post')->name('update_profile_post');
+
 });
 
 Route::get('profile/{profile_slug}', 'AccountController@display_profile');
