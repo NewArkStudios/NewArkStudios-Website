@@ -27,11 +27,50 @@ class AccountController extends Controller
 
     }
 
+    /**
+    * Displays the page for editing the profile info
+    */
     public function display_edit_profile() {
         $user = Auth::user();
         return view('pages.profile_edit', $user);
     }
 
+    /**
+    * Function for displaying the settings page
+    */
+    public function get_Settings(){
+        
+        $user = Auth::user();
+        return view('pages.account_settings', $user);
+    }
+
+    /**
+    * Update Account information such as settings
+    */
+    public function update_account_post(Request $request) {
+        
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|string|email|max:255|unique:users'
+        ]);
+
+        if ($validator->fails()) { 
+            return redirect('/account/update_account_post')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = Auth::user();
+        $user->email = $request['email'];
+
+        $user->save();
+        return "success"; // please create screen for this
+    }
+
+    /**
+    * Form post for updating the profile information
+    * @param request object from laravel
+    * @return view for successful update or redirect on fail
+    */
     public function update_profile_post(Request $request) {
 
         $validator = Validator::make($request->all(), [
@@ -47,6 +86,7 @@ class AccountController extends Controller
                 ->withInput();
         }
 
+        // grab the current user
         $user = Auth::user();
         $birthday = new DateTime((string)$request['birthday_month'] . "/" . (string)$request['birthday_day'] . "/" . (string)$request['birthday_year']);
         $current = new DateTime("now");
