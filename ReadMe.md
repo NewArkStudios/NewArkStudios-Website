@@ -41,22 +41,22 @@ php artisan migrate:<migration_name> --create=<table_name>
 ```
 
 To seed a database, in "DatabaseSeeder.php" add
-'''
+```
     $this->call(<SeedName>::class);
-'''
+```
 Create the seed with 
-'''
+```
     php artisan make:seeder <SeedName>
     // once complete and coded for seed with
     php artisan db:seed
-'''
+```
 
 Note if one cannot seed then we need to update our autload files
 as they may not be synced
 
-'''
+```
 composer dump-autoload
-'''
+```
 
 
 If run into errors delete migrations table and already existing tables
