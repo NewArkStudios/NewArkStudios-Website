@@ -30,30 +30,40 @@
                                 <label class="col-md-1 control-label">Birthday</label>
                                 <div class="col-md-6">
                                         <select id="birthday_day" name="birthday_day">
-                                                <option selected disabled>----</option>
+                                                <option disabled>----</option>
                                             @for ($i = 1; $i < 32; $i++)
-                                                <option value="{{$i}}">{{$i}}</option>
+                                                @if (idate('d', strtotime($birthday)) == $i)
+                                                    <option selected value="{{$i}}">{{$i}}</option>
+                                                @else
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endif
                                             @endfor
                                         </select>
+
+                                        <!-- Extra time update how we do birthday -->
                                         <select id="birthday_month" name="birthday_month">
-                                            <option selected disabled>----</option>
-                                            <option value="1">January</option>
-                                            <option value="2">February</option>
-                                            <option value="3">March</option>
-                                            <option value="4">April</option>
-                                            <option value="5">May</option>
-                                            <option value="6">June</option>
-                                            <option value="7">July</option>
-                                            <option value="8">August</option>
-                                            <option value="9">September</option>
-                                            <option value="10">October</option>
-                                            <option value="11">November</option>
-                                            <option value="12">Decemeber</option>
+                                            <option disabled>----</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 1) ? 'selected' : ''}} value="1">January</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 2) ? 'selected' : ''}} value="2">February</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 3) ? 'selected' : ''}} value="3">March</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 4) ? 'selected' : ''}} value="4">April</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 5) ? 'selected' : ''}} value="5">May</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 6) ? 'selected' : ''}} value="6">June</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 7) ? 'selected' : ''}} value="7">July</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 8) ? 'selected' : ''}} value="8">August</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 9) ? 'selected' : ''}} value="9">September</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 10) ? 'selected' : ''}} value="10">October</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 11) ? 'selected' : ''}} value="11">November</option>
+                                            <option {{(idate('m', strtotime($birthday)) == 12) ? 'selected' : ''}} value="12">Decemeber</option>
                                         </select>
                                         <select id="birthday_year" name="birthday_year">
-                                            <option selected disabled>----</option>
+                                            <option disabled>----</option>
                                             @for ($i = 0; $i < 100; $i++)
-                                                <option value='{{(int)(date("Y")) - $i}}'>{{(int)(date("Y")) - $i}}</option>
+                                                @if ((idate('Y', strtotime($birthday)))==(date("Y")) - $i)))
+                                                    <option selected value='{{(int)(date("Y")) - $i}}'>{{(int)(date("Y")) - $i}}</option>
+                                                @else
+                                                    <option value='{{(int)(date("Y")) - $i}}'>{{(int)(date("Y")) - $i}}</option>
+                                                @endif
                                             @endfor
                                         </select>
                                 </div>
