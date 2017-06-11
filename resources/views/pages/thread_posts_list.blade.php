@@ -23,6 +23,7 @@
                     @else
                         No posts :(
                     @endif
+                    {{$posts['posts']->links()}}
                 </div>
             </div>
         </div>

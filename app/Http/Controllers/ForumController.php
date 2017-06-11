@@ -108,7 +108,7 @@ class ForumController extends Controller
     */
     public function get_post_list($slug) {
         $category = Category::where('slug', $slug)->first();
-        $posts = Post::where('category_id', $category->id)->orderBy('updated_at', 'desc')->get();
+        $posts = Post::where('category_id', $category->id)->orderBy('updated_at', 'desc')->paginate(5);
         
         //TODO CHECK FOR EMPTY CATEGEORIES
         return view('pages.thread_posts_list', ['posts' => compact('posts'), 'category' => $category]);
