@@ -51,6 +51,13 @@ Create the seed with
     php artisan db:seed
 '''
 
+Note if one cannot seed then we need to update our autload files
+as they may not be synced
+
+'''
+composer dump-autoload
+'''
+
 
 If run into errors delete migrations table and already existing tables
 
@@ -58,7 +65,7 @@ If run into errors delete migrations table and already existing tables
 ## Additional Notes and Tasks to Do Later, strikethroughs mean completed
 - Forget Password sending
 - Setup Mailing Account - https://stackoverflow.com/questions/29100877/trying-to-get-laravel-5-email-to-work
-~~- Change post url to slugs when time is free - https://github.com/cviebrock/eloquent-sluggable - laravel tut 15 ~~
-~~- Bump system in, for forums post ~~
+~~ Change post url to slugs when time is free - https://github.com/cviebrock/eloquent-sluggable - laravel tut 15 ~~
+~~ Bump system in, for forums post ~~
 - Create Admin accounts to post Annoucements
 - Pinned Posts
