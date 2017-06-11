@@ -46,19 +46,10 @@ class AccountController extends Controller
 
     /**
     * Update Account information such as settings
+    * FormRequests Requests/update_account_post form request, validation rule is there
     */
     public function update_account_post(Request $request) {
         
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|max:255|unique:users'
-        ]);
-
-        if ($validator->fails()) { 
-            return redirect('/account/update_account_post')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
         $user = Auth::user();
         $user->email = $request['email'];
 
@@ -72,19 +63,6 @@ class AccountController extends Controller
     * @return view for successful update or redirect on fail
     */
     public function update_profile_post(Request $request) {
-
-        $validator = Validator::make($request->all(), [
-            'bio' => 'string|nullable',
-            'birthday_day' => 'numeric',
-            'birthday_month' => 'numeric',
-            'birthday_year' => 'numeric',
-        ]);
-
-        if ($validator->fails()) { 
-            return redirect('/account/profile')
-                ->withErrors($validator)
-                ->withInput();
-        }
 
         // grab the current user
         $user = Auth::user();
