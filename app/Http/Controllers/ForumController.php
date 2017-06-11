@@ -77,6 +77,11 @@ class ForumController extends Controller
         $reply->post_id = $request['post_id'];
         $reply->body = $request['body'];
 
+        // find the corresponding post id and change updated_at post to current time
+        // with the touch method
+        $post = Post::where('id', $request['post_id'])->first();
+        $post->touch();
+
         // save values
         $reply->save();
 
@@ -103,8 +108,8 @@ class ForumController extends Controller
     */
     public function get_post_list($slug) {
         $category = Category::where('slug', $slug)->first();
-        $posts = Post::where('category_id', $category->id)->get();
-
+        $posts = Post::where('category_id', $category->id)->orderBy('updated_at', 'desc')->get();
+        
         //TODO CHECK FOR EMPTY CATEGEORIES
         return view('pages.thread_posts_list', ['posts' => compact('posts'), 'category' => $category]);
     }
