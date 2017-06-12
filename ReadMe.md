@@ -72,3 +72,4 @@ If run into errors delete migrations table and already existing tables
 - Allow user to manage all posts
 - Allow Admins to delete/close posts
 - Allow users to edit posts
+- Admins override moderators
