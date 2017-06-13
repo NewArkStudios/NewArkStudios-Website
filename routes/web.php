@@ -71,3 +71,6 @@ Route::group(['prefix' => 'account'], function(){
 });
 
 Route::get('profile/{profile_slug}', 'AccountController@display_profile');
+
+// Panel for special admin management
+Route::get('admin_panel', 'AdminController@display_admin_panel')->name('display_admin_panel');

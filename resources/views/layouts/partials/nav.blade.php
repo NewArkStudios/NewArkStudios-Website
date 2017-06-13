@@ -33,6 +33,9 @@
                 <a href="{{url('profile/' . Auth::user()->name)}}">Profile</a>
                 <a href="{{route('update_profile')}}">Update Profile</a>
                 <a href="{{route('account_settings')}}">Update Account</a>
+                @if (Auth::user()->admin)
+                   <a href="{{route('display_admin_panel')}}">Admin Panel</a>
+                @endif
                 <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
