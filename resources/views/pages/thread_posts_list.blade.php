@@ -19,6 +19,9 @@
                             <p>{{$post->body}}</p>
                             <p>{{$post->user}}</p>
                             <br>
+                            @if ($moderator)
+                                <a href="#">Close Post</a>
+                            @endif
                         @endforeach
                     @else
                         No posts :(

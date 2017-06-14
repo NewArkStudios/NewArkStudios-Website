@@ -88,6 +88,10 @@ class ForumController extends Controller
         return redirect()->back();
     }
 
+    /**
+    * Show the individual post
+    * @param slug - url safe string that represents the post
+    */
     public function display_post($slug) {
 
         $post = Post::where('slug', $slug)->first();
@@ -107,10 +111,15 @@ class ForumController extends Controller
     * Display list of all posts available under the category
     */
     public function get_post_list($slug) {
+
         $category = Category::where('slug', $slug)->first();
         $posts = Post::where('category_id', $category->id)->orderBy('updated_at', 'desc')->paginate(5);
         
         //TODO CHECK FOR EMPTY CATEGEORIES
-        return view('pages.thread_posts_list', ['posts' => compact('posts'), 'category' => $category]);
+        return view('pages.thread_posts_list', ['posts' => compact('posts'),
+            'category' => $category,
+            'moderator' => Auth::user()->hasRole('moderator'),
+            'admin' => Auth::user()->hasRole('admin')
+        ]);
     }
 }

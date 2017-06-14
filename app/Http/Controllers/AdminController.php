@@ -13,7 +13,7 @@ class AdminController extends Controller
     */
     public function display_admin_panel() {
         
-        return Auth::user()->roles;
+        return  Auth::user()->hasRole("admin");
 
         //return view('pages.admin_panel');
     }
