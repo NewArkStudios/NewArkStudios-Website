@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+    * Get the roles of the user, all the roles user own
+    */
+    public function roles(){
+       return $this->belongsToMany('App\Models\Roles', 'user_roles', 'role_id', 'user_id');
+    }
 }

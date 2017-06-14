@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -11,6 +12,9 @@ class AdminController extends Controller
     * stuff the admin can do
     */
     public function display_admin_panel() {
-        return view('pages.admin_panel');
+        
+        return Auth::user()->roles;
+
+        //return view('pages.admin_panel');
     }
 }
