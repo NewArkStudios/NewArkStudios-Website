@@ -149,4 +149,16 @@ class ForumController extends Controller
       $post->closed = true;
       $post->save();
     }
+
+    /**
+    * Close a post so people can no longer post to it
+    * @param Request query, contains all info passed for request
+    */
+    public function open_post(Request $request) {
+
+      $post_id = $request['post_id'];
+      $post = Post::where('id', $post_id)->first();
+      $post->closed = false;
+      $post->save();
+    }
 }

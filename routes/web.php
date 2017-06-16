@@ -36,6 +36,9 @@ Route::group(['prefix' => 'thread'], function(){
 
     // close a post so no one can contribute to it anymore
     Route::post('close_post', 'ForumController@close_post')->name('close_post');
+
+    // close a post so no one can contribute to it anymore
+    Route::post('open_post', 'ForumController@open_post')->name('open_post');
 });
 
 /**

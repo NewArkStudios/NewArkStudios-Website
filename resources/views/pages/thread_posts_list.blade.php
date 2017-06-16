@@ -28,6 +28,14 @@
                                     Close Post
                                     </button>
                                 </form>
+                                <form role="form" method="POST" action="{{ route('open_post') }}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="post_id" value="{{$post->id}}"></input>
+                                    
+                                    <button type="submit" class="btn btn-primary">
+                                    Open Post
+                                    </button>
+                                </form>
                             @endif
                         @endforeach
                     @else
