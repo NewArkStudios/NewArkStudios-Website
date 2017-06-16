@@ -20,7 +20,14 @@
                             <p>{{$post->user}}</p>
                             <br>
                             @if ($moderator)
-                                <a href="#">Close Post</a>
+                                <form role="form" method="POST" action="{{ route('close_post') }}">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="post_id" value="{{$post->id}}"></input>
+                                    
+                                    <button type="submit" class="btn btn-primary">
+                                    Close Post
+                                    </button>
+                                </form>
                             @endif
                         @endforeach
                     @else

@@ -34,6 +34,8 @@ Route::group(['prefix' => 'thread'], function(){
     // Route for replying to forum post
     Route::post('make_reply', 'ForumController@make_reply')->name('make_reply');
 
+    // close a post so no one can contribute to it anymore
+    Route::post('close_post', 'ForumController@close_post')->name('close_post');
 });
 
 /**

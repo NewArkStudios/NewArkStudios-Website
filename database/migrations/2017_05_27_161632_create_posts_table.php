@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('slug')->unique(); //used to create unique urls
             $table->text('title');
+            $table->boolean('closed')->default(false);
             $table->text('body');
             $table->timestamps();
         });

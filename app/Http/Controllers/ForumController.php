@@ -115,11 +115,31 @@ class ForumController extends Controller
         $category = Category::where('slug', $slug)->first();
         $posts = Post::where('category_id', $category->id)->orderBy('updated_at', 'desc')->paginate(5);
         
+        // null check whether user is logged in
+        if (is_null(Auth::user())) {
+            $moderator = false;
+            $admin = false;
+        } else {
+           $moderator = Auth::user()->hasRole('moderator');
+           $admin = Auth::user()->hasRole('admin');
+        }
+
         //TODO CHECK FOR EMPTY CATEGEORIES
         return view('pages.thread_posts_list', ['posts' => compact('posts'),
             'category' => $category,
-            'moderator' => Auth::user()->hasRole('moderator'),
-            'admin' => Auth::user()->hasRole('admin')
+            'moderator' => $moderator,
+            'admin' => $admin
         ]);
+    }
+
+    /**
+    * Close a post so people can no longer post to it
+    */
+    public function close_post(Request $request) {
+
+      $post_id = $request['post_id'];
+      $post = Post::where('id', $post_id)->first();
+      $post->closed = true;
+      $post->save();
     }
 }
