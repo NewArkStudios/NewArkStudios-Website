@@ -21,6 +21,8 @@
             <div class="panel panel-default">
             @if(Auth::guest())
                To Reply please login 
+            @elseif(Auth::user() && $post->closed)
+                Post is closed sorry
             @else
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('make_reply') }}">
                     {{ csrf_field() }}

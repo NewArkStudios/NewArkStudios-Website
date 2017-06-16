@@ -69,6 +69,7 @@ class ForumController extends Controller
     */
     public function make_reply(Request $request){
         
+        
         // Create new model object
         $reply = new Reply();
 
@@ -80,6 +81,11 @@ class ForumController extends Controller
         // find the corresponding post id and change updated_at post to current time
         // with the touch method
         $post = Post::where('id', $request['post_id'])->first();
+
+        // check whether post is closed, somehow someone makes post request anyways
+        if ($post->close)
+            return "post is closed";
+
         $post->touch();
 
         // save values
@@ -134,6 +140,7 @@ class ForumController extends Controller
 
     /**
     * Close a post so people can no longer post to it
+    * @param Request query, contains all info passed for request
     */
     public function close_post(Request $request) {
 
