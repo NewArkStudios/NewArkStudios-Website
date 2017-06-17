@@ -48,7 +48,7 @@ Route::group(['prefix' => 'thread'], function(){
 Route::get('thread_category/{slug}', 'ForumController@get_post_list');
 
 // Route for making post UI Wise
-Route::get('create_post/{slug}', 'ForumController@get_post');
+Route::get('create_post/{slug}', 'ForumController@display_create_post');
 
 // Route for individual post
 Route::get('post/{slug}', 'PostController@display_post');

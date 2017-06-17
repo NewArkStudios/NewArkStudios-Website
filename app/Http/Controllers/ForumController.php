@@ -14,7 +14,7 @@ class ForumController extends Controller
     /*
     * Get forum post
     */
-    public function get_post($slug){
+    public function display_create_post($slug){
 
         $category = Category::where('slug', $slug)->first();
         return view('pages.thread', ["category_id" => $category->id, "category_name" =>  $category->name]);
