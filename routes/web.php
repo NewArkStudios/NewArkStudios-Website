@@ -29,16 +29,16 @@ Route::group(['prefix' => 'thread'], function(){
     Route::get('view_categories', 'ForumController@view_categories')->name('view_categories');
 
     // Route for submitting forum thread
-    Route::post('make_post', 'ForumController@make_post')->name('make_post');
+    Route::post('make_post', 'PostController@make_post')->name('make_post');
 
     // Route for replying to forum post
-    Route::post('make_reply', 'ForumController@make_reply')->name('make_reply');
+    Route::post('make_reply', 'ReplyController@make_reply')->name('make_reply');
 
     // close a post so no one can contribute to it anymore
-    Route::post('close_post', 'ForumController@close_post')->name('close_post');
+    Route::post('close_post', 'PostController@close_post')->name('close_post');
 
     // close a post so no one can contribute to it anymore
-    Route::post('open_post', 'ForumController@open_post')->name('open_post');
+    Route::post('open_post', 'PostController@open_post')->name('open_post');
 });
 
 /**
@@ -51,7 +51,7 @@ Route::get('thread_category/{slug}', 'ForumController@get_post_list');
 Route::get('create_post/{slug}', 'ForumController@get_post');
 
 // Route for individual post
-Route::get('post/{slug}', 'ForumController@display_post');
+Route::get('post/{slug}', 'PostController@display_post');
 
 // Route thanks for posting
 Route::get('/thanks_post', function() {

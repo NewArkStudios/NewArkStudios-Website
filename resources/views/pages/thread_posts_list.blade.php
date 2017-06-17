@@ -20,7 +20,7 @@
                             <p>{{$post->user}}</p>
                             <br>
                             @if ($moderator)
-                                <form role="form" method="POST" action="{{ route('close_post') }}">
+                                <form style="display:inline-table;" role="form" method="POST" action="{{ route('close_post') }}">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="post_id" value="{{$post->id}}"></input>
                                     
@@ -28,7 +28,7 @@
                                     Close Post
                                     </button>
                                 </form>
-                                <form role="form" method="POST" action="{{ route('open_post') }}">
+                                <form style="display:inline-table;" role="form" method="POST" action="{{ route('open_post') }}">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="post_id" value="{{$post->id}}"></input>
                                     

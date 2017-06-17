@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ForumController extends Controller
 {
+
     /*
     * Get forum post
     */
@@ -19,91 +20,7 @@ class ForumController extends Controller
         return view('pages.thread', ["category_id" => $category->id, "category_name" =>  $category->name]);
     }
 
-    /*
-    * Make a forum post and store in database
-    */
-    public function make_post(Request $request){
-        
-        // Create new model object
-        $post = new Post();
-
-        // set table values
-        $post->user_id = Auth::user()->id;
-        $post->category_id = $request['category'];
-        $post->title = $request['title'];
-        $post->slug = $this->make_slug($request['title']);
-        $post->body = $request['body'];
-
-        // save values
-        $post->save();
-
-        return redirect('/thanks_post');
-    }
-
-    /*
-    * Make a unique URL based on the title
-    */
-    private function make_slug($title) {
-        $url = str_slug($title, '-');
-
-        $counter = 1;
-        
-        // check if entry exists
-        if (Post::where('slug', $url)->exists()) {
-
-            $exists = true;
-            while ($exists) {
-                $url = str_slug($title . "-" . (string)$counter, '-');
-                if (!(Post::where('slug', $url)->exists())) {
-                    $exists = false; // is this necessary
-                    return $url;
-                } else 
-                    $counter = ++$counter;
-            }
-        } else
-            return $url;
-    }
-
-    /*
-    * Make a forum reply and store in database, within iits own table
-    */
-    public function make_reply(Request $request){
-        
-        
-        // Create new model object
-        $reply = new Reply();
-
-        // set table values
-        $reply->user_id = Auth::user()->id;
-        $reply->post_id = $request['post_id'];
-        $reply->body = $request['body'];
-
-        // find the corresponding post id and change updated_at post to current time
-        // with the touch method
-        $post = Post::where('id', $request['post_id'])->first();
-
-        // check whether post is closed, somehow someone makes post request anyways
-        if ($post->close)
-            return "post is closed";
-
-        $post->touch();
-
-        // save values
-        $reply->save();
-
-        return redirect()->back();
-    }
-
-    /**
-    * Show the individual post
-    * @param slug - url safe string that represents the post
-    */
-    public function display_post($slug) {
-
-        $post = Post::where('slug', $slug)->first();
-        $replies = $post->replies;
-        return view('pages.thread_post', ["post"=>$post, "replies"=>$replies]);
-    }
+    
 
     /*
     * Display categories that can be viewed by user
@@ -138,27 +55,5 @@ class ForumController extends Controller
         ]);
     }
 
-    /**
-    * Close a post so people can no longer post to it
-    * @param Request query, contains all info passed for request
-    */
-    public function close_post(Request $request) {
-
-      $post_id = $request['post_id'];
-      $post = Post::where('id', $post_id)->first();
-      $post->closed = true;
-      $post->save();
-    }
-
-    /**
-    * Close a post so people can no longer post to it
-    * @param Request query, contains all info passed for request
-    */
-    public function open_post(Request $request) {
-
-      $post_id = $request['post_id'];
-      $post = Post::where('id', $post_id)->first();
-      $post->closed = false;
-      $post->save();
-    }
+    
 }
