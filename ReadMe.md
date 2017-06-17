@@ -37,7 +37,7 @@ php artisan migrate
 To make new databases in laravel simply call
 
 ```
-php artisan migrate:<migration_name> --create=<table_name>
+php artisan make:migration <migration_name> --create=<table_name>
 ```
 
 To seed a database, in "DatabaseSeeder.php" add

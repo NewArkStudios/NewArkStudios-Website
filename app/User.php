@@ -55,4 +55,12 @@ class User extends Authenticatable
 
         return in_array($role, $roles_array);
     }
+
+    /**
+    * Reports about user, reports on this user
+    * How many accusations of this user has receieved
+    */
+    public function reports() {
+        return $this->hasMany('App\Models\Reports', 'reporter_id');
+    }
 }
