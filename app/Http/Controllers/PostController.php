@@ -56,7 +56,7 @@ class PostController extends Controller
     }
 
     /**
-    * Close a post so people can no longer post to it
+    * Open a post so people can commit to it again
     * @param Request query, contains all info passed for request
     */
     public function open_post(Request $request) {
@@ -65,6 +65,20 @@ class PostController extends Controller
       $post = Post::where('id', $post_id)->first();
       $post->closed = false;
       $post->save();
+    }
+
+    /**
+    * Delete a post so people can no longer post to or see it
+    * At the moment deleting posts should only be available to admins
+    * @param Request query, contains all info passed for request
+    */
+    public function delete_post(Request $request) {
+
+      $post_id = $request['post_id'];
+      $post = Post::where('id', $post_id)->first();
+      $post->delete();
+
+      return redirect()->back();
     }
 
     /*
