@@ -31,6 +31,6 @@ class CreateMessagesreplies extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messagereply');
+        Schema::dropIfExists('messagereplies');
     }
 }
