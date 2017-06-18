@@ -21,6 +21,9 @@
                         @endif
 
                     </div>
+                    @if(Auth::user())
+                        <a href="{{url('messages/display_make_message/' . $name)}}">Private Message</a>
+                    @endif
                 </div>
             </div>
         </div>

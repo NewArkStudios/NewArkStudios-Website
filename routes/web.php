@@ -51,6 +51,14 @@ Route::group(['prefix' => 'thread'], function(){
 });
 
 /**
+* Grouped routing for sending direct messages
+*/
+Route::group(['prefix' => 'messages'], function(){
+    
+    Route::get('display_make_message/{receiver_id}', 'MessageController@display_make_message');
+});
+
+/**
 * Routing for threading categories, display all posts under the category
 * TODO possibly do pinned posts
 */

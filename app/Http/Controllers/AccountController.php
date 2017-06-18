@@ -16,6 +16,7 @@ class AccountController extends Controller
         $user = User::where('name', $profile_slug)->first();
 
         $user_info = [
+            "id" => $user->id,
             "name" => $user->name,
             "bio" => ($user->bio) ? $user->bio : false,
             "age" => ($user->age) ? $user->bio :false,
