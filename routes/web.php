@@ -42,6 +42,12 @@ Route::group(['prefix' => 'thread'], function(){
 
     // close a post so no one can contribute to it anymore
     Route::post('delete_post', 'PostController@delete_post')->name('delete_post');
+
+    // Display UI for reporting user based on post or reply
+    Route::post('display_report_user', 'ReportController@display_report_user');
+
+    // Post request to actually send report
+    Route::post('report_user', 'ReportController@report_user')->name('report_user');
 });
 
 /**
