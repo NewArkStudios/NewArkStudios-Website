@@ -18,8 +18,9 @@ class PostController extends Controller
     public function display_post($slug) {
 
         $post = Post::where('slug', $slug)->first();
+        $user = $post->user;
         $replies = $post->replies;
-        return view('pages.thread_post', ["post"=>$post, "replies"=>$replies]);
+        return view('pages.thread_post', ["post"=>$post, "user"=>$user, "replies"=>$replies]);
     }
 
     /*

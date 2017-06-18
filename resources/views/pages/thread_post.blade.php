@@ -11,6 +11,7 @@
                 <h4 style="float:right">{{$post->updated_at}}</h4>
                 <div class="panel-body">
                 <p>{{$post->body}}</p>
+                <a href="{{url('/profile/' . $user->name)}}">View Profile</a>
                 </div>
                 @if(!Auth::guest())
                 <form style="display:inline-table;" role="form" method="POST" action="{{ url('/thread/display_report_user') }}">

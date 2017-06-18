@@ -17,9 +17,11 @@
                             <br>
                             <br>
                             <a href="{{url('/post/'.$post->slug)}}">{{$post->title}}</a>
-                            <p>{{$post->created_at}}</p>
                             <p>{{$post->body}}</p>
                             <p>{{$post->user}}</p>
+                            <a href="{{url('/profile/' . $post->user->name)}}">View Profile</a>
+                            Created at: {{$post->created_at}}, Updated at: {{$post->updated_at}}
+                            <br>
                             <br>
                             @if ($moderator)
                                 <form style="display:inline-table;" role="form" method="POST" action="{{ route('close_post') }}">

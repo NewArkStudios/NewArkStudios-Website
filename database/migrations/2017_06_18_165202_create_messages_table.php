@@ -32,6 +32,9 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
+        // for the purpose of only taking down
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('messages');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
