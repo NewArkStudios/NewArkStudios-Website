@@ -62,9 +62,10 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button style="margin-right:0.5em;" type="submit" class="btn btn-primary">
                                     Register
                                 </button>
+                                <a href="{{route('login')}}">Have an account? Login</a>
                             </div>
                         </div>
                     </form>
