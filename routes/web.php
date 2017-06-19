@@ -29,10 +29,12 @@ Route::group(['prefix' => 'thread'], function(){
     Route::get('view_categories', 'ForumController@view_categories')->name('view_categories');
 
     // Route for submitting forum thread
-    Route::post('make_post', 'PostController@make_post')->name('make_post');
+    Route::post('make_post', 'PostController@make_post')
+    ->name('make_post')->middleware('logged_in');
 
     // Route for replying to forum post
-    Route::post('make_reply', 'ReplyController@make_reply')->name('make_reply');
+    Route::post('make_reply', 'ReplyController@make_reply')
+        ->name('make_reply')->middleware('logged_in');
 
     // close a post so no one can contribute to it anymore
     Route::post('close_post', 'PostController@close_post')->name('close_post');
@@ -44,10 +46,12 @@ Route::group(['prefix' => 'thread'], function(){
     Route::post('delete_post', 'PostController@delete_post')->name('delete_post');
 
     // Display UI for reporting user based on post or reply
-    Route::post('display_report_user', 'ReportController@display_report_user');
+    Route::post('display_report_user', 'ReportController@display_report_user')
+    ->middleware('logged_in');
 
     // Post request to actually send report
-    Route::post('report_user', 'ReportController@report_user')->name('report_user');
+    Route::post('report_user', 'ReportController@report_user')
+    ->middleware('logged_in')->name('report_user');
 });
 
 /**
@@ -60,7 +64,8 @@ Route::group(['prefix' => 'messages'], function(){
         'MessageController@display_make_message')->middleware('logged_in');
 
     // Route for sending a direct message
-    Route::post('make_message', 'MessageController@make_message')->name('make_message');
+    Route::post('make_message', 'MessageController@make_message')
+        ->name('make_message')->middleware('logged_in');
 
 });
 
