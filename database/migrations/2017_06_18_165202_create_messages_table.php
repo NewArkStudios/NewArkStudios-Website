@@ -20,7 +20,7 @@ class CreateMessagesTable extends Migration
             $table->foreign('sender_id')->references('id')->on('users');
             $table->integer('receiver_id')->unsigned(); // the receiever of the message
             $table->foreign('receiver_id')->references('id')->on('users');
-            $table->boolean('read'); // check whether this message has been read
+            $table->boolean('read')->default(false); // check whether this message has been read
             $table->timestamps();
         });
     }

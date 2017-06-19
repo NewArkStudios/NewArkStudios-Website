@@ -9,7 +9,15 @@
 
                 <div class="panel-body">
                     <h2>Create a new direct message</h2>
-                    <form>
+                    <form role="form" method="POST" action="{{ route('make_message') }}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="receiver_name" value="{{$receiver_name}}"></input>
+                        Send a direct message to : {{$receiver_name}}
+                        <br>
+                        <br>
+                        <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                        <br>
+                        <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
                     </form>
                 </div>
             </div>
