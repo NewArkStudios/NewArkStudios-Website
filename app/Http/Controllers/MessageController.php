@@ -32,11 +32,28 @@ class MessageController extends Controller
 
         $message = new Message();
         $message->message = $request['message'];
+        $message->subject = $request['subject'];
         $message->sender_id = $sender->id;
+        $message->sender_name = $sender->name;
         $message->receiver_id = $receiver->id;
+        $message->receiver_name = $receiver->name;
         $message->read = false;
 
         $message->save();
-        return redirect('/inbox');
+        return redirect('messages/inbox');
+    }
+
+    /**
+    *Get the list of all messages the user participated in
+    */
+    public function inbox (Request $request) {
+        $user = Auth::user();
+        $sent_messages = Message::where('sender_id', $user->id)->get();
+        $received_messages = Message::where('receiver_id', $user->id)->get();
+
+        $sent_messages->merge($received_messages);
+        $sent_messages->sortBy('updated_at');
+
+        return view('pages.message_inbox', compact('sent_messages'));
     }
 }

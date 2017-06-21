@@ -67,6 +67,10 @@ Route::group(['prefix' => 'messages'], function(){
     Route::post('make_message', 'MessageController@make_message')
         ->name('make_message')->middleware('logged_in');
 
+    // Get inbox, list all messages
+    Route::get('inbox', 'MessageController@inbox')
+        ->name('inbox')->middleware('logged_in');
+
 });
 
 /**

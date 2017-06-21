@@ -31,6 +31,7 @@
                 <ul class="dropdown-menu" role="menu">
                 <li>
                 <a href="{{url('profile/' . Auth::user()->name)}}">Profile</a>
+                <a href="{{route('inbox')}}">Inbox</a>
                 <a href="{{route('update_profile')}}">Update Profile</a>
                 <a href="{{route('account_settings')}}">Update Account</a>
                 <a href="{{route('display_admin_panel')}}">Admin Panel</a>

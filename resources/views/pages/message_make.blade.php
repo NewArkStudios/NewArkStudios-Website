@@ -14,8 +14,10 @@
                         <input type="hidden" name="receiver_name" value="{{$receiver_name}}"></input>
                         Send a direct message to : {{$receiver_name}}
                         <br>
+                        Subject : <input class="form-control" id="subject" name="subject" type="text"></input>
                         <br>
-                        <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                        <br>
+                        Message :<textarea class="form-control" id="message" name="message" rows="4"></textarea>
                         <br>
                         <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
                     </form>
