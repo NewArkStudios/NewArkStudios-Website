@@ -8,12 +8,12 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <h2>Create a new direct message</h2>
+                    <h2>Inbox</h2>
                     @foreach($sent_messages as $message)
                         <div class="col-md-12">
                         @if(Auth::user()->id == $message->sender_id)
                             <!-- Remember to check user direct message if they belong -->
-                            <a href="{{$message->id}}">{{$message->receiver_name}}</a>
+                            <a href="{{url('/messages/message/'.$message->id)}}">{{$message->receiver_name}}</a>
                         @else
                             {{$message->sender_name}}
                         @endif

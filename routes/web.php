@@ -70,6 +70,10 @@ Route::group(['prefix' => 'messages'], function(){
     // Get inbox, list all messages
     Route::get('inbox', 'MessageController@inbox')
         ->name('inbox')->middleware('logged_in');
+        
+    // Get individual Direct message to display
+    Route::get('message/{message_id}', 'MessageController@display_message')
+    ->middleware('logged_in');
 
 });
 

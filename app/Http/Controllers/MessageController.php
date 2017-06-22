@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Models\MessageReply;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,5 +56,35 @@ class MessageController extends Controller
         $sent_messages->sortBy('updated_at');
 
         return view('pages.message_inbox', compact('sent_messages'));
+    }
+
+    /**
+    * Display message, while making sure this is the correct user.
+    */
+    public function display_message($message_id) {
+
+        // PETER TODO IN FUTURE, if there is time HASH out, or change to post for direct messages
+
+        // make sure that this is correct user
+        $user = Auth::user();
+        $user_id = $user->id;
+
+        // get message that is requested by url
+        $message = Message::where('id', $message_id)->first();
+
+        // make sure user is actually the one allowed to view this
+        if (!($message->sender_id == $user_id) && !($message->receiver_id == $user_id)) {
+            return "why you trying to look at other people's messages...";
+        } else {
+
+            // Get message replies corresponding with this message
+            $message_replies = MessageReply::where('message_id', $message->id)->get();
+            $data = [
+                "message" => $message,
+                "replies" => $message_replies
+            ];
+            return view('pages.message_display', $data);
+        }
+
     }
 }
