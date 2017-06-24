@@ -39,7 +39,7 @@
             @endfor
             
             <div class="panel panel-default">
-                <form class="form-horizontal" role="form" method="POST" action="{{ route('make_reply') }}">
+                <form class="form-horizontal" role="form" method="POST" action="{{ route('reply_message') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="message_id" value="{{$message->id}}"></input>
                     <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">

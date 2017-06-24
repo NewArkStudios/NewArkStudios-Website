@@ -75,6 +75,9 @@ Route::group(['prefix' => 'messages'], function(){
     Route::get('message/{message_id}', 'MessageController@display_message')
     ->middleware('logged_in');
 
+    // Route for sending a direct message
+    Route::post('reply_message', 'MessageController@reply_message')
+        ->name('reply_message')->middleware('logged_in');
 });
 
 /**

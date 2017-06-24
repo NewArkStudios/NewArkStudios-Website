@@ -87,4 +87,23 @@ class MessageController extends Controller
         }
 
     }
+
+    /**
+    * Make reply to direct message
+    */
+    public function reply_message(Request $request) {
+
+        // make sure user is part of direct message
+        $user = Auth::user();
+        
+        // grab the message based on the on the one sent
+        $message_reply = new MessageReply();
+        $message_reply->message_id = $request['message_id'];
+        $message_reply->user_id = $user->id;
+        $message_reply->body = $request['body'];
+
+        $message_reply->save();
+
+        return redirect()->back();
+    }
 }
