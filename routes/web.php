@@ -114,6 +114,15 @@ Route::group(['prefix' => 'account'], function(){
 
 });
 
+/**
+* Route group for moderator actions 
+**/
+Route::group(['prefix' => 'moderator', 'middleware' => ['moderator']], function(){
+
+    Route::get('display_moderator_panel', 'ModeratorController@display_moderator_panel')->name('display_moderator_panel');
+
+});
+
 Route::get('profile/{profile_slug}', 'AccountController@display_profile');
 
 // Panel for special admin management

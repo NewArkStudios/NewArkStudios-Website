@@ -34,7 +34,12 @@
                 <a href="{{route('inbox')}}">Inbox</a>
                 <a href="{{route('update_profile')}}">Update Profile</a>
                 <a href="{{route('account_settings')}}">Update Account</a>
+                @if(Auth::user()->hasRole('admin'))
                 <a href="{{route('display_admin_panel')}}">Admin Panel</a>
+                @endif
+                @if(Auth::user()->hasRole('moderator'))
+                  <a href="{{route('display_moderator_panel')}}">Mod Panel</a>
+                @endif
                 <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
