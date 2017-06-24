@@ -27,6 +27,16 @@
                             This is the Reply in question :
                                 <textarea disabled>{{$reply->body}}</textarea>
                         @endif
+                        @if(!is_null($message))
+                            <input type="hidden" name="message_id" value="{{$message->id}}"></input>
+                            This is the Reply in question :
+                                <textarea disabled>{{$message->message}}</textarea>
+                        @endif
+                        @if(!is_null($message_reply))
+                            <input type="hidden" name="messagereply_id" value="{{$message_reply->id}}"></input>
+                            This is the Reply in question :
+                                <textarea disabled>{{$message_reply->body}}</textarea>
+                        @endif
                         <br>
                         <textarea name="reason" rows="4" cols="50">Enter reason for report here</textarea>
                         <br>

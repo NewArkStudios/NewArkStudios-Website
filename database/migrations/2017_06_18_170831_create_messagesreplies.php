@@ -14,7 +14,7 @@ class CreateMessagesreplies extends Migration
     public function up()
     {
         Schema::create('messagereplies', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->integer('message_id')->unsigned(); // the sender of the message
             $table->foreign('message_id')->references('id')->on('messages');
             $table->integer('user_id')->unsigned(); // User who sent the reply
@@ -31,6 +31,8 @@ class CreateMessagesreplies extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('messagereplies');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

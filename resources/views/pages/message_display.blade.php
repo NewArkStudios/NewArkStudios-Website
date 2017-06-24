@@ -14,10 +14,10 @@
                 <a href="{{url('/profile/' . $message->sender_id)}}">{{$message->sender_name}}</a>
                 </div>
                 <!-- Report user based on direct message -->
-                <form style="display:inline-table;" role="form" method="POST" action="{{ url('/thread/display_report_user') }}">
+                <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="message_id" value="{{$message->id}}"></input>
-                    <input type="hidden" name="sender_id" value="{{$message->sender_id}}"></input>
+                    <input type="hidden" name="suspect_id" value="{{$message->sender_id}}"></input>
                     
                     <button type="submit" class="btn btn-danger">
                         Report User
@@ -27,10 +27,10 @@
             <!-- Note for each is bugged for gathering replies normally -->
             @for ($i = 0; $i < count($replies); $i++)
                 <p>{{$replies[$i]->body}} from: {{$replies[$i]->user->name}}<p>
-                <form style="display:inline-table;" role="form" method="POST" action="{{ url('/thread/display_report_user') }}">
+                <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                     {{ csrf_field() }}
-                    <input type="hidden" name="reply_id" value="{{$replies[$i]->id}}"></input>
-                    <input type="hidden" name="user_id" value="{{$replies[$i]->user_id}}"></input>
+                    <input type="hidden" name="messagereply_id" value="{{$replies[$i]->id}}"></input>
+                    <input type="hidden" name="suspect_id" value="{{$replies[$i]->user_id}}"></input>
                     
                     <button type="submit" class="btn btn-danger">
                         Report User

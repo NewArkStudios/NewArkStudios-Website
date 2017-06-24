@@ -14,7 +14,7 @@
                 <a href="{{url('/profile/' . $user->name)}}">View Profile</a>
                 </div>
                 @if(!Auth::guest())
-                <form style="display:inline-table;" role="form" method="POST" action="{{ url('/thread/display_report_user') }}">
+                <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="post_id" value="{{$post->id}}"></input>
                     <input type="hidden" name="suspect_id" value="{{$post->user_id}}"></input>
@@ -28,7 +28,7 @@
             <!-- Note foreach is bugged for gathering replies normally -->
             @for ($i = 0; $i < count($replies); $i++)
                 <p>{{$replies[$i]->body}} from: {{$replies[$i]->user->name}}<p>
-                <form style="display:inline-table;" role="form" method="POST" action="{{ url('/thread/display_report_user') }}">
+                <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="reply_id" value="{{$replies[$i]->id}}"></input>
                     <input type="hidden" name="suspect_id" value="{{$replies[$i]->user_id}}"></input>

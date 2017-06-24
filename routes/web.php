@@ -20,6 +20,10 @@ Route::get('/', 'PagesController@home')->name('home');
 // http://stackoverflow.com/questions/39196968/laravel-5-3-new-authroutes
 Auth::routes();
 
+// Display UI for reporting user based on post or reply
+Route::post('display_report_user', 'ReportController@display_report_user')
+->middleware('logged_in');
+
 /**
 * Grouped routing for threads
 */
@@ -44,10 +48,6 @@ Route::group(['prefix' => 'thread'], function(){
 
     // close a post so no one can contribute to it anymore
     Route::post('delete_post', 'PostController@delete_post')->name('delete_post');
-
-    // Display UI for reporting user based on post or reply
-    Route::post('display_report_user', 'ReportController@display_report_user')
-    ->middleware('logged_in');
 
     // Post request to actually send report
     Route::post('report_user', 'ReportController@report_user')
