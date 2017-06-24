@@ -52,7 +52,7 @@ class MessageController extends Controller
         $sent_messages = Message::where('sender_id', $user->id)->get();
         $received_messages = Message::where('receiver_id', $user->id)->get();
 
-        $sent_messages->merge($received_messages);
+        $sent_messages = $sent_messages->merge($received_messages);
         $sent_messages->sortBy('updated_at');
 
         return view('pages.message_inbox', compact('sent_messages'));
