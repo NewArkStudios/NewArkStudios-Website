@@ -37,6 +37,10 @@ class User extends Authenticatable
        return $this->belongsToMany('App\Models\Roles', 'user_roles', 'role_id', 'user_id');
     }
 
+    public function isbanned() {
+        return $this->banned == 2;
+    }
+
     /**
     * Check whether the user has a specific role
     * @param role - string containing the role we would like to check
