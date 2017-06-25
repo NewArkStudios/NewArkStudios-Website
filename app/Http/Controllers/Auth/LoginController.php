@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
+use \Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -82,6 +83,11 @@ class LoginController extends Controller
                 return view('auth.banned', $view_data);
             } elseif ($this->check_suspended($user)) {
 
+                // log user out, and show banned screen
+                $this->guard()->logout();
+                $request->session()->flush();
+                $request->session()->regenerate();
+
                 // user is suspended and show that 
                 $view_data = [
                     "suspended_till" => $user->suspended_till,
@@ -112,7 +118,34 @@ class LoginController extends Controller
     * Check whether the user is suspended
     */
     protected function check_suspended(User $user) {
-        return $user->is_suspended();
+
+        // check user is suspended
+        if ($user->is_suspended()) {
+            
+            
+            // we now know user is suspended check whether the
+            // user's time has ended
+            $suspension = new Carbon($user->suspended_till);
+            $current = Carbon::now();
+
+            // check if the time for suspension has passed
+            if ($current->gte($suspension)) {
+                
+                // unban user and remove suspension date
+                $user->banned = 0;
+                $user->suspended_till = null;
+
+                $user->save();
+
+                return false;
+            } else
+                return true;
+
+
+
+        } else 
+            return false;
+
     }
 }
 

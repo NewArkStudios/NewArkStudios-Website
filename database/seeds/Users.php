@@ -52,7 +52,7 @@ class Users extends Seeder
             'banned' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'suspended_till' => Carbon::createFromDate(null, 6, 26),
+            'suspended_till' => Carbon::createFromDate(2018, 6, 26),
         ]);
     }
 }
