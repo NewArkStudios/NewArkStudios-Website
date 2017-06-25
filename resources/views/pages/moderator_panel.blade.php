@@ -9,6 +9,7 @@
                 <!-- This will change of course -->
                 <!--Suggestion might use Jquery datatables-->
                 <div class="panel-body">
+                    Reports    
                     @foreach($reports as $report)
                         <div class="col-md-12 well">
                             <p>Number: {{$loop->iteration}}</p>
