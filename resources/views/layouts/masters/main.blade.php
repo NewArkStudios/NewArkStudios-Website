@@ -24,6 +24,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="{{ URL::asset('js/jquery-1.12.4.min.js') }}" /></script>
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+        @yield('custom-javascripts')
 	    <!-- Footer End -->
     </body>
 </html>
