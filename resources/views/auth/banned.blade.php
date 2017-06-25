@@ -8,7 +8,11 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You have been banned indefinitely...
+                    @if($suspended_till != false)
+                        Your account has been suspended till {{$suspended_till}}
+                    @else
+                        You have been banned indefinitely ...
+                    @endif
                 </div>
             </div>
         </div>

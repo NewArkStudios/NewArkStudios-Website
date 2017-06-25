@@ -62,17 +62,32 @@ class LoginController extends Controller
 
         if ($this->attemptLogin($request)) {
 
+            $user = User::where('email', $request['email'])->first();
+
             // since the credentials are correct check if user can login
             // user should exist
             // TODO in the future if we need more than this, more validation
             // we may need to update the session Guard to better code this
-            if ($this->checkbanned($request)) {
+            if ($this->check_banned($user)) {
                 
                 // log user out, and show banned screen
                 $this->guard()->logout();
                 $request->session()->flush();
                 $request->session()->regenerate();
-                return view('auth.banned');
+
+                $view_data = [
+                    "suspended_till" => false,
+                ];
+
+                return view('auth.banned', $view_data);
+            } elseif ($this->check_suspended($user)) {
+
+                // user is suspended and show that 
+                $view_data = [
+                    "suspended_till" => $user->suspended_till,
+                ];
+
+                return view('auth.banned', $view_data);
             }
 
             return $this->sendLoginResponse($request);
@@ -89,11 +104,15 @@ class LoginController extends Controller
     /**
     * Check whether the user is banned
     */
-    protected function checkbanned(Request $request) {
+    protected function check_banned(User $user) {
+        return $user->is_banned();
+    }
 
-        // check if this user is banned
-        $user = User::where('email', $request['email'])->first();
-        return $user->isbanned();
+    /**
+    * Check whether the user is suspended
+    */
+    protected function check_suspended(User $user) {
+        return $user->is_suspended();
     }
 }
 

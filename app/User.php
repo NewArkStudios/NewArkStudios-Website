@@ -37,8 +37,18 @@ class User extends Authenticatable
        return $this->belongsToMany('App\Models\Roles', 'user_roles', 'role_id', 'user_id');
     }
 
-    public function isbanned() {
+    /**
+    * Check whether the user is banned 
+    */
+    public function is_banned() {
         return $this->banned == 2;
+    }
+
+    /**
+    * Check whether the user is suspended
+    */
+    public function is_suspended() {
+        return $this->banned == 1;
     }
 
     /**
