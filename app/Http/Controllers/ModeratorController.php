@@ -30,9 +30,21 @@ class ModeratorController extends Controller
         $suspect->banned = 2;
         $suspect->save();
 
+        // grab the post and update its view        
+        $post = $report->post;
+        $post->warned = 2;
+        $post->save();
+
         // delete the report as it will be of no use
         $report->delete();
 
         return redirect()->back();        
+    }
+    
+    /**
+    * Warn the user, send a direct message, provide a notification
+    */
+    public function warn_user(Request $request) {
+
     }
 }

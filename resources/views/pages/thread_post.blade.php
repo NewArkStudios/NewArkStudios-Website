@@ -11,6 +11,13 @@
                 <h4 style="float:right">{{$post->updated_at}}</h4>
                 <div class="panel-body">
                 <p>{{$post->body}}</p>
+                @if($post->warned == 1)
+                    <p><small style="color:red">User was suspended for post</small></p>
+                @elseif($post->warned == 2)
+                    <p><small style="color:red">User was banned for post</small></p>
+                @elseif($post->warned == 3)
+                    <p><small style="color:red">User was warned for post</small></p>
+                @endif
                 <a href="{{url('/profile/' . $user->name)}}">View Profile</a>
                 </div>
                 @if(!Auth::guest())
