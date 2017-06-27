@@ -57,7 +57,7 @@
                                     Temporary Ban Users
                                 </button>
                             </form>
-                            <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
+                            <form style="display:inline-table;" role="form" method="POST" action="{{ route('warn_user') }}">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="report_id" value="{{$report->id}}"></input>
                                 <button type="submit" class="btn btn-danger">

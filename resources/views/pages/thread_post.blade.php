@@ -35,6 +35,13 @@
             <!-- Note foreach is bugged for gathering replies normally -->
             @for ($i = 0; $i < count($replies); $i++)
                 <p>{{$replies[$i]->body}} from: {{$replies[$i]->user->name}}<p>
+                @if($replies[$i]->warned == 1)
+                    <p><small style="color:red">User was suspended for reply</small></p>
+                @elseif($replies[$i]->warned == 2)
+                    <p><small style="color:red">User was banned for reply</small></p>
+                @elseif($replies[$i]->warned == 3)
+                    <p><small style="color:red">User was warned for reply</small></p>
+                @endif
                 <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="reply_id" value="{{$replies[$i]->id}}"></input>

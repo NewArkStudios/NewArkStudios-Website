@@ -122,6 +122,7 @@ Route::group(['prefix' => 'moderator', 'middleware' => ['moderator']], function(
     Route::get('display_moderator_panel', 'ModeratorController@display_moderator_panel')->name('display_moderator_panel');
 
     Route::post('ban_user', 'ModeratorController@ban_user')->name('ban_user');
+    Route::post('warn_user', 'ModeratorController@warn_user')->name('warn_user');
 });
 
 Route::get('profile/{profile_slug}', 'AccountController@display_profile');

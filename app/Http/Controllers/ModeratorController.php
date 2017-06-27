@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Report;
+use App\Models\Message;
 use App\Users;
+use Illuminate\Support\Facades\Auth;
 
 class ModeratorController extends Controller
 {
@@ -31,9 +33,15 @@ class ModeratorController extends Controller
         $suspect->save();
 
         // grab the post and update its view        
-        $post = $report->post;
-        $post->warned = 2;
-        $post->save();
+        if (!is_null($report->post_id)) {
+            $post = $report->post;
+            $post->warned = 2;
+            $post->save();
+        } elseif (!is_null($report->reply_id)) {
+            $reply = $report->reply;
+            $reply->warned = 2;
+            $reply->save();
+        }
 
         // delete the report as it will be of no use
         $report->delete();
@@ -46,5 +54,36 @@ class ModeratorController extends Controller
     */
     public function warn_user(Request $request) {
 
+        // grab the user from the report
+        $report = Report::where('id', $request['report_id'])->first();
+        $suspect = $report->suspect;
+
+        // setup direct message with user
+        $message = new Message;
+        $message->subject = "Warned for toxic behaviour";
+        $message->message = "You have been warned for toxic behaviour corresponding" + 
+        "to this post."; 
+        $message->sender_id = Auth::user()->id;
+        $message->sender_name = Auth::user()->name;
+        $message->receiver_id = $suspect->id;
+        $message->receiver_name = $suspect->name;
+        $message->save();
+
+        // grab the post and update its view        
+        if (!is_null($report->post_id)) {
+            $post = $report->post;
+            $post->warned = 3;
+            $post->save();
+        } elseif (!is_null($report->reply_id)) {
+            $reply = $report->reply;
+            $reply->warned = 3;
+            $reply->save();
+        }
+
+        // delete the report as it will be of no use
+        $report->delete();
+
+        return redirect()->back();        
+  
     }
 }
