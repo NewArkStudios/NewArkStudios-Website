@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Report;
+use App\Users;
 
 class ModeratorController extends Controller
 {
@@ -15,5 +16,23 @@ class ModeratorController extends Controller
         $reports = Report::paginate(5);
 
         return view('pages.moderator_panel', compact('reports'));
+    }
+
+    /**
+    * Function to fully ban the user
+    * set their ban value at 2
+    */
+    public function ban_user(Request $request) {
+
+        // grab the user from the report
+        $report = Report::where('id', $request['report_id'])->first();
+        $suspect = $report->suspect;
+        $suspect->banned = 2;
+        $suspect->save();
+
+        // delete the report as it will be of no use
+        $report->delete();
+
+        return redirect()->back();        
     }
 }

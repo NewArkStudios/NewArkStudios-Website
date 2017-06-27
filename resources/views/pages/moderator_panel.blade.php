@@ -43,23 +43,23 @@
                             @endif
                             <br>
                             <br>
-                            <form id="ban-submit" data-suspect="{{$report->suspect->name}}" style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
+                            <form id="ban-submit" data-suspect="{{$report->suspect->name}}" style="display:inline-table;" role="form" method="POST" action="{{ route('ban_user') }}">
                                 {{ csrf_field() }}
-                                <input type="hidden" name="suspect_id" value="{{$report->suspect_id}}"></input>
+                                <input type="hidden" name="report_id" value="{{$report->id}}"></input>
                                 <button type="submit" class="btn btn-danger">
                                     Permanent Ban User
                                 </button>
                             </form>
                             <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                                 {{ csrf_field() }}
-                                <input type="hidden" name="suspect_id" value="{{$report->suspect_id}}"></input>
+                                <input type="hidden" name="report_id" value="{{$report->id}}"></input>
                                 <button type="submit" class="btn btn-danger">
                                     Temporary Ban Users
                                 </button>
                             </form>
                             <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                                 {{ csrf_field() }}
-                                <input type="hidden" name="suspect_id" value="{{$report->suspect_id}}"></input>
+                                <input type="hidden" name="report_id" value="{{$report->id}}"></input>
                                 <button type="submit" class="btn btn-danger">
                                     Warn User
                                 </button>
