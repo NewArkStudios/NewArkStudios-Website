@@ -15,11 +15,9 @@ class MessageController extends Controller
     */
     public function display_make_message($receiver_name) {
 
-        $data = [
-            'receiver_name' => $receiver_name
-        ];
+        $user = User::where('name', $receiver_name)->first();
 
-        return view('pages.message_make', $data);
+        return view('pages.message_make', compact('user'));
     }
 
     /**
@@ -35,9 +33,7 @@ class MessageController extends Controller
         $message->message = $request['message'];
         $message->subject = $request['subject'];
         $message->sender_id = $sender->id;
-        $message->sender_name = $sender->name;
         $message->receiver_id = $receiver->id;
-        $message->receiver_name = $receiver->name;
         $message->read = false;
 
         $message->save();

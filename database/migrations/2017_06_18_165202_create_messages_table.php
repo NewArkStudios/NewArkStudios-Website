@@ -19,12 +19,8 @@ class CreateMessagesTable extends Migration
             $table->string('subject');
             $table->integer('sender_id')->unsigned(); // the sender of the message
             $table->foreign('sender_id')->references('id')->on('users');
-            $table->string('sender_name'); // the sender of the message
-            $table->foreign('sender_name')->references('name')->on('users');
             $table->integer('receiver_id')->unsigned(); // the receiever of the message
             $table->foreign('receiver_id')->references('id')->on('users');
-            $table->string('receiver_name'); // the receiever of the message
-            $table->foreign('receiver_name')->references('name')->on('users');
             $table->boolean('read')->default(false); // check whether this message has been read
             $table->timestamps();
         });

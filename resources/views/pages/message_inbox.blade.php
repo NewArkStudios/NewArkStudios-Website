@@ -13,11 +13,11 @@
                         <div class="col-md-12">
                         @if (Auth::user()->id == $message->sender_id)
                             <!-- Remember to check user direct message if they belong -->
-                            <a href="{{url('/messages/message/'.$message->id)}}">{{$message->receiver_name}}</a>
+                            <a href="{{url('/messages/message/'.$message->id)}}">{{$message->receiver->name}}</a>
                         @elseif (Auth::user()->id == $message->receiver_id)
-                            <a href="{{url('/messages/message/'.$message->id)}}">{{$message->receiver_name}}</a>
+                            <a href="{{url('/messages/message/'.$message->id)}}">{{$message->receiver->name}}</a>
                         @else
-                            {{$message->sender_name}}
+                            {{$message->sender->name}}
                         @endif
                         {{$message->subject}} 
                         </div>

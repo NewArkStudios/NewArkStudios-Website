@@ -11,8 +11,8 @@
                     <h2>Create a new direct message</h2>
                     <form role="form" method="POST" action="{{ route('make_message') }}">
                         {{ csrf_field() }}
-                        <input type="hidden" name="receiver_name" value="{{$receiver_name}}"></input>
-                        Send a direct message to : {{$receiver_name}}
+                        <input type="hidden" name="receiver_name" value="{{$user->name}}"></input>
+                        Send a direct message to : {{$user->name}}
                         <br>
                         Subject : <input class="form-control" id="subject" name="subject" type="text"></input>
                         <br>

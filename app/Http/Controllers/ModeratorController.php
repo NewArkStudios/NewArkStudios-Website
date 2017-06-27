@@ -64,9 +64,7 @@ class ModeratorController extends Controller
         $message->message = "You have been warned for toxic behaviour corresponding" + 
         "to this post."; 
         $message->sender_id = Auth::user()->id;
-        $message->sender_name = Auth::user()->name;
         $message->receiver_id = $suspect->id;
-        $message->receiver_name = $suspect->name;
         $message->save();
 
         // grab the post and update its view        

@@ -11,4 +11,19 @@ class Message extends Model
 
     // columns in table that we are allowed to fill
     protected $fillable = ['messages'];
+
+
+    /**
+    * Get the user that is the sender
+    */
+    public function sender() {
+        return $this->hasOne('App\User','id', 'sender_id');
+    }
+
+    /**
+    * Get the user that is the receiver
+    */
+    public function receiver() {
+        return $this->hasOne('App\User','id', 'receiver_id');
+    }
 }

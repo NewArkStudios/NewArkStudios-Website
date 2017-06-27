@@ -60,7 +60,7 @@ Route::group(['prefix' => 'thread'], function(){
 Route::group(['prefix' => 'messages'], function(){
     
     // Route for getting the UI to send a direct message
-    Route::get('display_make_message/{receiver_id}',
+    Route::get('display_make_message/{receiver_name}',
         'MessageController@display_make_message')->middleware('logged_in');
 
     // Route for sending a direct message
