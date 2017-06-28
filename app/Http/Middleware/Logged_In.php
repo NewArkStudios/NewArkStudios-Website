@@ -17,9 +17,20 @@ class Logged_In
     public function handle($request, Closure $next)
     {
 
+        $user = Auth::user();
+
         // check if user is logged in 
-        if (is_null(Auth::user()))
+        if (is_null($user))
             return redirect()->route('register');
+        elseif ($user->banned == 2) {
+            Auth::logout();
+            return response()->view('auth.banned', ['suspended_till' => false]);
+
+        } elseif ($user->banned == 1) {
+            $suspended_till = $user->suspended_till;
+            Auth::logout();
+            return response()->view('auth.banned', ['suspended_till' => $suspended_till]);
+        }
 
         return $next($request);
     }
