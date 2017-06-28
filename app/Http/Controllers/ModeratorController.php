@@ -7,6 +7,7 @@ use App\Models\Report;
 use App\Models\Message;
 use App\Users;
 use Illuminate\Support\Facades\Auth;
+use \Carbon\Carbon;
 
 class ModeratorController extends Controller
 {
@@ -48,7 +49,37 @@ class ModeratorController extends Controller
 
         return redirect()->back();        
     }
-    
+
+    /**
+    * Function to fully ban the user
+    * set their ban value at 2
+    */
+    public function suspend_user(Request $request) {
+
+        // grab the user from the report
+        $report = Report::where('id', $request['report_id'])->first();
+        $suspect = $report->suspect;
+        $suspect->banned = 1;
+        $suspect->suspended_till = Carbon::createFromDate(2018, 6, 26)->addWeeks(2);
+        $suspect->save();
+
+        // grab the post and update its view        
+        if (!is_null($report->post_id)) {
+            $post = $report->post;
+            $post->warned = 1;
+            $post->save();
+        } elseif (!is_null($report->reply_id)) {
+            $reply = $report->reply;
+            $reply->warned = 1;
+            $reply->save();
+        }
+
+        // delete the report as it will be of no use
+        $report->delete();
+
+        return redirect()->back();        
+    }
+
     /**
     * Warn the user, send a direct message, provide a notification
     */
