@@ -7,9 +7,24 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Reply;
 use Illuminate\Support\Facades\Auth;
+use Chromabits\Purifier\Contracts\Purifier;
+use HTMLPurifier_Config;
+
 
 class PostController extends Controller
 {
+
+    protected $purifier;
+
+    /**
+	 * Construct an instance of MyClass
+	 *
+	 * @param Purifier $purifier
+	 */
+	public function __construct(Purifier $purifier) {
+		// Inject dependencies
+		$this->purifier = $purifier;
+	}
 
     /**
     * Show the individual post
@@ -36,7 +51,7 @@ class PostController extends Controller
         $post->category_id = $request['category'];
         $post->title = $request['title'];
         $post->slug = $this->make_slug($request['title']);
-        $post->body = $request['body'];
+        $post->body = $this->purifier->clean($request['body']);
 
         // save values
         $post->save();
