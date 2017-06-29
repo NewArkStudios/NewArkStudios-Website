@@ -40,7 +40,7 @@ To make new databases in laravel simply call
 php artisan make:migration <migration_name> --create=<table_name>
 ```
 
-** To clear data and reinstall databases **
+**To clear data and reinstall databases **
 ```
 php artisan migrate:refresh
 ```
@@ -62,6 +62,19 @@ as they may not be synced
 
 ```
 composer dump-autoload
+```
+Packages out of date? Run
+
+```
+composer update
+composer install
+```
+
+**HTML Purifier package used** you will need to run
+This package was used to prevent script injections but still allow HTML
+links and images
+```
+chmod 777 -R vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer
 ```
 
 If run into errors delete migrations table and already existing tables
