@@ -7,9 +7,25 @@ use App\Models\Message;
 use App\Models\MessageReply;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Chromabits\Purifier\Contracts\Purifier;
+use HTMLPurifier_Config;
 
 class MessageController extends Controller
 {
+
+    protected $purifier;
+
+    /**
+	 * Construct an instance of MyClass
+	 *
+	 * @param Purifier $purifier
+	 */
+	public function __construct(Purifier $purifier) {
+		// Inject dependencies
+		$this->purifier = $purifier;
+	}
+
+
     /**
     * Display the UI page to actually send a direct message
     */
@@ -30,7 +46,7 @@ class MessageController extends Controller
         $sender = Auth::user();
 
         $message = new Message();
-        $message->message = $request['message'];
+        $message->message = $this->purifier->clean($request['message']);
         $message->subject = $request['subject'];
         $message->sender_id = $sender->id;
         $message->receiver_id = $receiver->id;

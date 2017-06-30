@@ -10,7 +10,7 @@
                 <h4 style="float:right">{{$message->created_at}}</h4>
                 <h4 style="float:right">{{$message->updated_at}}</h4>
                 <div class="panel-body">
-                <p>{{$message->message}}</p>
+                <p>{!! $message->message !!}</p>
                 <a href="{{url('/profile/' . $message->sender_id)}}">{{$message->sender_name}}</a>
                 </div>
                 <!-- Report user based on direct message -->
