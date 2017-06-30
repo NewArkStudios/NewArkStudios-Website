@@ -26,7 +26,7 @@
             </div>
             <!-- Note for each is bugged for gathering replies normally -->
             @for ($i = 0; $i < count($replies); $i++)
-                <p>{{$replies[$i]->body}} from: {{$replies[$i]->user->name}}<p>
+                <p>{!! $replies[$i]->body !!} from: {{$replies[$i]->user->name}}<p>
                 <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="messagereply_id" value="{{$replies[$i]->id}}"></input>

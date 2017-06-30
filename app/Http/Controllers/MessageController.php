@@ -112,7 +112,7 @@ class MessageController extends Controller
         $message_reply = new MessageReply();
         $message_reply->message_id = $request['message_id'];
         $message_reply->user_id = $user->id;
-        $message_reply->body = $request['body'];
+        $message_reply->body = $this->purifier->clean($request['body']);
 
         $message_reply->save();
 
