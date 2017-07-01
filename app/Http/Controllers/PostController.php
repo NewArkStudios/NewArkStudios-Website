@@ -97,6 +97,42 @@ class PostController extends Controller
       return redirect()->back();
     }
 
+    /**
+    * Display the page to edit the post
+    */
+    public function display_edit_post($post_slug) {
+
+        // check if post belongs to user
+        $post = Post::where('slug', $post_slug)->first();
+        $user = Auth::user();
+
+        // if doesn't belong
+        if ($post->user->id != $user->id)
+            return "why are you trying to edit someone else's post";
+
+        return view('pages.thread_edit', compact('post'));
+    }
+
+    /**
+    * Edit the post
+    */
+    public function edit_post(Request $request) {
+
+        // check if post belongs to user
+        $post = Post::where('slug', $request['post_slug'])->first();
+        $user = Auth::user();
+
+        // if doesn't belong
+        if ($post->user->id != $user->id)
+            return "why are you trying to edit someone else's post";
+        
+        $post->body = $request['body'];
+        $post->edited = true;
+        $post->save();
+
+        return redirect()->back();
+    }
+
     /*
     * Make a unique URL based on the title
     */

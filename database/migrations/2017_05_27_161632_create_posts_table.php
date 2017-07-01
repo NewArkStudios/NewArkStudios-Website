@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique(); // used to create unique urls
             $table->text('title');
             $table->boolean('closed')->default(false);
+            $table->boolean('edited')->default(false);
             $table->integer('warned')->unsigned()->default(0); // indicate whether user was warned, banned, etc for post
             $table->text('body'); //0, none 1 for suspended, 2 banned, 3 warning
             $table->timestamps();

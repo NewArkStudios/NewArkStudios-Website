@@ -79,6 +79,11 @@ Route::group(['prefix' => 'thread'], function(){
     Route::post('delete_post', 'PostController@delete_post')
     ->name('delete_post')->middleware('moderator');
 
+    Route::get('display_edit_post/{post_slug}', 'PostController@display_edit_post')
+    ->middleware('logged_in');
+
+    Route::post('edit_post', 'PostController@edit_post')
+    ->middleware('logged_in')->name('edit_post');
 });
 
 /**

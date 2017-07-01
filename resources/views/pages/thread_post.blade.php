@@ -6,6 +6,11 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">THIS IS INDIVIDUAL POST</div>
+                @if(Auth::user())
+                    @if(Auth::user()->id == $post->user->id)
+                        <a href="{{url('/thread/display_edit_post/' . $post->slug)}}">Edit Post</a>
+                    @endif
+                @endif
                 <h1>{{$post->title}}</h1>
                 <h4 style="float:right">{{$post->created_at}}</h4>
                 <h4 style="float:right">{{$post->updated_at}}</h4>
