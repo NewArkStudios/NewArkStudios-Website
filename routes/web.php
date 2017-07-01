@@ -65,7 +65,7 @@ Route::group(['prefix' => 'thread'], function(){
 
     // Route for making post UI Wise
     Route::get('view_categories', 'ForumController@view_categories')
-    ->name('view_categories')->middleware('moderator');
+    ->name('view_categories');
 
     // close a post so no one can contribute to it anymore
     Route::post('close_post', 'PostController@close_post')
