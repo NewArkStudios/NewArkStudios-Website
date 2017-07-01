@@ -42,6 +42,9 @@
                 @elseif($replies[$i]->warned == 3)
                     <p><small style="color:red">User was warned for reply</small></p>
                 @endif
+                @if(Auth::user())
+                    <a href="#reply-section">reply</a>
+                @endif
                 <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="reply_id" value="{{$replies[$i]->id}}"></input>
@@ -76,7 +79,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div id="reply-section" class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">
                                 Reply
