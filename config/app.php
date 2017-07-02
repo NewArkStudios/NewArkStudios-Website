@@ -179,9 +179,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Chromabits\Purifier\PurifierServiceProvider::class,
-        
-
+        Mews\Purifier\PurifierServiceProvider::class,
     ],
 
     /*

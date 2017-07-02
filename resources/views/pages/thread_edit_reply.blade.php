@@ -10,15 +10,15 @@
                     @if (Auth::guest())
                         You are NOT LOGGED IN
                     @else
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('edit_post') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('edit_reply') }}">
                             {{ csrf_field() }}
 
                             <!-- Make sure that we check user has right to edit -->
-                            <input type="hidden" name="post_slug" value="{{$post->slug}}"></input>
+                            <input type="hidden" name="reply_id" value="{{$reply->id}}"></input>
                             <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
                                 <label for="body" class="col-md-4 control-label">Body</label>
                                 <div class="col-md-6">
-                                    <textarea id="body" value="{{$post->body}}" class="form-control" name="body" required></textarea>
+                                    <textarea id="body" value="{{$reply->body}}" class="form-control" name="body" required>{{ $reply->body }}</textarea>
 
                                     @if ($errors->has('body'))
                                         <span class="help-block">

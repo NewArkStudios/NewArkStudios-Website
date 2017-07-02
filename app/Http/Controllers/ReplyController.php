@@ -7,23 +7,9 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Reply;
 use Illuminate\Support\Facades\Auth;
-use Chromabits\Purifier\Contracts\Purifier;
-use HTMLPurifier_Config;
 
 class ReplyController extends Controller
 {
-
-    protected $purifier;
-
-    /**
-	 * Construct an instance of MyClass
-	 *
-	 * @param Purifier $purifier
-	 */
-	public function __construct(Purifier $purifier) {
-		// Inject dependencies
-		$this->purifier = $purifier;
-	}
 
     /*
     * Make a forum reply and store in database, within iits own table
@@ -37,7 +23,7 @@ class ReplyController extends Controller
         // set table values
         $reply->user_id = Auth::user()->id;
         $reply->post_id = $request['post_id'];
-        $reply->body = $this->purifier->clean($request['body']);
+        $reply->body = clean($request['body']);
 
         // find the corresponding post id and change updated_at post to current time
         // with the touch method
@@ -54,4 +40,42 @@ class ReplyController extends Controller
 
         return redirect()->back();
     }
+
+    /**
+    * Display the page to edit the reply
+    */
+    public function display_edit_reply($reply_id) {
+
+        // check if reply belongs to user
+        $reply = Reply::where('id', $reply_id)->first();
+        $user = Auth::user();
+
+        // if doesn't belong
+        if ($reply->user->id != $user->id)
+            return "why are you trying to edit someone else's post";
+
+        return view('pages.thread_edit_reply', compact('reply'));
+    }
+
+    /**
+    * Edit the post
+    */
+    public function edit_reply(Request $request) {
+
+        // check if post belongs to user
+        $reply = Reply::where('id', $request['reply_id'])->first();
+        $user = Auth::user();
+
+        // if doesn't belong
+        if ($reply->user->id != $user->id)
+            return "why are you trying to edit someone else's post";
+        
+        $reply->body = $request['body'];
+        $reply->edited = true;
+        $reply->save();
+
+        return redirect('post/' . $reply->post->slug);
+    }
+
+
 }

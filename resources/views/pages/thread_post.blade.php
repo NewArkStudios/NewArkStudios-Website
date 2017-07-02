@@ -39,6 +39,12 @@
             </div>
             <!-- Note foreach is bugged for gathering replies normally -->
             @for ($i = 0; $i < count($replies); $i++)
+                @if(Auth::user())
+                    @if(Auth::user()->id == $replies[$i]->user->id)
+                    <br>
+                    <a href="{{url('thread/display_edit_reply/' . $replies[$i]->id)}}">Edit Reply</a>
+                    @endif
+                @endif
                 <p>{!! $replies[$i]->body !!} from: {{$replies[$i]->user->name}}<p>
                 @if($replies[$i]->warned == 1)
                     <p><small style="color:red">User was suspended for reply</small></p>

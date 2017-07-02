@@ -82,8 +82,14 @@ Route::group(['prefix' => 'thread'], function(){
     Route::get('display_edit_post/{post_slug}', 'PostController@display_edit_post')
     ->middleware('logged_in');
 
+    Route::get('display_edit_reply/{reply_id}', 'ReplyController@display_edit_reply')
+    ->middleware('logged_in');
+
     Route::post('edit_post', 'PostController@edit_post')
     ->middleware('logged_in')->name('edit_post');
+    
+    Route::post('edit_reply', 'ReplyController@edit_reply')
+    ->middleware('logged_in')->name('edit_reply');
 });
 
 /**
