@@ -11,6 +11,7 @@
         
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('css/jquery-ui.css') }}" />
 
     </head>
     <body>
@@ -23,6 +24,7 @@
         <!-- Footer -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="{{ URL::asset('js/jquery-1.12.4.min.js') }}" /></script>
+        <script src="{{ URL::asset('js/jquery-ui.min.js') }}" /></script>
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
         @yield('custom-javascripts')
 	    <!-- Footer End -->
