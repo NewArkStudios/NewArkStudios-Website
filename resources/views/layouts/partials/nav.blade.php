@@ -17,7 +17,15 @@
             <li><a href="{{ url('/devteam') }}">Dev Team</a></li>
 
             <!--Forums link subject to change -->
-            <li><a href="{{ route('view_categories') }}">Forums</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Discussion<span class="caret"></span>
+                </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="{{ route('view_categories') }}">Forums</a></li>
+                <li><a href="{{ route('display_search_user') }}">Community</a></li>
+              </ul>
+            </li>
             <li><a href="{{ url('/contact') }}">Contact</a></li>
 
             @if (Auth::guest())

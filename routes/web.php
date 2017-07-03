@@ -118,7 +118,15 @@ Route::group(['prefix' => 'messages', 'middleware' => ['logged_in']], function()
 });
 
 
+/**
+* Search functionality routes
+*/
+Route::group(['prefix' => 'search'], function(){
 
+    Route::get('display_search_user', 'SearchController@display_search_user')->name('display_search_user');
+    Route::post('search_user', 'SearchController@search_user')->name('search_user');
+
+});
 
 /**
 * Grouped routing for threads for account handling
