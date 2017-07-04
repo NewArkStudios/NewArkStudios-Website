@@ -7,10 +7,25 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     {{$category->name}}
-                    <a href="{{url('/create_post/' . $category->slug)}}">Make a post</a>
                 </div>
 
                 <div class="panel-body">
+                    <div class="col-md-4">
+                        <a href="{{url('/create_post/' . $category->slug)}}">Make a post</a>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4">
+                        Search for discussion post
+                        <form role="form" method="POST" action="{{ route('search_post') }}">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="search_category" value="{{$category->slug}}"></input>
+                        <input style="width:55%;" type="text" name="search_title"></input>
+                        <!-- aDD DROPDOWN -->
+                        
+                        <button type="submit" class="btn btn-primary">
+                         Search
+                        </button>
+                    </form>
+                    </div>
                     <!-- Visually this will be updated later -->
                     @if (count($posts['posts']) > 0)
                         @foreach($posts['posts'] as $post)
@@ -55,7 +70,6 @@
                     @else
                         No posts :(
                     @endif
-                    {{$posts['posts']->links()}}
                 </div>
             </div>
         </div>

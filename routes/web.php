@@ -125,6 +125,7 @@ Route::group(['prefix' => 'search'], function(){
 
     Route::get('display_search_user', 'SearchController@display_search_user')->name('display_search_user');
     Route::post('search_user', 'SearchController@search_user')->name('search_user');
+    Route::post('search_post', 'SearchController@search_post')->name('search_post');
 
 });
 
