@@ -29,6 +29,11 @@ class PostController extends Controller
     */
     public function make_post(Request $request){
         
+        // validate making post information
+        $this->validate($request, [
+            'title' => 'required|alpha_num|max:255',
+        ]);
+
         // Create new model object
         $post = new Post();
 
@@ -37,6 +42,8 @@ class PostController extends Controller
         $post->category_id = $request['category'];
         $post->title = $request['title'];
         $post->slug = $this->make_slug($request['title']);
+
+        // sanitate to allow html injection
         $post->body = clean($request['body']);
 
         // save values
