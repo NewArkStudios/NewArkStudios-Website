@@ -32,6 +32,7 @@ class PostController extends Controller
         // validate making post information
         $this->validate($request, [
             'title' => 'required|alpha_num|max:255',
+            'body' => 'required'
         ]);
 
         // Create new model object

@@ -27,6 +27,12 @@ class MessageController extends Controller
     */
     public function make_message(Request $request) {
 
+        // validate message content
+        $this->validate($request, [
+            'subject' => 'required|alpha_num|max:255',
+            'message' => 'required'
+        ]);
+
         $receiver = User::where('name', $request['receiver_name'])->first();
         $sender = Auth::user();
 
