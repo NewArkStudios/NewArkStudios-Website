@@ -19,14 +19,14 @@
                             <!-- If there is a post show the post -->
                             @if(!is_null($report->post_id))
                                 Post in Question:
-                                    <a href="{{url('/post' . $report->post->slug)}}">
+                                    <a href="{{url('/post/' . $report->post->slug)}}">
                                         {{$report->post->title}}
                                     </a>
                             @endif
                             <!-- TODO we may need to start linking sections# later -->
                             @if(!is_null($report->reply_id))
                                 Reply in Question:
-                                    <a href="{{url('/post' . $report->reply->post->slug)}}">
+                                    <a href="{{url('/post/' . $report->reply->post->slug)}}">
                                         <!--TODO Some point make js function to reduce -->
                                         {{$report->reply->body}}
                                     </a>
