@@ -33,8 +33,8 @@
                             <br>
                             <a href="{{url('/post/'.$post->slug)}}">{{$post->title}}</a>
                             <p>{{$post->body}}</p>
-                            <p>{{$post->user}}</p>
-                            <a href="{{url('/profile/' . $post->user->name)}}">View Profile</a>
+                            Posted by: <a href="{{url('/profile/' . $post->user->name)}}">{{$post->user->name}}</a>
+                            <br>
                             Created at: {{$post->created_at}}, Updated at: {{$post->updated_at}}
                             <br>
                             <br>
