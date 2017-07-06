@@ -39,6 +39,7 @@
             </div>
             <!-- Note foreach is bugged for gathering replies normally -->
             @for ($i = 0; $i < count($replies); $i++)
+            <div id="reply-section-{{$i}}">
                 @if(Auth::user())
                     @if(Auth::user()->id == $replies[$i]->user->id)
                     <br>
@@ -65,6 +66,7 @@
                         Report User
                     </button>
                 </form>
+            </div>
             @endfor
             
             <div class="panel panel-default">
