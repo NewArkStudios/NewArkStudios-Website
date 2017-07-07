@@ -36,7 +36,10 @@ class ForumController extends Controller
     public function get_post_list($slug) {
 
         $category = Category::where('slug', $slug)->first();
-        $posts = Post::where('category_id', $category->id)->orderBy('updated_at', 'desc')->paginate(5);
+        $posts = Post::where('category_id', $category->id)
+        ->orderBy('updated_at', 'desc')
+        ->orderBy('pinned', 'desc')
+        ->paginate(5);
         
         // null check whether user is logged in
         if (is_null(Auth::user())) {

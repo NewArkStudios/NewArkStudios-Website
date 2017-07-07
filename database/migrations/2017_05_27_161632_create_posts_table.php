@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('slug')->unique(); // used to create unique urls
             $table->text('title');
+            $table->integer('pinned')->default(0); // 0 for pinned, higher values indicate pin, and higher value higher strength
             $table->boolean('closed')->default(false);
             $table->boolean('edited')->default(false);
             $table->integer('warned')->unsigned()->default(0); // indicate whether user was warned, banned, etc for post
