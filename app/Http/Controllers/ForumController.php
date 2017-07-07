@@ -41,20 +41,9 @@ class ForumController extends Controller
         ->orderBy('pinned', 'desc')
         ->paginate(5);
         
-        // null check whether user is logged in
-        if (is_null(Auth::user())) {
-            $moderator = false;
-            $admin = false;
-        } else {
-           $moderator = Auth::user()->hasRole('moderator');
-           $admin = Auth::user()->hasRole('admin');
-        }
-
         //TODO CHECK FOR EMPTY CATEGEORIES
         return view('pages.thread_posts_list', ['posts' => compact('posts'),
             'category' => $category,
-            'moderator' => $moderator,
-            'admin' => $admin
         ]);
     }
 

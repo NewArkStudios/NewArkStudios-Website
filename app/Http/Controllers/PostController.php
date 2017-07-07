@@ -21,7 +21,23 @@ class PostController extends Controller
         $post = Post::where('slug', $slug)->first();
         $user = $post->user;
         $replies = $post->replies;
-        return view('pages.thread_post', ["post"=>$post, "user"=>$user, "replies"=>$replies]);
+
+        // null check whether user is logged in
+        if (is_null(Auth::user())) {
+            $moderator = false;
+            $admin = false;
+        } else {
+           $moderator = Auth::user()->hasRole('moderator');
+           $admin = Auth::user()->hasRole('admin');
+        }
+
+        return view('pages.thread_post', [
+            "post"=>$post,
+            "user"=>$user,
+            "replies"=>$replies,
+            "moderator"=>$moderator,
+            "admin"=>$admin,
+        ]);
     }
 
     /*
