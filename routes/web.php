@@ -68,16 +68,20 @@ Route::group(['prefix' => 'thread'], function(){
     ->name('view_categories');
 
     // close a post so no one can contribute to it anymore
-    Route::post('close_post', 'PostController@close_post')
+    Route::post('close_post', 'ModeratorController@close_post')
     ->name('close_post')->middleware('moderator');
 
-    // close a post so no one can contribute to it anymore
-    Route::post('open_post', 'PostController@open_post')
+    // open a post so no one can contribute to it anymore
+    Route::post('open_post', 'ModeratorController@open_post')
     ->name('open_post')->middleware('moderator');
 
     // close a post so no one can contribute to it anymore
-    Route::post('delete_post', 'PostController@delete_post')
+    Route::post('delete_post', 'ModeratorController@delete_post')
     ->name('delete_post')->middleware('moderator');
+
+    // open a post so no one can contribute to it anymore
+    Route::post('pin_post', 'ModeratorController@pin_post')
+    ->name('pin_post')->middleware('moderator');
 
     Route::get('display_edit_post/{post_slug}', 'PostController@display_edit_post')
     ->middleware('logged_in');
