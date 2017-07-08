@@ -75,6 +75,6 @@ class User extends Authenticatable
     * How many accusations of this user has receieved
     */
     public function reports() {
-        return $this->hasMany('App\Models\Reports', 'reporter_id');
+        return $this->hasMany('App\Models\Report', 'reporter_id');
     }
 }

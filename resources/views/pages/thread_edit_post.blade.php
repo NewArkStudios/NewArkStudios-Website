@@ -16,8 +16,19 @@
                             <!-- Make sure that we check user has right to edit -->
                             <input type="hidden" name="post_slug" value="{{$post->slug}}"></input>
                             <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
+                                <label for="body" class="col-md-4 control-label">Title</label>
+                                <div class="col-md-6">
+                                    <input id="title" type="text" class="form-control" name="title" value="{{ $post->title }}" required autofocus/>
+
+                                    @if ($errors->has('title'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('title') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                                 <label for="body" class="col-md-4 control-label">Body</label>
                                 <div class="col-md-6">
+                                    
                                     <textarea id="body" value="{{$post->body}}" class="form-control" name="body" required>{{$post->body}}</textarea>
 
                                     @if ($errors->has('body'))

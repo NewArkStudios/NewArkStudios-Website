@@ -30,8 +30,7 @@
                     <!-- Visually this will be updated later -->
                     @if (count($posts['posts']) > 0)
                         @foreach($posts['posts'] as $post)
-                            <br>
-                            <div class="col-md-12 {{($post->pinned > 0) ? 'well' : ''}}">
+                            <div style="margin-top:1em;"class="col-md-12 {{($post->pinned > 0) ? 'well' : ''}}">
                                 <a href="{{url('/post/'.$post->slug)}}">{{$post->title}}</a>
                                 @if($post->pinned > 0)
                                     <span style="color:green">Pinned *</span>

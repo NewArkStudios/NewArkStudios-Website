@@ -12,9 +12,11 @@ class AdminController extends Controller
     * stuff the admin can do
     */
     public function display_admin_panel() {
+
+        // add announcements 
         
         //testing stuff
-        return Auth::user()->reports;
+        //return Auth::user()->reports;
 
         //return view('pages.admin_panel');
     }

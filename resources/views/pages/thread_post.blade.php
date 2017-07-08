@@ -23,6 +23,18 @@
                 @elseif($post->warned == 3)
                     <p><small style="color:red">User was warned for post</small></p>
                 @endif
+                <a id="post-edited">Edited,</a>
+                @if($post->edited)
+                    <div id="post-edited-dialog" title="Edited Post">
+                        @foreach ($post->archive_posts as $archive_post)
+                        <div class="well">
+                                <h6>Title: {{$archive_post->title}}</h6>
+                                <p>Post: {{$archive_post->body}}</h6>
+                                <p>Edited at: {{$archive_post->created_at}}</p>
+                        </div>
+                        @endforeach
+                    </div>
+                @endif
                 <a href="{{url('/profile/' . $user->name)}}">View Profile</a>
                 </div>
                 @if ($moderator)
@@ -148,4 +160,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('custom-javascripts')
+    <script src="{{ asset('js/app/thread_post.js') }}"></script>
 @endsection

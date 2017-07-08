@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Archive_Posts;
 use App\Models\Reply;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,7 +48,7 @@ class PostController extends Controller
         
         // validate making post information
         $this->validate($request, [
-            'title' => 'required|alpha_num|max:255',
+            'title' => 'required|max:255',
             'body' => 'required'
         ]);
 
@@ -93,6 +94,12 @@ class PostController extends Controller
     */
     public function edit_post(Request $request) {
 
+        // validate making post information
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'body' => 'required'
+        ]);
+
         // check if post belongs to user
         $post = Post::where('slug', $request['post_slug'])->first();
         $user = Auth::user();
@@ -101,7 +108,15 @@ class PostController extends Controller
         if ($post->user->id != $user->id)
             return "why are you trying to edit someone else's post";
         
+        // store old data from post
+        $archived_post = new Archive_Posts();
+        $archived_post->post_id = $post->id;
+        $archived_post->body = $post->body;
+        $archived_post->title = $post->title;
+        $archived_post->save();
+
         $post->body = $request['body'];
+        $post->title = $request['title'];
         $post->edited = true;
         $post->save();
 

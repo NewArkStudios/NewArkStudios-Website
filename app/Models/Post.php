@@ -20,4 +20,8 @@ class Post extends Model
     public function replies() {
         return $this->hasMany('App\Models\Reply');
     }
+
+    public function archive_posts() {
+        return $this->hasMany('App\Models\Archive_Posts', 'post_id');
+    }
 }
