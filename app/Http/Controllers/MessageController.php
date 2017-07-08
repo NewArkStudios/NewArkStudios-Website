@@ -29,7 +29,7 @@ class MessageController extends Controller
 
         // validate message content
         $this->validate($request, [
-            'subject' => 'required|max:255',
+            'subject' => 'required|alphanum_space|max:255',
             'message' => 'required'
         ]);
 

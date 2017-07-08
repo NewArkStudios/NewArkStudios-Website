@@ -48,7 +48,7 @@ class PostController extends Controller
         
         // validate making post information
         $this->validate($request, [
-            'title' => 'required|max:255',
+            'title' => 'required|alphanum_space|max:255',
             'body' => 'required'
         ]);
 
@@ -96,7 +96,7 @@ class PostController extends Controller
 
         // validate making post information
         $this->validate($request, [
-            'title' => 'required|max:255',
+            'title' => 'required|alphanum_space|max:255',
             'body' => 'required'
         ]);
 
