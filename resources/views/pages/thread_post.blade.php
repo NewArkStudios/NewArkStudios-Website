@@ -36,6 +36,7 @@
                     </div>
                 @endif
                 <a href="{{url('/profile/' . $user->name)}}">View Profile</a>
+                <h6>Views: {{$post->views}}</h6>
                 </div>
                 @if ($moderator)
                     @if(!$post->closed)

@@ -20,6 +20,11 @@ class PostController extends Controller
     public function display_post($slug) {
 
         $post = Post::where('slug', $slug)->first();
+
+        // update view count
+        $post->views = $post->views + 1;
+        $post->save();
+
         $user = $post->user;
         $replies = $post->replies;
 
