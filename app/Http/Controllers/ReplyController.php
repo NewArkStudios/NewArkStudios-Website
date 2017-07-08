@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Reply;
+use App\Models\Archive_Replies;
 use Illuminate\Support\Facades\Auth;
 
 class ReplyController extends Controller
@@ -70,6 +71,12 @@ class ReplyController extends Controller
         if ($reply->user->id != $user->id)
             return "why are you trying to edit someone else's post";
         
+        // save old info
+        $archive_reply = new Archive_Replies();
+        $archive_reply->reply_id = $reply->id;
+        $archive_reply->body = $reply->body;
+        $archive_reply->save();
+
         $reply->body = $request['body'];
         $reply->edited = true;
         $reply->save();

@@ -21,4 +21,9 @@ class Reply extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+
+    // This function allows us to call items sharing the reference
+    public function archive_replies() {
+        return $this->hasMany('App\Models\Archive_Replies', 'reply_id');
+    }
 }

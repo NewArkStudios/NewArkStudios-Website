@@ -109,6 +109,17 @@
                 @elseif($replies[$i]->warned == 3)
                     <p><small style="color:red">User was warned for reply</small></p>
                 @endif
+                @if($replies[$i]->edited)
+                    <a dialog-link="reply-edit-dialog-{{$i}}" class="edited-reply-link">Edited, </a>
+                    <div id="reply-edit-dialog-{{$i}}" class="reply-edited-dialog" title="Edited Post">
+                        @foreach ($replies[$i]->archive_replies as $archive_reply)
+                        <div class="well">
+                                <p>Post: {{$archive_reply->body}}</h6>
+                                <p>Edited at: {{$archive_reply->created_at}}</p>
+                        </div>
+                        @endforeach
+                    </div>
+                @endif
                 @if(Auth::user())
                     <a href="#reply-section">reply</a>
                 @endif
