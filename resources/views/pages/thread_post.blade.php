@@ -23,8 +23,8 @@
                 @elseif($post->warned == 3)
                     <p><small style="color:red">User was warned for post</small></p>
                 @endif
-                <a id="post-edited">Edited,</a>
                 @if($post->edited)
+                <a id="post-edited">Edited,</a>
                     <div id="post-edited-dialog" title="Edited Post">
                         @foreach ($post->archive_posts as $archive_post)
                         <div class="well">
