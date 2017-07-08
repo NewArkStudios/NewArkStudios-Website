@@ -28,8 +28,8 @@
                     </div>
                     <br>
                     <!-- Visually this will be updated later -->
-                    @if (count($posts['posts']) > 0)
-                        @foreach($posts['posts'] as $post)
+                    @if (count($posts) > 0)
+                        @foreach($posts as $post)
                             <div style="margin-top:1em;"class="col-md-12 {{($post->pinned > 0) ? 'well' : ''}}">
                                 <a href="{{url('/post/'.$post->slug)}}">{{$post->title}}</a>
                                 @if($post->pinned > 0)
@@ -45,6 +45,8 @@
                         No posts :(
                     @endif
                 </div>
+                <!-- pagination links -->
+                {{ $posts->links() }}
             </div>
         </div>
     </div>

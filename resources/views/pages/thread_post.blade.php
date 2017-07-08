@@ -135,7 +135,8 @@
                 </form>
             </div>
             @endfor
-            
+            <!-- pagination links -->
+            {{ $replies->links() }}
             <div class="panel panel-default">
             @if(Auth::guest())
                To Reply please login 

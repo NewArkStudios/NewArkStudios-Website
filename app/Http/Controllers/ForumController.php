@@ -42,7 +42,7 @@ class ForumController extends Controller
         ->paginate(5);
         
         //TODO CHECK FOR EMPTY CATEGEORIES
-        return view('pages.thread_posts_list', ['posts' => compact('posts'),
+        return view('pages.thread_posts_list', ['posts' => $posts,
             'category' => $category,
         ]);
     }

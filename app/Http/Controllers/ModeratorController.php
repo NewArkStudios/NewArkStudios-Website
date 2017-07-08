@@ -17,7 +17,6 @@ class ModeratorController extends Controller
         // Get the list of all reports, this grabs all and 
         // only displays number
         $reports = Report::paginate(5);
-
         return view('pages.moderator_panel', compact('reports'));
     }
 

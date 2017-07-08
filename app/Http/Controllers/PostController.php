@@ -26,7 +26,7 @@ class PostController extends Controller
         $post->save();
 
         $user = $post->user;
-        $replies = $post->replies;
+        $replies = $post->replies()->paginate(5);
 
         // null check whether user is logged in
         if (is_null(Auth::user())) {

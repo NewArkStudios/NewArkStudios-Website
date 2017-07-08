@@ -67,6 +67,8 @@
                         </div>
                     @endforeach
                 </div>
+                <!-- pagination links -->
+                {{ $reports->links() }}
             </div>
         </div>
     </div>
