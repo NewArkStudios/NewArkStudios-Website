@@ -77,4 +77,11 @@ class User extends Authenticatable
     public function reports() {
         return $this->hasMany('App\Models\Report', 'reporter_id');
     }
+
+    /*
+    * Get all the posts associated with the user
+    */
+    public function posts() {
+        return $this->hasMany('App\Models\Post', 'user_id');
+    }
 }

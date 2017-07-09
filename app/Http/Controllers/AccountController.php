@@ -21,7 +21,8 @@ class AccountController extends Controller
             "bio" => ($user->bio) ? $user->bio : false,
             "age" => ($user->age) ? $user->bio :false,
             'birthday' => ($user->birthday) ? $user->birthday : false,
-            "email" => $user->email
+            "email" => $user->email,
+            "posts" => $user->posts()->paginate(5),
         ];
 
         return view('pages.profile_view', $user_info);
