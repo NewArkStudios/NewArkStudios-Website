@@ -13,7 +13,7 @@
           <ul class="nav navbar-nav">
             <li class="active"> <a href="{{ url('/game') }}">Game Name</a></li>
             <li><a href="{{ url('/world') }}">World Name</a></li>
-            <li><a href="{{ url('/announcement') }}">Annoucements</a></li>
+            <li><a href="{{ url('/announcements') }}">Annoucements</a></li>
             <li><a href="{{ url('/devteam') }}">Dev Team</a></li>
 
             <!--Forums link subject to change -->

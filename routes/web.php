@@ -36,6 +36,8 @@ Route::get('create_post/{slug}', 'ForumController@display_create_post');
 // Route for individual post
 Route::get('post/{slug}', 'PostController@display_post');
 
+Route::get('announcements', 'AnnouncementController@display_announcements');
+
 // Route thanks for posting
 Route::get('/thanks_post', function() {
     return view('pages.thread_thanks_post');
@@ -44,8 +46,13 @@ Route::get('/thanks_post', function() {
 // Grab the profile to display
 Route::get('profile/{profile_slug}', 'AccountController@display_profile');
 
-// Panel for special admin management
-Route::get('admin_panel', 'AdminController@display_admin_panel')->name('display_admin_panel');
+Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
+
+    // Panel for special admin management
+    Route::get('admin_panel', 'AdminController@display_admin_panel')->name('display_admin_panel');
+    Route::post('make_annoucement', 'AdminController@make_announcement')->name('make_annoucement');
+
+});
 /**
 * Grouped routing for threads
 */

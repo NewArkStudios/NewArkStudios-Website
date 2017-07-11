@@ -16,9 +16,16 @@ class Moderator
      */
     public function handle($request, Closure $next)
     {
-        // check if user is logged in 
-        if (!(Auth::user()->hasRole("moderator")))
+        
+        // null check for logged in
+        if (Auth::user()) {
+
+            // check if user is moderator in 
+            if (!(Auth::user()->hasRole("moderator")))
+                return redirect()->route('register');
+        } else {
             return redirect()->route('register');
+        }
 
         return $next($request);
     }
