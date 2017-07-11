@@ -9,7 +9,11 @@
 
                 <div class="panel-body">
                     @foreach($announcements as $announcement)
-                        {{ $announcement->body }}
+                    <hr>
+                        {!! $announcement->body !!}
+                    <p>
+                        Posted on: {{ $announcement->created_at }}
+                    </p>
                     @endforeach
                 </div>
             </div>
