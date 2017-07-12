@@ -27,7 +27,14 @@
                                     <button type="submit" class="btn btn-primary">
                                         Submit
                                     </button>
+
+                                    <!-- type button to remove default submit type -->
+                                    <button type="button" id="preview-button" class="btn btn-primary">
+                                        Preview
+                                    </button>
                                 </form>
+                            </div>
+                            <div id="preview-content">
                             </div>
                         </div>
                         <div id="menu1" class="tab-pane fade">
@@ -40,4 +47,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('custom-javascripts')
+    <script src="{{ asset('js/app/admin_panel.js') }}"></script>
 @endsection
