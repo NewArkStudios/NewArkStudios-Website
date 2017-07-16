@@ -8,19 +8,43 @@
                 <div class="panel-heading">Dashboard</div>
                 <div class="panel-body">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#annoucements">Announcements</a></li>
+                        <li class="active"><a data-toggle="tab" href="#announcements">Announcements</a></li>
                         <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div id="annoucements" class="tab-pane fade in active">
-                            <h3>Make Announcements</h3>
+                        <div id="announcements" class="tab-pane fade in active">
+                            @if(!empty($announcement))
+                            <h3>Edit Announcements</h3>
                             <p>
-                                Type in the annoucement you want to make and it will appear
+                                Note Editing Announcement, type in the announcement you want to make and it will appear
                                 Note sanitized HTML injection is allowed, contact Peter Hoang
                                 if we plan to allow any type of injection
                             </p>
                             <div class="form-group">
-                                <form role="form" method="POST" action="{{ route('make_annoucement') }}">
+                                <form role="form" method="POST" action="{{ route('edit_announcement') }}">
+                                    {{ csrf_field() }}
+                                    <input name="id" type="hidden" value="{{$announcement->id}}"></input>
+                                    <textarea rows="10" id="body" class="form-control" name="body" required>{{$announcement->body}}</textarea>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit
+                                    </button>
+
+                                    <!-- type button to remove default submit type -->
+                                    <button type="button" id="preview-button" class="btn btn-primary">
+                                        Preview
+                                    </button>
+                                </form>
+                            </div>
+                            @else
+                            <h3>Make Announcements</h3>
+                            <p>
+                                Type in the announcement you want to make and it will appear
+                                Note sanitized HTML injection is allowed, contact Peter Hoang
+                                if we plan to allow any type of injection
+                            </p>
+                            <div class="form-group">
+                                <form role="form" method="POST" action="{{ route('make_announcement') }}">
                                     {{ csrf_field() }}
                                     <textarea rows="10" id="body" class="form-control" name="body" required></textarea>
                                     <br>
@@ -34,6 +58,7 @@
                                     </button>
                                 </form>
                             </div>
+                            @endif
                             <div id="preview-content">
                             </div>
                         </div>

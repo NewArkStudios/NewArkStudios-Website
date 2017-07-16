@@ -50,7 +50,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
 
     // Panel for special admin management
     Route::get('admin_panel', 'AdminController@display_admin_panel')->name('display_admin_panel');
-    Route::post('make_annoucement', 'AdminController@make_announcement')->name('make_annoucement');
+    Route::post('make_annoucement', 'AdminController@make_announcement')->name('make_announcement');
+    Route::get('display_edit_announcement/{id}', 'AdminController@display_edit_announcement')->name('display_edit_announcement');
+    Route::post('edit_annoucement', 'AdminController@edit_announcement')->name('edit_announcement');
 
 });
 /**

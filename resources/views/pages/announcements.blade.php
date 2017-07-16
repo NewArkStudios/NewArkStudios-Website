@@ -14,6 +14,11 @@
                     <p>
                         Posted on: {{ $announcement->created_at }}
                     </p>
+                    @if(Auth::user())
+                        @if(Auth::user()->hasRole("admin"))
+                            <a href="{{url('admin/display_edit_announcement/' . $announcement->id)}}">Edit Announcement</a>
+                        @endif
+                    @endif
                     @endforeach
                 </div>
             </div>
