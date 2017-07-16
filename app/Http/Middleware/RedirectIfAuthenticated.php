@@ -9,7 +9,8 @@ class RedirectIfAuthenticated
 {
     /**
      * Handle an incoming request.
-     *
+     * If the current user is logged in 
+     * if they are already they are redirected to the / page
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @param  string|null  $guard

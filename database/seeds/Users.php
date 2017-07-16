@@ -14,6 +14,8 @@ class Users extends Seeder
     {
         DB::table('users')->insert([
             'name' => "GummyDonut",
+            'first_name' => "Peter",
+            'last_name' => "Hoang",
             'email' => "peter_hoang2@hotmail.com",
             'password' => bcrypt("123456"),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -22,6 +24,8 @@ class Users extends Seeder
 
         DB::table('users')->insert([
             'name' => "lantern77",
+            'first_name' => "Bobt",
+            'last_name' => "Marley",
             'email' => "peter_hoang3@hotmail.com",
             'password' => bcrypt("123456"),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -30,6 +34,8 @@ class Users extends Seeder
 
         DB::table('users')->insert([
             'name' => "firefox",
+            'first_name' => "Bobt",
+            'last_name' => "Marley",
             'email' => "lantern77@hotmail.com",
             'password' => bcrypt("123456"),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -38,6 +44,8 @@ class Users extends Seeder
 
         DB::table('users')->insert([
             'name' => "bannedguy",
+            'first_name' => "basd",
+            'last_name' => "Guyi",
             'email' => "bannedguy@hotmail.com",
             'password' => bcrypt("123456"),
             'banned' => 2,
@@ -47,6 +55,8 @@ class Users extends Seeder
 
         DB::table('users')->insert([
             'name' => "suspendedguy",
+            'first_name' => "bad",
+            'last_name' => "guy",
             'email' => "suspendedguy@hotmail.com",
             'password' => bcrypt("123456"),
             'banned' => 1,

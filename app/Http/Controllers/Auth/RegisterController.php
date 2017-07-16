@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Traits\ActivationKeyTrait;
 
 class RegisterController extends Controller
 {
@@ -20,7 +22,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersUsers, ActivationKeyTrait;
 
     /**
      * Where to redirect users after registration.
@@ -49,6 +51,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|alpha_dash|unique:users|max:255',
+            'first_name' => 'required|string|alpha_dash|max:255',
+            'last_name' => 'required|string|alpha_dash|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -64,8 +68,38 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'activated' => !config('settings.send_activation_email'),
         ]);
+    }
+
+    /**
+    * Registers users, note we are overwriting
+    * the method inside registerUSER
+    * @param $request form input
+    */
+    public function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+ 
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+     
+        // create the user
+        $user = $this->create($request->all());
+ 
+        // process the activation email for the user
+        $this->queueActivationKeyNotification($user);
+ 
+        // we do not want to login the new user
+        return redirect('/login')
+            ->with('message', 'We sent you an activation code. Please check your email.')
+            ->with('status', 'success');
     }
 }

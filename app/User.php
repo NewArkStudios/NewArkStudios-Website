@@ -2,12 +2,20 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use App\Notifications\PasswordResetNotification;
 
-class User extends Authenticatable
+// original import
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authen;
+
+class User extends Authen implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Notifiable;
+    use Authenticatable, CanResetPassword, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -15,8 +23,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'first_name', 'last_name', 'activated',
     ];
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for arrays.
