@@ -79,3 +79,19 @@ chmod 777 -R vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Ser
 
 If run into errors delete migrations table and already existing tables
 
+### Environment Notes
+Updates to .env file needed for mail server
+example - note this is mailtrap server, we need to update to legitimate email in future
+```
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=a79ce35f103a75
+MAIL_PASSWORD=ab494144d97a0a
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=from@example.com
+MAIL_FROM_DISPLAY_NAME=example
+SETTINGS_SEND_ACTIVATION_EMAIL=true
+
+```
