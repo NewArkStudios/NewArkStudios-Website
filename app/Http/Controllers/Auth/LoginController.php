@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Contracts\Auth\Guard;
+
 use App\User;
 use \Carbon\Carbon;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
@@ -94,8 +96,18 @@ class LoginController extends Controller
                 ];
 
                 return view('auth.banned', $view_data);
-            }
+            } elseif ( $user->activated == false ) {
 
+                // log user out
+                $this->guard()->logout();
+                $request->session()->flush();
+                $request->session()->regenerate();
+
+                return redirect()->back()
+                ->with('message','User account not activated')
+                ->with('status', 'danger')
+                ->withInput();
+            }
             return $this->sendLoginResponse($request);
         }
 

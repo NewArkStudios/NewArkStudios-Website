@@ -20,6 +20,11 @@ Route::get('/', 'PagesController@home')->name('home');
 // http://stackoverflow.com/questions/39196968/laravel-5-3-new-authroutes
 Auth::routes();
 
+// registration activation routes
+Route::get('activation/key/{activation_key}', 'Auth\ActivationKeyController@activateKey')->name('activation_key');
+Route::get('activation/resend', 'Auth\ActivationKeyController@showKeyResendForm')->name('activation_key_resend');
+Route::post('activation/resend', 'Auth\ActivationKeyController@resendKey')->name('activation_key_resend.post');
+
 // Display UI for reporting user based on post or reply
 Route::post('display_report_user', 'ReportController@display_report_user')
 ->middleware('logged_in');
