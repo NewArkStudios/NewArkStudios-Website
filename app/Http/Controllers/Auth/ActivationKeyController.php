@@ -107,7 +107,7 @@ class ActivationKeyController extends Controller
             ->first();
          
         if (empty($user)) {
-            return redirect()->route('activation_key_resend')
+            return redirect()->route('login')
                 ->with('message', 'We could not find this email in our system')
                 ->with('status', 'warning');
         }

@@ -9,6 +9,9 @@
                 <div class="panel-body">
                     @if(session('message'))
                         <p>{{ session('message') }}</p>
+                        @if(session('resend_link'))
+                            <a href="{{route('activation_key_resend_display')}}">Resend confirmation</a>
+                        @endif
                     @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}

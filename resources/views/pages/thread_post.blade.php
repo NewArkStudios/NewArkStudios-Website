@@ -145,7 +145,6 @@
             @else
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('make_reply') }}">
                     {{ csrf_field() }}
-                    <input type="hidden" name="post_id" value="{{$post->id}}"></input>
                     <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
                         <label for="body" class="col-md-4 control-label">Body</label>
 

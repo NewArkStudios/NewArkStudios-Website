@@ -22,8 +22,8 @@ Auth::routes();
 
 // registration activation routes
 Route::get('activation/key/{activation_key}', 'Auth\ActivationKeyController@activateKey')->name('activation_key');
-Route::get('activation/resend', 'Auth\ActivationKeyController@showKeyResendForm')->name('activation_key_resend');
-Route::post('activation/resend', 'Auth\ActivationKeyController@resendKey')->name('activation_key_resend.post');
+Route::get('activation/resend_display', 'Auth\ActivationKeyController@showKeyResendForm')->name('activation_key_resend_display');
+Route::post('activation/resend', 'Auth\ActivationKeyController@resendKey')->name('activation_key_resend');
 
 // Display UI for reporting user based on post or reply
 Route::post('display_report_user', 'ReportController@display_report_user')

@@ -100,6 +100,7 @@ class RegisterController extends Controller
         // we do not want to login the new user
         return redirect('/login')
             ->with('message', 'We sent you an activation code. Please check your email.')
-            ->with('status', 'success');
+            ->with('status', 'success')
+            ->with('resend_link', true);
     }
 }
