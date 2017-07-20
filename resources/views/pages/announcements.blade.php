@@ -21,6 +21,7 @@
                     @endif
                     @endforeach
                 </div>
+                {{$announcements->links()}}
             </div>
         </div>
     </div>
