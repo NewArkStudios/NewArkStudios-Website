@@ -10,7 +10,7 @@ class AnnouncementController extends Controller
     // display announcements on page
     public function display_announcements() {
 
-        $announcements = Announcement::paginate(4);
+        $announcements = Announcement::paginate(5);
         return view('pages.announcements', compact('announcements'));
         
     }
