@@ -29,6 +29,10 @@ Route::post('activation/resend', 'Auth\ActivationKeyController@resendKey')->name
 Route::post('display_report_user', 'ReportController@display_report_user')
 ->middleware('logged_in');
 
+// Displays the contact page
+Route::get('display_contact', 'ContactController@display_contact_page');
+Route::post('send_contact_mail', 'ContactController@send_mail')->name("send_contact_mail");
+
 /**
 * Routing for threading categories, display all posts under the category
 * TODO possibly do pinned posts

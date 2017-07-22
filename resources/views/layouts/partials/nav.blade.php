@@ -26,7 +26,7 @@
                 <li><a href="{{ route('display_search_user') }}">Community</a></li>
               </ul>
             </li>
-            <li><a href="{{ url('/contact') }}">Contact</a></li>
+            <li><a href="{{ url('/display_contact') }}">Contact</a></li>
 
             @if (Auth::guest())
                 <li><a href="{{ route('login') }}">Login</a></li>
