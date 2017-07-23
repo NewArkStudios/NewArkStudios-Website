@@ -8,6 +8,10 @@
                 <div class="panel-heading">Contact NewArkStudios</div>
 
                 <div class="panel-body">
+
+                    @if(!empty($message))
+                        <h6 class="text-center">{{$message}}</h6>
+                    @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{route('send_contact_mail')}}">
                         {{ csrf_field() }}
 

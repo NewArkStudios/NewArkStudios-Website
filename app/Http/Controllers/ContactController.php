@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 
+use App\Mail\ContactMailable;
+
 class ContactController extends Controller
 {
 
@@ -41,20 +43,13 @@ class ContactController extends Controller
         // validate input    
         $validator = $this->validator($request->all());
 
-        // if validation fails 
-        if ($validator->fails()) {
-            $this->throwValidationException(
-                $request, $validator
-            );
-        }
+        // validate if fails will redirect
+        $validator->validate(); 
 
         $bodymessage = $request['message'];
 
-        // TODO Move to mailable
-        Mail::send('email.email_contact', ['title' => $request['subject'], 'bodymessage' => $bodymessage], function ($message)
-        {
-            $message->to(env('MAIL_FROM_ADDRESS', "NewArkStudiosOffical@gmail.com"));
-            $message->subject("Contact form");
-        });
+        Mail::send(new ContactMailable($request));
+
+        return view("pages.contact")->with(['message' => "Your message was sent to us, thanks"]);
     }
 }
