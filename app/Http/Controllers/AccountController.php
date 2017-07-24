@@ -53,10 +53,22 @@ class AccountController extends Controller
     public function update_account_post(Request $request) {
         
         $user = Auth::user();
+
+        // Make validator
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|alpha_dash|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
+        ]);
+
+        // validate, if call fails redirect back
+        $validator->validate();
+ 
         $user->email = $request['email'];
+        $user->name = $request['name'];
+
 
         $user->save();
-        return "success"; // please create screen for this
+        return redirect()->back()->with(["message" => "Successfully updated account information"]);
     }
 
     /**
