@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\URL;
 
 use App\User;
 use DateTime;
@@ -47,7 +48,7 @@ class AccountController extends Controller
     }
 
     /**
-    * Update password
+    * Update password for user
     */
     public function update_password(Request $request){
 
@@ -56,14 +57,18 @@ class AccountController extends Controller
         ]);
 
         // validate, if call fails redirect back
-        $validator->validate();
+        // we manually need to do this because we need to add the hash
+        if ($validator->fails()) {
+            return redirect(URL::previous() . "#passwordsection")
+            ->withErrors($validator);
+        }
 
         // get the user
         $user = Auth::user();
         $user->password = bcrypt($request['password']);
         $user->save();
 
-        return redirect()->back();
+        return redirect(URL::previous() . "#passwordsection")->with(["message" => "Password updated"]);
     }
 
     /**
