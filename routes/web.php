@@ -161,6 +161,7 @@ Route::group(['prefix' => 'account'], function(){
     Route::post('update_profile_post', 'AccountController@update_profile_post')->name('update_profile_post');
     Route::get('settings', 'AccountController@get_Settings')->name('account_settings');
     Route::post('update_account_post', 'AccountController@update_account_post')->name('update_account_post');
+    Route::post('update_password', 'AccountController@update_password')->name('update_password');
 });
 
 /**

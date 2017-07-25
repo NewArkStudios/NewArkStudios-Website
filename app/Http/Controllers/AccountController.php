@@ -47,6 +47,26 @@ class AccountController extends Controller
     }
 
     /**
+    * Update password
+    */
+    public function update_password(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        // validate, if call fails redirect back
+        $validator->validate();
+
+        // get the user
+        $user = Auth::user();
+        $user->password = bcrypt($request['password']);
+        $user->save();
+
+        return redirect()->back();
+    }
+
+    /**
     * Update Account information such as settings
     * FormRequests Requests/update_account_post form request, validation rule is there
     */
