@@ -21,7 +21,7 @@ class ReplyController extends Controller
         // Create new model object
         $reply = new Reply();
 
-        // set table values
+        // set table values and clean input to allow sanitized inject
         $reply->user_id = Auth::user()->id;
         $reply->post_id = $request['post_id'];
         $reply->body = clean($request['body']);
@@ -31,7 +31,7 @@ class ReplyController extends Controller
         $post = Post::where('id', $request['post_id'])->first();
 
         // check whether post is closed, somehow someone makes post request anyways
-        if ($post->close)
+        if ($post->closed)
             return "post is closed";
 
         $post->touch();

@@ -102,7 +102,7 @@
                     <a href="{{url('thread/display_edit_reply/' . $replies[$i]->id)}}">Edit Reply</a>
                     @endif
                 @endif
-                <p>{!! $replies[$i]->body !!} from: {{$replies[$i]->user->name}}<p>
+                <p>{!! $replies[$i]->body !!} <br><br>from: {{$replies[$i]->user->name}}<p>
                 @if($replies[$i]->warned == 1)
                     <p><small style="color:red">User was suspended for reply</small></p>
                 @elseif($replies[$i]->warned == 2)
@@ -143,9 +143,10 @@
             @elseif(Auth::user() && $post->closed)
                 Post is closed sorry
             @else
-                <form class="form-horizontal" role="form" method="POST" action="{{ route('make_reply') }}">
+                <form  class="form-horizontal" role="form" method="POST" action="{{ route('make_reply') }}">
                     {{ csrf_field() }}
-                    <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
+                    <input type="hidden" name="post_id" value="{{$post->id}}"></input>
+                    <div style="margin-top:1em;" class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
                         <label for="body" class="col-md-4 control-label">Body</label>
 
                         <div class="col-md-6">
@@ -161,10 +162,18 @@
 
                     <div id="reply-section" class="form-group">
                         <div class="col-md-6 col-md-offset-4">
+                            <button type="button" id="preview-button" class="btn btn-primary">
+                                Preview
+                            </button>
                             <button type="submit" class="btn btn-primary">
                                 Reply
                             </button>
+
                         </div>
+                    </div>
+
+                    <!-- Preview section -->
+                    <div id="preview-content">
                     </div>
                 </form>
             @endif

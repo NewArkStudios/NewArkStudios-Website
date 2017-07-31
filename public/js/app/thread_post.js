@@ -3,6 +3,14 @@
 * with appropriate UI elements
 */
 
+// on click event for preview section
+$('#preview-button').on('click', function(){
+
+    // update preview section
+    $("#preview-content").html($("#body").val());
+
+});
+
 // initialize content for page
 $("#post-edited-dialog").dialog({
     autoOpen: false,
