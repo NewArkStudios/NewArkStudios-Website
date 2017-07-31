@@ -52,7 +52,7 @@ class SearchController extends Controller
         $posts = Post::where(DB::raw('lower(title)'), 'LIKE', "%" . strtolower($search_title) . "%")
         ->where('category_id', $category->id)->orderBy('updated_at', 'desc')->paginate(5);
 
-        return view('pages.thread_posts_list', ['posts' => compact('posts'),
+        return view('pages.thread_posts_list', ['posts' => $posts,
             'category' => $category,
             'moderator' => $moderator,
             'admin' => $admin

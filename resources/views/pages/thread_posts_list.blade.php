@@ -39,7 +39,7 @@
                                 Posted by: <a href="{{url('/profile/' . $post->user->name)}}">{{$post->user->name}}</a>
                                 <br>
                                 Created at: {{$post->created_at}}, Updated at: {{$post->updated_at}}
-                                </div>
+                            </div>
                         @endforeach
                     @else
                         No posts :(
