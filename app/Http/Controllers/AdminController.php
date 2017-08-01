@@ -4,11 +4,22 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Announcement;
+use App\User;
+use App\Models\User_Roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
+
 class AdminController extends Controller
 {
+
+    // fields representing roles
+    public static $roles_array = [
+        "admin" => 1,
+        "moderator" => 2,
+    ];
+
     /**
     * Display the admin panel, containing special 
     * stuff the admin can do
@@ -48,5 +59,40 @@ class AdminController extends Controller
          $announcement->save();
 
          return redirect('/announcements');
+    }
+
+    /**
+    * Make moderator from webpage
+    * make sure validation occurs on server side for admin
+    * middleware already set that admin must be used to access this route
+    */
+    public function make_moderator(Request $request) {
+
+        $user = User::where('id', $request['user_id'])->first();
+        $success = self::make_role($user, "moderator");
+
+        if ($success)
+            return redirect()->back();
+        else
+            return "error in the admin matrix";// redirect to error
+            
+    }
+
+    /**
+    * Add new role for user
+    * @param user, User model object which is the user we will be modifying
+    * @param role, String containing the role that we are defining
+    */
+    public function make_role(User $user, $role){
+
+        $user_id = $user->id;
+        $role_id = self::$roles_array[$role];
+
+        $user_role = new User_Roles();
+        $user_role->user_id = $user_id;
+        $user_role->role_id = $role_id;
+        $user_role->save();
+
+        return true;
     }
 }

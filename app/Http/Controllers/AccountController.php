@@ -19,6 +19,7 @@ class AccountController extends Controller
         $user_info = [
             "id" => $user->id,
             "name" => $user->name,
+            "moderator" => $user->hasRole('moderator'),
             "bio" => ($user->bio) ? $user->bio : false,
             "age" => ($user->age) ? $user->bio :false,
             'birthday' => ($user->birthday) ? $user->birthday : false,

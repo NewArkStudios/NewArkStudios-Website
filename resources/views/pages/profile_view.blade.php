@@ -28,8 +28,24 @@
 
                             </div>
                             @if(Auth::user())
+                            <div style="margin-bottom:1em;" class="col-md-12">
                                 <a href="{{url('messages/display_make_message/' . $name)}}">Private Message</a>
+                            </div>
+                                @if(Auth::user()->hasRole('admin'))
+
+                                    <!-- Check if the user is and moderator -->
+                                    @if(!$moderator)
+                                        <div class="col-md-6">
+                                            <form style="display:inline-table;" role="form" method="POST" action="{{ route('make_moderator') }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="user_id" value="{{$id}}"></input>
+                                                <button type="submit" class="btn btn-primary">Make Moderator</button>
+                                            </form>
+                                        </div>
+                                    @endif
+                                @endif
                             @endif
+                            
                         </div>
                         <div id="posts-section" class="tab-pane fade">
                             @foreach($posts as $post)
