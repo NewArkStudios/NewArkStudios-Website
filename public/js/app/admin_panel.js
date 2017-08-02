@@ -6,3 +6,7 @@ $('#preview-button').on('click', function(){
     $("#preview-content").html($("#body").val());
 
 });
+
+
+// start data table example
+$('#example').DataTable();

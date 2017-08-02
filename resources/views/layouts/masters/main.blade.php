@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/jquery-ui.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{URL::asset('js/DataTables/datatables.css')}}"/>
 
     </head>
     <body>
@@ -25,7 +26,9 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="{{ URL::asset('js/jquery-1.12.4.min.js') }}" /></script>
         <script src="{{ URL::asset('js/jquery-ui.min.js') }}" /></script>
+
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{URL::asset('js/DataTables/datatables.min.js')}}"></script>
         @yield('custom-javascripts')
 	    <!-- Footer End -->
     </body>
