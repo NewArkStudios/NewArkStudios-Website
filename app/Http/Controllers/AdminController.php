@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use App\User;
+use App\Models\Roles;
 use App\Models\User_Roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,11 +15,6 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
 
-    // fields representing roles
-    public static $roles_array = [
-        "admin" => 1,
-        "moderator" => 2,
-    ];
 
     /**
     * Display the admin panel, containing special 
@@ -62,6 +58,27 @@ class AdminController extends Controller
     }
 
     /**
+    * Get all moderators listed within the database
+    */
+    public function get_moderators() {
+
+        // Get the number for moderators
+        $modnum = Roles::where('name', "moderator")->first()->id;
+
+        // get all users who have moderator role
+        // https://stackoverflow.com/questions/22487324/get-all-users-with-role-in-laravel
+        // https://laravel.com/docs/5.4/eloquent-relationships
+        $moderators = User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'moderator');
+            }
+        )->get();
+
+        return $moderators;
+         
+    }
+
+    /**
     * Make moderator from webpage
     * make sure validation occurs on server side for admin
     * middleware already set that admin must be used to access this route
@@ -86,7 +103,7 @@ class AdminController extends Controller
     public function make_role(User $user, $role){
 
         $user_id = $user->id;
-        $role_id = self::$roles_array[$role];
+        $role_id = Roles::where('name', $role)->first()->id;
 
         $user_role = new User_Roles();
         $user_role->user_id = $user_id;

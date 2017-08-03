@@ -63,6 +63,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
     Route::get('display_edit_announcement/{id}', 'AdminController@display_edit_announcement')->name('display_edit_announcement');
     Route::post('edit_annoucement', 'AdminController@edit_announcement')->name('edit_announcement');
     Route::post('make_moderator', 'AdminController@make_moderator')->name('make_moderator');
+    Route::get('get_moderators', 'AdminController@get_moderators')->name('get_moderators');
 
 });
 /**

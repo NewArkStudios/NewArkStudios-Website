@@ -11,4 +11,5 @@ class User_Roles extends Model
 
     // roles should not be timestamped
     public $timestamps = false;
+
 }

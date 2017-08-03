@@ -10,3 +10,10 @@ $('#preview-button').on('click', function(){
 
 // start data table example
 $('#example').DataTable();
+
+
+// AJAX to get moderators
+$.get('/admin/get_moderators', function(data, status){
+
+    console.log(data);
+});

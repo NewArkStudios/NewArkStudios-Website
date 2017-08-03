@@ -1,5 +1,7 @@
 @extends('layouts.masters.main')
-
+@section('custom-css')
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('js/DataTables/datatables.css')}}"/>
+@endsection
 @section('page-content')
 <div class="container">
     <div class="row">
@@ -163,5 +165,7 @@
 </div>
 @endsection
 @section('custom-javascripts')
+
+    <script type="text/javascript" src="{{URL::asset('js/DataTables/datatables.min.js')}}"></script>
     <script src="{{ asset('js/app/admin_panel.js') }}"></script>
 @endsection
