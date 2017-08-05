@@ -75,7 +75,6 @@ class AdminController extends Controller
         )->get();
 
         return $moderators;
-         
     }
 
     /**
