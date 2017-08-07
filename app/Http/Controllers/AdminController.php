@@ -78,6 +78,14 @@ class AdminController extends Controller
     }
 
     /**
+    * Delete moderator
+    */
+    public function delete_moderator(Request $request) {
+        
+        // code for deleting moderator
+    }
+
+    /**
     * Make moderator from webpage
     * make sure validation occurs on server side for admin
     * middleware already set that admin must be used to access this route

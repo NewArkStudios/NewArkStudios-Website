@@ -14,19 +14,14 @@ $('#preview-button').on('click', function(){
  */
 function transformData (data) {
 
-    // loop through reformatting to jquery data format
-    var tableData = [];
-
     // loop through each function
     $.each(data, function(index, element){
 
-        var entry = [];
-        entry.push(element['name']);
-
-        tableData.push(entry);
+        element['removebutton'] = null;
     });
 
-    return tableData;
+    return data;
+
 }
 
 
@@ -35,11 +30,43 @@ $.get('/admin/get_moderators', function(data, status){
 
     // start data table initialization
     $('#moderator-table').DataTable({
-        "columns":[
+        "columns" : [
             {
-                "title": "Name",
+                "data": "name",
+                "title": "User-Name",
+                "render": function(data, type, full, meta) {
+
+                    return "<a target='blank' href='/profile/" + data + "'>" + data + "</a>"
+                }
+            },
+            {
+                "data": "first_name",
+                "title": "First Name",
+            },
+            {
+                "data": "last_name",
+                "title": "Last Name",
+            },
+            {
+                "data": "email",
+                "title": "Email",
+            },
+            {
+                "data": "removebutton",
+                "title": "Remove",
+                "render" : function (data, type, full, meta) {
+                    return "<button data-user='" + full['id'] + "' class='removemod-btn btn btn-default'>Remove Moderator</button>";
+                },
             },
         ],
         "data" : transformData(data)
+    });
+
+
+    // add event listener
+    $('button.removemod-btn').on('click', function(){
+
+        // delete moderator
+        
     });
 });
