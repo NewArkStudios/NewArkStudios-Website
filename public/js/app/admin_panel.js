@@ -66,7 +66,18 @@ $.get('/admin/get_moderators', function(data, status){
     // add event listener
     $('button.removemod-btn').on('click', function(){
 
-        // delete moderator
+        // AJAX call to delete moderators
+        var url = '/admin/delete_moderator';
+        var id = $(this).attr('data-user');
+        var _token = $('input[name="_token"]').val();
+
+        $.post(url,{'mod_id': id, '_token': _token}, function(data, status){
+
+            if (data.success && data.success == true)
+                console.log(data);
+        
+        });
+
         
     });
 });

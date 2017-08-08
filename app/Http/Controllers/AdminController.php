@@ -62,9 +62,6 @@ class AdminController extends Controller
     */
     public function get_moderators() {
 
-        // Get the number for moderators
-        $modnum = Roles::where('name', "moderator")->first()->id;
-
         // get all users who have moderator role
         // https://stackoverflow.com/questions/22487324/get-all-users-with-role-in-laravel
         // https://laravel.com/docs/5.4/eloquent-relationships
@@ -83,6 +80,17 @@ class AdminController extends Controller
     public function delete_moderator(Request $request) {
         
         // code for deleting moderator
+        $mod_id = (int)$request['mod_id'];
+
+        $mod_num = Roles::where('name', "moderator")->first()->id;
+        $user = User::where('id', $mod_id)->first();
+
+        // https://stackoverflow.com/questions/27330551/laravel-eloquent-orm-many-to-many-delete-pivot-table-values-left-over
+        $user->roles()->detach($mod_num);
+
+        return [
+            'success' => true
+        ];
     }
 
     /**

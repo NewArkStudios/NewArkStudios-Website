@@ -64,6 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
     Route::post('edit_annoucement', 'AdminController@edit_announcement')->name('edit_announcement');
     Route::post('make_moderator', 'AdminController@make_moderator')->name('make_moderator');
     Route::get('get_moderators', 'AdminController@get_moderators')->name('get_moderators');
+    Route::post('delete_moderator', 'AdminController@delete_moderator')->name('delete_moderator');
 
 });
 /**
