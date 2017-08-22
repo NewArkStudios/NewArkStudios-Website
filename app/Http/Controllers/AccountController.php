@@ -17,8 +17,12 @@ class AccountController extends Controller
         $user = User::where('name', $profile_slug)->first();
 
         // check if user exists
-        if(is_null($user))
-            return "This user does not exist";
+        if(is_null($user)) {
+            $error = [
+                "error" => 'User does not exist'
+            ];
+            return view('pages.profile_view', $error);
+        }
 
         $user_info = [
             "id" => $user->id,

@@ -5,8 +5,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">My Profile</div>
-
+                <div class="panel-heading">Profile</div>
+                @if(!empty($error))
+                    <h3 class='text-center'>{{$error}}</h3>
+                @else
                 <div class="panel-body">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#profile-section">Profile</a></li>
@@ -60,6 +62,7 @@
                             {{ $posts->links() }}
                         </div>
                     </div>
+                @endif
                 </div>
             </div>
         </div>
