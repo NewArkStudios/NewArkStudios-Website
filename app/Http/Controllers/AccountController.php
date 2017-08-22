@@ -123,6 +123,9 @@ class AccountController extends Controller
         $user->age = $interval->y;
 
         $user->save();
-        return "success"; // please create screen for this
+        $message = [
+            'information' => "Updated Profile Successfully"
+        ];
+        return view("pages.information", $message); // please create screen for this
     }
 }
