@@ -126,6 +126,7 @@ class AccountController extends Controller
         $message = [
             'information' => "Updated Profile Successfully"
         ];
+
         return view("pages.information", $message); // please create screen for this
     }
 }

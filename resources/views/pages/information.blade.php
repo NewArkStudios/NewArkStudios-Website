@@ -8,7 +8,13 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    {{$information}}
+                    @if(isset($information))
+                        {{$information}}
+                    @elseif(session('information'))
+                        {{session('information')}}
+                    @else
+                        Hey this is cool you linked this route
+                    @endif
                 </div>
             </div>
         </div>

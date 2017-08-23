@@ -21,8 +21,9 @@ class Admin
         if (Auth::user()) {
 
             // check if user is logged in 
-            if (!(Auth::user()->hasRole("admin")))
-                return "You must be logged into as an administrator to access.";
+            if (!(Auth::user()->hasRole("admin"))) {
+                return redirect('information')->with('information', "You must be logged into as an administrator to access.");
+            }
         } else {
             return redirect()->route('register');
         }

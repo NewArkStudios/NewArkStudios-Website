@@ -33,6 +33,7 @@ Route::post('display_report_user', 'ReportController@display_report_user')
 Route::get('display_contact', 'ContactController@display_contact_page');
 Route::post('send_contact_mail', 'ContactController@send_mail')->name("send_contact_mail");
 
+
 /**
 * Routing for threading categories, display all posts under the category
 * TODO possibly do pinned posts
@@ -175,4 +176,11 @@ Route::group(['prefix' => 'moderator', 'middleware' => ['moderator']], function(
     Route::post('ban_user', 'ModeratorController@ban_user')->name('ban_user');
     Route::post('warn_user', 'ModeratorController@warn_user')->name('warn_user');
     Route::post('suspend_user', 'ModeratorController@suspend_user')->name('suspend_user');
+});
+
+
+// Route for simply displaying information can be used in middleware
+// hence why it must be placed in route
+Route::get('information', function(){
+    return view('pages.information');
 });
