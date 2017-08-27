@@ -102,7 +102,8 @@
                     <a href="{{url('thread/display_edit_reply/' . $replies[$i]->id)}}">Edit Reply</a>
                     @endif
                 @endif
-                <p>{!! $replies[$i]->body !!} <br><br>from: {{$replies[$i]->user->name}}<p>
+                <div class='reply-content'>{!! $replies[$i]->body !!} </div>
+                <div class='reply-user'>from: {{$replies[$i]->user->name}}</div>
                 @if($replies[$i]->warned == 1)
                     <p><small style="color:red">User was suspended for reply</small></p>
                 @elseif($replies[$i]->warned == 2)
@@ -122,7 +123,8 @@
                     </div>
                 @endif
                 @if(Auth::user())
-                    <a href="#reply-section">reply</a>
+                    <a class='reply-link'>reply</a>
+                    <br>
                 @endif
                 <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
                     {{ csrf_field() }}
@@ -150,7 +152,7 @@
                         <label for="body" class="col-md-4 control-label">Body</label>
 
                         <div class="col-md-6">
-                            <textarea id="body" class="form-control" name="body" required></textarea>
+                            <textarea id="body" rows="7" cols="25" class="form-control" name="body" required></textarea>
 
                             @if ($errors->has('body'))
                                 <span class="help-block">

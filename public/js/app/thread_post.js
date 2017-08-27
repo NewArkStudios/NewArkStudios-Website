@@ -35,3 +35,15 @@ $('a.edited-reply-link').on('click', function(){
     $("#" + $(this).attr('dialog-link')).dialog('open')
 
 });
+
+// link for replying, generates quote in reply section
+$('a.reply-link').on('click', function(){
+
+    var replyContent = $(this).siblings('div.reply-content').text();
+    var replyUser = $(this).siblings('div.reply-user').text();
+    replyContent = "<blockquote>" + replyContent + "<br>" + replyUser  + "</blockquote>\n\n"
+    $("#body").val(replyContent);
+
+    // scroll to body element
+    $("html, body").animate({ scrollTop: $('#body').offset().top }, 1000);
+});
