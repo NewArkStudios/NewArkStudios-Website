@@ -1,5 +1,9 @@
 @extends('layouts.masters.main')
 
+@section('custom-css')
+    <link rel="stylesheet" href="{{ URL::asset('css/app/thread_post.css') }}" />
+@endsection
+
 @section('page-content')
 <div class="container">
     <div class="row">
