@@ -106,6 +106,7 @@ class LoginController extends Controller
                 return redirect()->back()
                 ->with('message','User account not activated')
                 ->with('status', 'danger')
+                ->with('resend_link', true)
                 ->withInput();
             }
             return $this->sendLoginResponse($request);
