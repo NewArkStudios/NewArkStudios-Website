@@ -95,3 +95,9 @@ MAIL_FROM_DISPLAY_NAME=example
 SETTINGS_SEND_ACTIVATION_EMAIL=true
 
 ```
+
+Facebook app is set to Peter Hoang's developer account
+any facebook app can be used simply remember to change the id and secret key under env
+
+FACEBOOK_ID=
+FACEBOOK_SECRET=
