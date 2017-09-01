@@ -25,6 +25,11 @@ Route::get('activation/key/{activation_key}', 'Auth\ActivationKeyController@acti
 Route::get('activation/resend_display', 'Auth\ActivationKeyController@showKeyResendForm')->name('activation_key_resend_display');
 Route::post('activation/resend', 'Auth\ActivationKeyController@resendKey')->name('activation_key_resend');
 
+// Facebook routes
+Route::get('/redirect', 'Auth\SocialAuthController@redirect');
+Route::get('/callback', 'Auth\SocialAuthController@callback');
+
+
 // Display UI for reporting user based on post or reply
 Route::post('display_report_user', 'ReportController@display_report_user')
 ->middleware('logged_in');
