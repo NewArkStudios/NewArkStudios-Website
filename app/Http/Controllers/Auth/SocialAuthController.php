@@ -21,7 +21,9 @@ class SocialAuthController extends Controller
 
         auth()->login($user);
 
-        return redirect()->to('/home');
+        // funny little note about facebook api
+        // https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url
+        return redirect('/account/settings/');
     }
     
 }
