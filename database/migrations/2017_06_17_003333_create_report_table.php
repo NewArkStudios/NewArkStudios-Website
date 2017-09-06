@@ -17,13 +17,13 @@ class CreateReportTable extends Migration
             $table->increments('id')->unique(); // id of the report
             $table->text('reason'); // text indicating what is the reason for the import
             $table->integer('reporter_id')->unsigned(); // the user who reported
-            $table->foreign('reporter_id')->references('id')->on('users');
+            $table->foreign('reporter_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('post_id')->unsigned()->nullable(); // the post in question we are reporting on
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->integer('suspect_id')->unsigned(); // the individual in question
-            $table->foreign('suspect_id')->references('id')->on('users');
+            $table->foreign('suspect_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('reply_id')->unsigned()->nullable();
-            $table->foreign('reply_id')->references('id')->on('replies');
+            $table->foreign('reply_id')->references('id')->on('replies')->onDelete('cascade');
             $table->timestamps();
         });
     }
