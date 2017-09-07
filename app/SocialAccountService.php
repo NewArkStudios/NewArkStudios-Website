@@ -42,7 +42,7 @@ class SocialAccountService
             $user = User::whereEmail($providerUser->getEmail())->first();
 
             // check if user name is unique
-            $username = $providerUser->getName();
+            $username = str_replace(' ', '', $providerUser->getName());
             $counter = 0;
             while(!$this->check_if_username_unique($username)) {
                 $username = $username . $counter;
