@@ -17,9 +17,13 @@ class SocialAuthController extends Controller
 
     public function callback(SocialAccountService $service)
     {
-        $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
+        $social_obj = $service->createOrGetUser(Socialite::driver('facebook')->user());
 
-        auth()->login($user);
+        auth()->login($social_obj["user"]);
+
+        // check if user is new, if so ask them to update information
+        if ($social_obj["new"])
+            echo "New user";
 
         // funny little note about facebook api
         // https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url

@@ -25,7 +25,10 @@ class SocialAccountService
 
         // if account exists return 
         if ($account) {
-            return $account->user;
+            return array(
+                "user" => $account->user,
+                "new" => false
+            );
         } 
         
         // if account does not exist make one for user then return
@@ -59,7 +62,10 @@ class SocialAccountService
             $account->user()->associate($user);
             $account->save();
 
-            return $user;
+            return array(
+                "user" => $user,
+                "new" => true
+            );
 
         }
     }
