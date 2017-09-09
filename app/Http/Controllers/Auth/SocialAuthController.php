@@ -77,13 +77,18 @@ class SocialAuthController extends Controller
 
         // get logged in user
         $user = Auth::user();
-        $user->name = $request['name'];
-        $user->password = bcrypt($request['password']);
-        $user->email = $request['email'];
 
-        $user->save();
+        if ($user) {
+            $user->name = $request['name'];
+            $user->password = bcrypt($request['password']);
+            $user->email = $request['email'];
+            $user->save();
+            return redirect('/');
+        } 
+        else
+            return view('pages.information', ['information' => 'You must be logged in to make that request']);
 
-        return redirect('/');
+
 
     }
     
