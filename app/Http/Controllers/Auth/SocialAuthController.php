@@ -51,7 +51,14 @@ class SocialAuthController extends Controller
 
     
     public function editSocialUser(Request $request){
-        return view('pages.new_social', ['user' => Auth::user()]);
+
+        // check if user is logged in 
+        $user = Auth::user();
+
+        if ($user)
+            return view('pages.new_social', ['user' => $user]);
+        else
+            return view('pages.information', ['information' => 'You must be logged in to view this page']);
     }
 
     /**
