@@ -29,6 +29,7 @@ Route::post('activation/resend', 'Auth\ActivationKeyController@resendKey')->name
 Route::get('/redirect', 'Auth\SocialAuthController@redirect');
 Route::get('/callback', 'Auth\SocialAuthController@callback');
 Route::post('/make_social_user', 'Auth\SocialAuthController@makeSocialUser')->name('make_social_user');
+Route::get('/edit_social_user', 'Auth\SocialAuthController@editSocialUser')->name('edit_social_user');
 
 
 // Display UI for reporting user based on post or reply
