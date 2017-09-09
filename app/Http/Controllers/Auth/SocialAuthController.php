@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\SocialAccountService;
 use Socialite;
@@ -23,11 +24,18 @@ class SocialAuthController extends Controller
 
         // check if user is new, if so ask them to update information
         if ($social_obj["new"])
-            echo "New user";
+            return view('pages.new_social', ['user' => Auth::user()]);
 
         // funny little note about facebook api
         // https://stackoverflow.com/questions/7131909/facebook-callback-appends-to-return-url
-        return redirect('/account/settings/');
+        return redirect('/');
+    }
+
+    /**
+    * Edit values for users who first logged in through social means
+    */
+    public function make_social_user(Request $request){
+        
     }
     
 }
