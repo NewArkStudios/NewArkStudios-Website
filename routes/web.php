@@ -26,8 +26,8 @@ Route::get('activation/resend_display', 'Auth\ActivationKeyController@showKeyRes
 Route::post('activation/resend', 'Auth\ActivationKeyController@resendKey')->name('activation_key_resend');
 
 // Facebook routes
-Route::get('/redirect', 'Auth\SocialAuthController@redirect');
-Route::get('/callback', 'Auth\SocialAuthController@callback');
+Route::get('/redirectSocial', 'Auth\SocialAuthController@redirectSocial');
+Route::get('/callbackSocial', 'Auth\SocialAuthController@callbackSocial');
 Route::post('/make_social_user', 'Auth\SocialAuthController@makeSocialUser')->name('make_social_user');
 Route::get('/edit_social_user', 'Auth\SocialAuthController@editSocialUser')->name('edit_social_user');
 

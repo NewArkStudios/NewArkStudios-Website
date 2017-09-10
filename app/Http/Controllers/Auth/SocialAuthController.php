@@ -28,13 +28,13 @@ class SocialAuthController extends Controller
         ]);
     }
 
-    public function redirect()
+    public function redirectSocial()
     {
         return Socialite::driver('facebook')->redirect();   
     }   
 
 
-    public function callback(SocialAccountService $service)
+    public function callbackSocial(SocialAccountService $service)
     {
         $social_obj = $service->createOrGetUser(Socialite::driver('facebook')->user());
 
