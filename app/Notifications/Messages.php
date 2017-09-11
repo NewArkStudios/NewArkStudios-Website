@@ -16,9 +16,10 @@ class Messages extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($message)
     {
-        //
+        // store variable locally
+        $this->message = $message;
     }
 
     /**
@@ -41,8 +42,8 @@ class Messages extends Notification
     public function toArray($notifiable)
     {
         return [
-            'message' => 'A new post was published on Laravel News.',
-            'action' => url($this->post->slug)
+            'notification' => 'New Direct Message',
+            'message' => url($this->message->message)
         ];
     }
 }

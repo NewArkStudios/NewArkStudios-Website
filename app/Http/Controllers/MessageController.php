@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Notifications\Messages;
 use App\Models\MessageReply;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,7 @@ class MessageController extends Controller
         ]);
 
         $receiver = User::where('name', $request['receiver_name'])->first();
+
         $sender = Auth::user();
 
         $message = new Message();
@@ -44,6 +46,10 @@ class MessageController extends Controller
         $message->read = false;
 
         $message->save();
+
+        // notify user of message
+        $receiver->notify(new Messages($message));
+
         return redirect('messages/inbox');
     }
 

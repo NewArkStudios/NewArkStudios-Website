@@ -31,6 +31,9 @@ Route::get('/callbackSocial', 'Auth\SocialAuthController@callbackSocial');
 Route::post('/make_social_user', 'Auth\SocialAuthController@makeSocialUser')->name('make_social_user');
 Route::get('/edit_social_user', 'Auth\SocialAuthController@editSocialUser')->name('edit_social_user');
 
+// Routes for loading notifications
+// https://laravel.com/docs/master/notifications#accessing-the-notifications
+
 
 // Display UI for reporting user based on post or reply
 Route::post('display_report_user', 'ReportController@display_report_user')
