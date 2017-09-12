@@ -9,9 +9,8 @@
           </button>
           <a class="navbar-brand" href="{{ url('/') }}">NewArkStudios</a>
         </div>
-        <!-- NOTE NEED TO FLIP ARROWS OF DROPDOWN IN FUTURE -->
-        <div id="navbar" style="float:right;" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ url('/announcements') }}">Annoucements</a></li>
             <li> <a href="{{ url('/games') }}">Games</a></li>
             <li class="dropdown">
