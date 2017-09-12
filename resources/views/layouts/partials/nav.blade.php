@@ -9,12 +9,20 @@
           </button>
           <a class="navbar-brand" href="{{ url('/') }}">NewArkStudios</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <!-- NOTE NEED TO FLIP ARROWS OF DROPDOWN IN FUTURE -->
+        <div id="navbar" style="float:right;" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"> <a href="{{ url('/game') }}">Game Name</a></li>
-            <li><a href="{{ url('/world') }}">World Name</a></li>
             <li><a href="{{ url('/announcements') }}">Annoucements</a></li>
-            <li><a href="{{ url('/devteam') }}">Dev Team</a></li>
+            <li> <a href="{{ url('/games') }}">Games</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                About us<span class="caret"></span>
+                </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="{{ url('/dev_team') }}">Dev Team</a></li>
+                <li><a href="{{ url('/display_contact') }}">Contact</a></li>
+              </ul>
+            </li>
 
             <!--Forums link subject to change -->
             <li class="dropdown">
@@ -26,7 +34,6 @@
                 <li><a href="{{ route('display_search_user') }}">Community</a></li>
               </ul>
             </li>
-            <li><a href="{{ url('/display_contact') }}">Contact</a></li>
 
             @if (Auth::guest())
                 <li><a href="{{ route('login') }}">Login</a></li>
@@ -58,6 +65,9 @@
                             </form>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a id="nav-notifications" style="margin-top: 0.15em;"><span class="glyphicon glyphicon-bell"></span></a>
                 </li>
             @endif
 
