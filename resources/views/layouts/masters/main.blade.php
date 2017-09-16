@@ -27,7 +27,9 @@
         <script src="{{ URL::asset('js/jquery-1.12.4.min.js') }}" /></script>
         <script src="{{ URL::asset('js/jquery-ui.min.js') }}" /></script>
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ URL::asset('js/run_everytime.js') }}"></script>
+        <script src="{{ URL::asset('js/require.js') }}"></script>
+        <script src="{{ URL::asset('js/app.require.js') }}"></script>
+        <!--<script src="{{ URL::asset('js/run_everytime.js') }}"></script>-->
         @yield('custom-javascripts')
 	    <!-- Footer End -->
     </body>
