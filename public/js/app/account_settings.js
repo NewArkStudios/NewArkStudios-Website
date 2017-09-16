@@ -1,3 +1,7 @@
+/**
+* Module at the moment that runs on the Account Settings page
+* js/app/account_settings.js
+*/
 define('account_settings', ['jquery'], function($) {
 
     var settings = {
