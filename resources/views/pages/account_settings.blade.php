@@ -102,5 +102,5 @@
 </div>
 @endsection
 @section('custom-javascripts')
-    <script src="{{ asset('js/app/account_settings.js') }}"></script>
+    <script src="{{ asset('js/app/app.account_settings.js') }}"></script>
 @endsection

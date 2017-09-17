@@ -1,8 +1,8 @@
 /**
 * Module at the moment that runs on the Account Settings page
-* js/app/account_settings.js
+* js/app/app.account_settings.js
 */
-define('account_settings', ['jquery'], function($) {
+define('app.account_settings', ['jquery'], function($) {
 
     var settings = {
         'init' : function() {
@@ -30,7 +30,7 @@ define('account_settings', ['jquery'], function($) {
 });
 
 // call to run module on load
-require(['jquery', 'account_settings'], function($, settings){
+require(['jquery', 'app.account_settings'], function($, settings){
     settings.init();
 })
 
