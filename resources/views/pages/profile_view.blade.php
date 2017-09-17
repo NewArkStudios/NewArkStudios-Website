@@ -71,5 +71,5 @@
 @endsection
 
 @section('custom-javascripts')
-    <script src="{{ asset('js/app/profile.js') }}"></script>
+    <script src="{{ asset('js/app/app.profile.js') }}"></script>
 @endsection
