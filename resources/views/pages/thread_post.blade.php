@@ -189,5 +189,5 @@
 </div>
 @endsection
 @section('custom-javascripts')
-    <script src="{{ asset('js/app/thread_post.js') }}"></script>
+    <script src="{{ asset('js/app/app.thread_post.js') }}"></script>
 @endsection

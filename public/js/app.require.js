@@ -15,8 +15,8 @@ paths: {
     // js/lib/jquery-1.9.0.js, relative to
     // the HTML page.
     jquery: '/js/jquery-1.12.4.min',
-    /**jquery_ui: '/js/jquery-ui.min',
-    bootstrap : '/js/bootstrap.min'**/
+    jquery_ui: '/js/jquery-ui.min',
+    /**bootstrap : '/js/bootstrap.min'**/
 }
 });
 
