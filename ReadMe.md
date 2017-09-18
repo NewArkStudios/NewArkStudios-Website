@@ -82,6 +82,9 @@ If run into errors delete migrations table and already existing tables
 ### Environment Notes
 Updates to .env file needed for mail server
 example - note this is mailtrap server, we need to update to legitimate email in future
+
+**Note I tried to use gmail server but ran into issue with bluehost not allowing outgoing messages**
+
 ```
 
 MAIL_DRIVER=smtp
