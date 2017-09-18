@@ -1,9 +1,8 @@
 /**
 * Module used to run on every page of the website
-* 
 *js/app/app.js
 */
-define(['jquery'],function($){
+define(['jquery', 'notification'],function($, Notification){
 
     var app = {
     
@@ -12,9 +11,8 @@ define(['jquery'],function($){
         */
         'start' : function() {
 
-            $.get( "/get_all_notifications", function( data ) {
-                console.log(data);
-            });
+            // Call to get Notifications
+            Notification.getAllNotification();
         }
     }
 
