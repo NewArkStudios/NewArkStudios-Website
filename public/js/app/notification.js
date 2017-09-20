@@ -19,6 +19,9 @@ define('notification', ['jquery'], function($){
                     console.log(data);
                 });
             }
+        },
+
+        'displayNotification' : function(){
         }
     
     };
