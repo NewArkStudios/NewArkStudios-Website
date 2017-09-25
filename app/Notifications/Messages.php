@@ -43,7 +43,8 @@ class Messages extends Notification
     {
         return [
             'notification' => 'New Direct Message',
-            'message' => url($this->message->message)
+            'message' => $this->message->message,
+            'url' => $this->message->id
         ];
     }
 }
