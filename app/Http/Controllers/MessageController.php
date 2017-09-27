@@ -48,7 +48,7 @@ class MessageController extends Controller
         $message->save();
 
         // notify user of message
-        $receiver->notify(new Messages($message));
+        $receiver->notify(new Messages($message, $sender, $receiver));
 
         return redirect('messages/inbox');
     }

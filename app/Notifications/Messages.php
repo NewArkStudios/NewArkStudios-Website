@@ -16,10 +16,12 @@ class Messages extends Notification
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($message, $sender, $receiver)
     {
         // store variable locally
         $this->message = $message;
+        $this->sender = $sender;
+        $this->receiver = $receiver;
     }
 
     /**
@@ -43,8 +45,11 @@ class Messages extends Notification
     {
         return [
             'notification' => 'New Direct Message',
+            'subject' => $this->message->subject,
             'message' => $this->message->message,
-            'url' => $this->message->id
+            'url' => $this->message->id,
+            'sendername' => $this->sender->name,
+            'receivername' => $this->receiver->name,
         ];
     }
 }
