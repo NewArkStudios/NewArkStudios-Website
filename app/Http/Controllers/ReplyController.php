@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Reply;
+use App\Notifications\Forum;
 use App\Models\Archive_Replies;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,6 +40,21 @@ class ReplyController extends Controller
 
         // save values
         $reply->save();
+
+        // grab all the users associated with the forum
+        $postUser = $post->user;
+        $postreplies = $post->replies;
+        $postUser->notify(new Forum($post, $reply));
+        
+        $unique_users = [$postUser->id];
+
+        foreach($postreplies as $postreply) {
+            if(in_array($postreply->userid, $unique_users)) {
+                $postreply->user()->notify(new Forum($post, $reply));
+                array_push($unique_users, $postreply->userid);
+            }
+        }
+        
 
         return redirect()->back();
     }
