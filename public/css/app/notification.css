@@ -42,7 +42,8 @@
   display: block;
 }
 .navbar-right .dropdown-menu.notify-drop .drop-content > li:hover {
-  background-color: #fcfcfc;
+  background-color: #25c1c1;
+  cursor: pointer;
 }
 .navbar-right .dropdown-menu.notify-drop .drop-content > li:last-child {
   border-bottom: none;

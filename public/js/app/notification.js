@@ -1,7 +1,7 @@
 /**
 * Notification js file handle user updates and notifications
 */
-define('notification', ['jquery'], function($){
+define('notification', ['jquery', 'moment'], function($, Moment){
 
     // application
     var app = {
@@ -9,14 +9,15 @@ define('notification', ['jquery'], function($){
         /**
         * Returns html string for individual dropdown
         * of a notification
+        * @param params : JSON object containing the items we can add to 
+        * notification
         */
-        'notificationDropdown' : function() {
+        'notificationDropdown' : function(params) {
             return [
-                '<li>',
+                '<li class="notification-entry" data-url="' + params.url + '">',
                     '<div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="http://placehold.it/45x45" alt=""></div></div>',
-                    '<div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="">Ahmet</a> yorumladı. <a href="">Çicek bahçeleri...</a> <a href="" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>',
-                    '<p>Lorem ipsum sit dolor amet consilium.</p>',
-                    '<p class="time">1 Saat önce</p>',
+                    '<div class="col-md-9 col-sm-9 col-xs-9 pd-l0">' + params.notification + params.unique,
+                    '<p class="time">' + params.time + '</p>',
                     '</div>',
                 '</li>',
             ].join(" ");
@@ -69,20 +70,66 @@ define('notification', ['jquery'], function($){
                 self.addNotification(notification);
             }
             
+            // once we are done looping add event-listeners
+            self.addEventListener();
 
         },
 
         /**
         * Javascript for adding Notification to drop-down
+        * @param data - notification object that we got from ajax call
         */
-        'addNotification' : function(notification) {
+        'addNotification' : function(data) {
 
             // alias
             var self = this;
 
-           $("#notification-dropdown div.drop-content").append(self.notificationDropdown());
+            // note all of these values must be present in notification
+            // object
+            var params = {
+                'notification' : data.data.notification,
+                'url' : data.data.url,
+                'time' : Moment(data.created_at, "YYYYMMDD").fromNow(),
+            }
 
-        }
+            // identify the type of notification we get
+            // add object unique to notification type
+            switch(data.type) {
+                case "App\\Notifications\\Messages":
+                    
+                    // add html unique to this type
+                    params.unique = [
+                        '<p>From: ',
+                        data.data.sendername + '</p>',
+                        '<p> Subject: ',
+                        data.data.subject + '</p>',
+                    ].join("");
+                    break;
+            }
+            
+
+            var notification = self.notificationDropdown(params);
+            $("#notification-dropdown div.drop-content").append(notification);
+        },
+
+        /**
+        * Add event-listeners to the notification we added
+        *
+        */
+        'addEventListener' : function() {
+            
+            // alias
+            var self = this;
+
+            // notification click event
+            $('#notification-dropdown div.drop-content').on('click', 'li.notification-entry', function(){
+            
+               // redirect 
+               window.location.href = $(this).attr('data-url');
+
+            })
+        
+        },
     
     };
     

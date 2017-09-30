@@ -47,7 +47,7 @@ class Messages extends Notification
             'notification' => 'New Direct Message',
             'subject' => $this->message->subject,
             'message' => $this->message->message,
-            'url' => $this->message->id,
+            'url' => "/messages/message/" . $this->message->id,
             'sendername' => $this->sender->name,
             'receivername' => $this->receiver->name,
         ];
