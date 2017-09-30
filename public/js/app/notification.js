@@ -73,6 +73,10 @@ define('notification', ['jquery', 'moment'], function($, Moment){
             // once we are done looping add event-listeners
             self.addEventListener();
 
+            // update notifcation visually in general
+            $("#notification-number").text(data.length + " Notification(s)");
+            $("#notification-drop-number").text("Notifications (" + data.length + ")");
+            $("#notification-nav-number").text("Notifications (" + data.length + ")");
         },
 
         /**
