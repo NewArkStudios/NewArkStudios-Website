@@ -17,10 +17,10 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 About us<span class="caret"></span>
                 </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="{{ url('/dev_team') }}">Dev Team</a></li>
-                <li><a href="{{ url('/display_contact') }}">Contact</a></li>
-              </ul>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="{{ url('/dev_team') }}">Dev Team</a></li>
+                  <li><a href="{{ url('/display_contact') }}">Contact</a></li>
+                </ul>
             </li>
 
             <!--Forums link subject to change -->
@@ -28,15 +28,15 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 Discussion<span class="caret"></span>
                 </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="{{ route('view_categories') }}">Forums</a></li>
-                <li><a href="{{ route('display_search_user') }}">Community</a></li>
-              </ul>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="{{ route('view_categories') }}">Forums</a></li>
+                  <li><a href="{{ route('display_search_user') }}">Community</a></li>
+                </ul>
             </li>
 
             @if (Auth::guest())
-                <li><a href="{{ route('login') }}">Login</a></li>
-                <li><a href="{{ route('register') }}">Register</a></li>
+            <li><a href="{{ route('login') }}">Login</a></li>
+            <li><a href="{{ route('register') }}">Register</a></li>
             @else
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -79,12 +79,15 @@
                         <div class="drop-content">
                         </div>
                         <div class="notify-drop-footer text-center">
-                            <a id="notification-clear"><i class="fa fa-eye">Clear all notifications</i>
+                            <a id="notification-clear">
+                              <i class="fa fa-eye">
+                                Clear all notifications
+                              </i>
+                            </a>
                         </div>
                       </ul>
-                    </li>
+                </li>
             @endif
-
           </ul>
         </div><!--/.nav-collapse -->
       </div>
