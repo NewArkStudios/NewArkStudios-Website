@@ -34,6 +34,7 @@ Route::get('/edit_social_user', 'Auth\SocialAuthController@editSocialUser')->nam
 // Routes for loading notifications
 // https://laravel.com/docs/master/notifications#accessing-the-notifications
 Route::get('/get_all_notifications', 'NotificationController@getAllNotifications')->name('get_all_notifications');
+Route::get('/clear_all_notifications', 'NotificationController@clearAllNotifications')->name('clear_all_notifications');
 
 
 // Display UI for reporting user based on post or reply

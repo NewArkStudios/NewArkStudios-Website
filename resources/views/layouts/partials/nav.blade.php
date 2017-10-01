@@ -66,7 +66,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                      <a href="#" id="notification-nav-number" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notifications (<b>2</b>)</a>
+                      <a href="#" id="notification-nav-number" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notifications</a>
                       <ul id="notification-dropdown" class="dropdown-menu notify-drop">
                         <div class="notify-drop-title">
                             <div class="row">
@@ -79,7 +79,7 @@
                         <div class="drop-content">
                         </div>
                         <div class="notify-drop-footer text-center">
-                            <i id="notification-number" class="fa fa-eye"></i>
+                            <a id="notification-clear"><i class="fa fa-eye">Clear all notifications</i>
                         </div>
                       </ul>
                     </li>

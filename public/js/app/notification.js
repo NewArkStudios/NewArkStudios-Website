@@ -39,6 +39,19 @@ define('notification', ['jquery', 'moment'], function($, Moment){
                     self.displayNotification(data);
                 });
             }
+
+            // add event listener for clearing notification
+            $("#notification-clear").on('click', function(){
+                $.get( "/clear_all_notifications", function( data ) {
+                    if(!data.success)
+                        console.log(data);
+                    else {
+                        $.get( "/get_all_notifications", function( data ) {
+                            self.displayNotification(data);
+                        });
+                    }
+                });
+            });
         },
 
         /**
@@ -71,10 +84,9 @@ define('notification', ['jquery', 'moment'], function($, Moment){
             }
             
             // once we are done looping add event-listeners
-            self.addEventListener();
+            self.addNotificationEventListener();
 
             // update notifcation visually in general
-            $("#notification-number").text(data.length + " Notification(s)");
             $("#notification-drop-number").text("Notifications (" + data.length + ")");
             $("#notification-nav-number").text("Notifications (" + data.length + ")");
         },
@@ -128,7 +140,7 @@ define('notification', ['jquery', 'moment'], function($, Moment){
         * Add event-listeners to the notification we added
         *
         */
-        'addEventListener' : function() {
+        'addNotificationEventListener' : function() {
             
             // alias
             var self = this;
@@ -140,7 +152,7 @@ define('notification', ['jquery', 'moment'], function($, Moment){
                window.location.href = $(this).attr('data-url');
 
             })
-        
+
         },
     
     };
