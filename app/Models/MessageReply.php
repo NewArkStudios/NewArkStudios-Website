@@ -16,4 +16,9 @@ class MessageReply extends Model
     public function user() {
          return $this->belongsTo('App\User');
     }
+
+    // get the eloquent model for the message associated with the reply
+    public function message() {
+         return $this->belongsTo('App\Models\Message', 'message_id');
+    }
 }

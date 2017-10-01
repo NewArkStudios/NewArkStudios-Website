@@ -113,6 +113,12 @@ class MessageController extends Controller
 
         $message_reply->save();
 
+        // grab the message that is associated with 
+        // and notify the receiver that they have recieve a reply
+        $message = $message_reply->message;
+        $receiver = $message->receiver;
+        $receiver->notify(new Messages($message, $receiver, $user));
+        
         return redirect()->back();
     }
 }
