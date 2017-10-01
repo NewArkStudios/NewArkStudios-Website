@@ -19,6 +19,14 @@ body>.navbar {
     body>.navbar-transparent .navbar-nav>.open>a {
         background-color: transparent!important
     }
+
+    
+    /**
+    * Fix navbar height for fullscreen
+    */
+    #global-navbar{
+        height:40px;
+    }
 }
 
 #home {

@@ -49,6 +49,9 @@ define('notification', ['jquery', 'moment'], function($, Moment){
                         $.get( "/get_all_notifications", function( data ) {
                             self.displayNotification(data);
                         });
+
+                        // clear out all notifications in drop-down
+                        $("#notification-dropdown div.drop-content").empty();
                     }
                 });
             });
