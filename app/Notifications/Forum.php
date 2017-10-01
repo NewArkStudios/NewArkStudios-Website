@@ -46,6 +46,8 @@ class Forum extends Notification
         return [
             'notification' => 'Forum post Reply',
             'url' => '/post/' . $this->forum->slug,
+            'title' => $this->forum->title,
+            'reply' => substr($this->reply->body, 0, 30) . "..."
         ];
     }
 

@@ -109,6 +109,14 @@ define('notification', ['jquery', 'moment'], function($, Moment){
                         data.data.subject + '</p>',
                     ].join("");
                     break;
+                case "App\\Notifications\\Forum":
+                    params.unique = [
+                        '<p> Title : ',
+                        data.data.title,
+                        '<p> Reply : ',
+                        data.data.reply,
+                    ].join("")
+                    break;
             }
             
 

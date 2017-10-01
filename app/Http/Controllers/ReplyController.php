@@ -44,14 +44,15 @@ class ReplyController extends Controller
         // grab all the users associated with the forum
         $postUser = $post->user;
         $postreplies = $post->replies;
-        $postUser->notify(new Forum($post, $reply));
-        
-        $unique_users = [$postUser->id];
+
+        // don't notify user who made the reply they know
+        // they made the reply
+        $unique_users = [Auth::user()->id];
 
         foreach($postreplies as $postreply) {
-            if(in_array($postreply->userid, $unique_users)) {
-                $postreply->user()->notify(new Forum($post, $reply));
-                array_push($unique_users, $postreply->userid);
+            if(!(in_array($postreply->user_id, $unique_users))) {
+                $postreply->user->notify(new Forum($post, $reply));
+                array_push($unique_users, $postreply->user_id);
             }
         }
         
