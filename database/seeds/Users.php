@@ -16,6 +16,7 @@ class Users extends Seeder
             'name' => "GummyDonut",
             'first_name' => "Peter",
             'last_name' => "Hoang",
+            'activated' => true,
             'email' => "bob2@hotmail.com",
             'password' => bcrypt("123456"),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),

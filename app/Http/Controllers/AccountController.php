@@ -24,6 +24,8 @@ class AccountController extends Controller
             return view('pages.profile_view', $error);
         }
 
+        // grab the profile image
+        $profile_image = $user->profile_image;
 
         $user_info = [
             "id" => $user->id,
@@ -35,7 +37,8 @@ class AccountController extends Controller
             "email" => $user->email,
             "posts" => $user->posts()->paginate(5),
             "joined" => $user->created_at->format('F-d-Y'),
-            "last_active" => $user->last_active->format('F d, Y g:i:s a') 
+            "last_active" => $user->last_active->format('F d, Y g:i:s a'),
+            "profile_image_url" => $profile_image->location
         ];
 
         return view('pages.profile_view', $user_info);

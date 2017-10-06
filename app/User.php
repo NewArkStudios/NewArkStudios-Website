@@ -110,4 +110,11 @@ class User extends Authen implements AuthenticatableContract, CanResetPasswordCo
     public function posts() {
         return $this->hasMany('App\Models\Post', 'user_id');
     }
+
+    /*
+    * Get the object representing the profile image assigned to the user
+    */
+    public function profile_image() {
+        return $this->hasOne('App\Models\Profile_Image', 'id');
+    }
 }

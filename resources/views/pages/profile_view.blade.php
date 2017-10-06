@@ -18,7 +18,7 @@
                     <div class="tab-content">
                         <div id="profile-section" class="tab-pane fade in active">
                             <div class="text-center col-md-4">
-                                <img class="profile" style="margin-top:2em;width:80px;height:80px">
+                                <img src="{{ URL::asset($profile_image_url) }}" class="profile" style="margin-top:2em;width:80px;height:80px">
                                 </img>
                                 <br>
                                 <br>
