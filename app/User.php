@@ -33,6 +33,17 @@ class User extends Authen implements AuthenticatableContract, CanResetPasswordCo
      */
     protected $guarded = ['id'];
 
+     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'last_active'
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *

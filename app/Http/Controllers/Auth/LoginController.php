@@ -109,6 +109,8 @@ class LoginController extends Controller
                 ->with('resend_link', true)
                 ->withInput();
             }
+            $user->last_active = Carbon::now();
+            $user->save();
             return $this->sendLoginResponse($request);
         }
 

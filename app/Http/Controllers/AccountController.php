@@ -24,6 +24,7 @@ class AccountController extends Controller
             return view('pages.profile_view', $error);
         }
 
+
         $user_info = [
             "id" => $user->id,
             "name" => $user->name,
@@ -33,6 +34,8 @@ class AccountController extends Controller
             'birthday' => ($user->birthday) ? $user->birthday : false,
             "email" => $user->email,
             "posts" => $user->posts()->paginate(5),
+            "joined" => $user->created_at->format('F-d-Y'),
+            "last_active" => $user->last_active->format('F d, Y g:i:s a') 
         ];
 
         return view('pages.profile_view', $user_info);

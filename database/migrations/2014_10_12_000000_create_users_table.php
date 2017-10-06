@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+Use Carbon\Carbon;
+
 
 class CreateUsersTable extends Migration
 {
@@ -22,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('bio')->nullable();
             $table->string('age')->nullable();
             $table->date('birthday')->nullable();
+            $table->timestamp('last_active')->default(Carbon::now());
             $table->string('email')->unique();
             $table->boolean('activated')->default(false);
             $table->string('password');
