@@ -17,6 +17,8 @@ class CreateProfileImagesTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('location')->unique();
+            $table->integer('role')->unsigned();
+            $table->foreign('role')->references('id')->on('roles');
             $table->timestamps();
         });
     }
