@@ -22,7 +22,7 @@
                     <table class="newarkstudios">
                         <tr>
                             <td>
-                                <img class="profile-image"></img>
+                                <img src="{{ URL::asset($post->user->profile_image->location) }}"  class="profile-image"></img>
                             <td>
                             <td>
                                 <div style="margin-left:1em;margin-top:0.5em;">
