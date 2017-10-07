@@ -42,11 +42,11 @@ define('app.thread_post', ['jquery', 'jquery_ui'], function($, UI){
             });
 
             // link for replying, generates quote in reply section
-            $('a.reply-link').on('click', function(){
+            $('button.reply-link').on('click', function(){
 
-                var replyContent = $(this).siblings('div.reply-content').text();
-                var replyUser = $(this).siblings('div.reply-user').text();
-                replyContent = "<blockquote>" + replyContent + "<br>" + replyUser  + "</blockquote>\n\n"
+                var replyContent = $(this).siblings('div.reply-content').html();
+                var replyUser = $(this).siblings('table.profile-info').find('a.reply-user').text();
+                replyContent = "<blockquote>" + replyContent + "<br>From: " + replyUser  + "</blockquote>\n\n"
                 $("#body").val(replyContent);
 
                 // scroll to body element

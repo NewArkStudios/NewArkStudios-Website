@@ -8,10 +8,10 @@ img.profile-image {
 }
 
 /**
-Table for new ark studios
+Table for new ark studios different background
 use on cases where we want simple columns
 */
-table.newarkstudios {
+table.table-alternative {
     background-color:#222222;
 }
 
