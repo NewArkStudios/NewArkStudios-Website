@@ -15,33 +15,58 @@
                         <a href="{{url('/thread/display_edit_post/' . $post->slug)}}">Edit Post</a>
                     @endif
                 @endif
-                <h1>{{$post->title}}</h1>
-                <h4 style="float:right">{{$post->created_at}}</h4>
-                <h4 style="float:right">{{$post->updated_at}}</h4>
                 <div class="panel-body">
-                <p>{!! $post->body !!}</p>
-                @if($post->warned == 1)
-                    <p><small style="color:red">User was suspended for post</small></p>
-                @elseif($post->warned == 2)
-                    <p><small style="color:red">User was banned for post</small></p>
-                @elseif($post->warned == 3)
-                    <p><small style="color:red">User was warned for post</small></p>
-                @endif
-                @if($post->edited)
-                <a id="post-edited">Edited,</a>
-                    <div id="post-edited-dialog" title="Edited Post">
-                        @foreach ($post->archive_posts as $archive_post)
-                        <div class="well">
-                                <h6>Title: {{$archive_post->title}}</h6>
-                                <p>Post: {{$archive_post->body}}</h6>
-                                <p>Edited at: {{$archive_post->created_at}}</p>
+
+                    <!-- Content of post start -->
+                    <h1>{{$post->title}}</h1>
+                    <table class="newarkstudios">
+                        <tr>
+                            <td>
+                                <img class="profile-image"></img>
+                            <td>
+                            <td>
+                                <div style="margin-left:1em;margin-top:0.5em;">
+                                    <p>
+                                        <a href="{{url('/profile/' . $user->name)}}">
+                                        {{$post->user->name}}
+                                        </a>
+                                    </p>
+                                    <p>
+                                        Created at: {{$post->created_at}}
+                                    </p>
+                                    <p>
+                                        Updated at: {{$post->updated_at}}
+                                    </p>
+                                </div>
+                            </td>
+                        <tr>
+                    </table>
+                    <p style="margin-top:1em;">{!! $post->body !!}<p>
+                    <h6>Views: {{$post->views}}</h6>
+                    <!-- Content of post end --> 
+
+                    @if($post->warned == 1)
+                        <p><small style="color:red">User was suspended for post</small></p>
+                    @elseif($post->warned == 2)
+                        <p><small style="color:red">User was banned for post</small></p>
+                    @elseif($post->warned == 3)
+                        <p><small style="color:red">User was warned for post</small></p>
+                    @endif
+
+                    <!-- Code for dialog containing edited post -->
+                    @if($post->edited)
+                    <a id="post-edited">Edited,</a>
+                        <div id="post-edited-dialog" title="Edited Post">
+                            @foreach ($post->archive_posts as $archive_post)
+                            <div class="well">
+                                    <h6>Title: {{$archive_post->title}}</h6>
+                                    <p>Post: {{$archive_post->body}}</h6>
+                                    <p>Edited at: {{$archive_post->created_at}}</p>
+                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
-                    </div>
-                @endif
-                <a href="{{url('/profile/' . $user->name)}}">View Profile</a>
-                <h6>Views: {{$post->views}}</h6>
-                </div>
+                    @endif
+               </div>
                 @if ($moderator)
                     @if(!$post->closed)
                         <form style="display:inline-table;" role="form" method="POST" action="{{ route('close_post') }}">

@@ -2,6 +2,19 @@ a {
     cursor:pointer;
 }
 
+img.profile-image {
+    width: 80px;
+    height: 80px;
+}
+
+/**
+Table for new ark studios
+use on cases where we want simple columns
+*/
+table.newarkstudios {
+    background-color:#222222;
+}
+
 body {
     padding-top: 50px
 }
