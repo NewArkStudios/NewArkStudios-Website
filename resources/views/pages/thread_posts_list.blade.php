@@ -31,14 +31,16 @@
                     @if (count($posts) > 0)
                         @foreach($posts as $post)
                             <div style="margin-top:1em;"class="col-md-12 {{($post->pinned > 0) ? 'well' : ''}}">
-                                <a href="{{url('/post/'.$post->slug)}}">{{$post->title}}</a>
+                                <a class="large-link" href="{{url('/post/'.$post->slug)}}">{{$post->title}}</a>
                                 @if($post->pinned > 0)
                                     <span style="color:green">Pinned *</span>
                                 @endif
-                                <p>{{$post->body}}</p>
-                                Posted by: <a href="{{url('/profile/' . $post->user->name)}}">{{$post->user->name}}</a>
+                                <p class="post-list-content">{!! $post->body !!}</p>
+                                Started by: <a href="{{url('/profile/' . $post->user->name)}}">{{$post->user->name}}</a>, Views: {{$post->views}}, Replies: {{count($post->replies)}}
                                 <br>
-                                Created at: {{$post->created_at}}, Updated at: {{$post->updated_at}}
+                                Created at: {{$post->created_at->format('F d, Y g:i:s a')}},
+                                Last post: {{$post->updated_at->format('F d, Y g:i:s a') }}
+                            <hr>
                             </div>
                         @endforeach
                     @else
@@ -51,4 +53,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('custom-javascripts')
+    <script src="{{ asset('js/app/app.thread_post_list.js') }}"></script>
 @endsection

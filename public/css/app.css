@@ -1,6 +1,9 @@
 a {
     cursor:pointer;
 }
+a.large-link {
+    font-size:150%;
+}
 
 img.profile-image {
     width: 80px;

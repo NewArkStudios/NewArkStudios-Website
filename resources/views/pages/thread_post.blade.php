@@ -188,6 +188,7 @@
                     </button>
                 </form>
             </div>
+            <hr>
             @endfor
             <!-- pagination links -->
             {{ $replies->links() }}

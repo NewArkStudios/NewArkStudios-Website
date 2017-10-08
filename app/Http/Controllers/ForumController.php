@@ -40,9 +40,10 @@ class ForumController extends Controller
         ->orderBy('updated_at', 'desc')
         ->orderBy('pinned', 'desc')
         ->paginate(5);
-        
+
         //TODO CHECK FOR EMPTY CATEGEORIES
-        return view('pages.thread_posts_list', ['posts' => $posts,
+        return view('pages.thread_posts_list', [
+            'posts' => $posts,
             'category' => $category,
         ]);
     }
