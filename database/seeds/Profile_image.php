@@ -13,7 +13,7 @@ class Profile_image extends Seeder
     {
         DB::table('profile_images')->insert([
             'name' => "image_1",
-            'location' => "img/jenkins-icon.png",
+            'location' => "img/profile/jenkins-icon.png",
             'role' => 3, // none type user
         ]);
     }

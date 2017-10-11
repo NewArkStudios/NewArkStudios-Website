@@ -15,19 +15,25 @@ class Categories extends Seeder
         DB::table('categories')->insert([
             'id' => '1',
             'name' => 'General',
-            'slug' => 'General'
+            'slug' => 'General',
+            'description' => 'Information that is general, can be about anything that does not have a category',
+            'image' => 'img/icon/general.png',
         ]);
 
         DB::table('categories')->insert([
             'id' => '2',
             'name' => 'Bug Reports',
-            'slug' => 'Bug-Reports'
+            'slug' => 'Bug-Reports',
+            'description' => 'Report any bugs that are found within our games, we will do our best to respond',
+            'image' => 'img/icon/bug.png',
         ]);
 
         DB::table('categories')->insert([
             'id' => '3',
             'name' => 'Easter Egg Hunt',
-            'slug' => 'Easter-Egg-Hunt'
+            'slug' => 'Easter-Egg-Hunt',
+            'description' => 'Find cool stuff within our games? Tell others here',
+            'image' => 'img/icon/egg.png',
         ]);
     }
 }

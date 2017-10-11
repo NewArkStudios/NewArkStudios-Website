@@ -8,11 +8,20 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                <!-- Visually this will be updated later -->
+                    <table class="table-alternative">
+                    <!-- Visually this will be updated later -->
                     @foreach($categories as $category)
-                        <a href="{{url('/thread_category/'. $category->slug)}}">{{$category->name}}</a>
-                        <br>
+                        <tr>
+                        <td>
+                            <img style="margin-right:1em; margin-bottom:1em;" class="icon-image" src="{{ URL::asset($category->image) }}"></img>
+                        </td>
+                        <td>
+                            <a class="table-link" href="{{url('/thread_category/'. $category->slug)}}">{{$category->name}}</a>
+                            <p>{{$category->description}}</p>
+                        </td>
+                        </tr>
                     @endforeach
+                    <table>
                 </div>
             </div>
         </div>
