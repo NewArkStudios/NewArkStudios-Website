@@ -27,6 +27,18 @@ class ForumController extends Controller
     */
     public function view_categories(Request $request) {
         $categories = Category::all();
+
+        // iterate through categories to get post information
+        // note that these values is not to be saved and has a public value in the model
+        foreach($categories as $category){
+            $posts = Post::where('category_id', $category->id);
+            $newest_post= $posts->orderBy('updated_at', 'desc')->first();
+            $category->postcount = $posts->count();
+            $category->newest_post = $newest_post;
+            $category->save();
+        }
+
+
         return view('pages.thread_categories', compact('categories'));
     }
 

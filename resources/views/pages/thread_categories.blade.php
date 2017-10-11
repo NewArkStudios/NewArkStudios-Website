@@ -12,12 +12,16 @@
                     <!-- Visually this will be updated later -->
                     @foreach($categories as $category)
                         <tr>
-                        <td>
-                            <img style="margin-right:1em; margin-bottom:1em;" class="icon-image" src="{{ URL::asset($category->image) }}"></img>
+                        <td style="padding-bottom:2em;">
+                            <img style="margin-right:1em;" class="icon-image" src="{{ URL::asset($category->image) }}"></img>
                         </td>
                         <td>
                             <a class="table-link" href="{{url('/thread_category/'. $category->slug)}}">{{$category->name}}</a>
+                            <!-- Note because we move over the object we get the string instance of time -->
                             <p>{{$category->description}}</p>
+                            <p> Topics: {{$category->postcount}} ,&nbsp; Last Post: 
+                            {{ Carbon\Carbon::parse($category->newest_post['updated_at'])->format('F d, Y g:i:s a') }}</p>
+                            <hr>
                         </td>
                         </tr>
                     @endforeach
