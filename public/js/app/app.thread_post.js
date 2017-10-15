@@ -2,25 +2,18 @@
 * Javascript meant to update the posts
 * with appropriate UI elements
 */
-define('app.thread_post', ['jquery', 'jquery_ui', 'tinyMCE'], function($, UI, tinyMCE){
+define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor'], function($, UI, Editor){
 
     var app = {
 
         'start' : function() {
 
-            // initialize text-editor
-            // note that certain menus only appear when plugin is specified
-            tinyMCE.init({
-                selector: '#body',
-                branding: false,
-                plugins: 'code, image',
-                menubar: 'edit insert view format table tools help'
-            });
+            Editor.initEditor();
 
             $('#reply-editor').on('submit', function(){
                 
                 // grab the content of the editor and add to textarea
-                var editorContent = tinyMCE.activeEditor.getContent({'format' : 'raw'})
+                var editorContent = Editor.tinyMCE.activeEditor.getContent({'format' : 'raw'})
                 $('#body').html(editorContent);
             });
 
