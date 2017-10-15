@@ -16,7 +16,17 @@ requirejs.config({
         // the HTML page.
         jquery: '/js/jquery-1.12.4.min',
         jquery_ui: '/js/jquery-ui.min',
+        tinyMCE: '../tinymce/tinymce.min',
         /**bootstrap : '/js/bootstrap.min'**/
+    },
+    shim: {
+        tinyMCE: {
+            exports: 'tinyMCE',
+            init: function () {
+                this.tinyMCE.DOM.events.domLoaded = true;
+                return this.tinyMCE;
+            }
+        }
     },
     packages: [{
         name: 'moment',

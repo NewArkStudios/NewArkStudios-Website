@@ -198,14 +198,14 @@
             @elseif(Auth::user() && $post->closed)
                 Post is closed sorry
             @else
-                <form  class="form-horizontal" role="form" method="POST" action="{{ route('make_reply') }}">
+                <form id='reply-editor' class="form-horizontal" role="form" method="POST" action="{{ route('make_reply') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="post_id" value="{{$post->id}}"></input>
                     <div style="margin-top:1em;" class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-                        <label for="body" class="col-md-4 control-label">Body</label>
+                        <label for="body" class="col-md-2 control-label">Body</label>
 
-                        <div class="col-md-6">
-                            <textarea id="body" rows="7" cols="25" class="form-control" name="body" required></textarea>
+                        <div class="col-md-9">
+                            <textarea id="body" rows="7" cols="25" class="form-control" name="body" required>Write Something</textarea>
 
                             @if ($errors->has('body'))
                                 <span class="help-block">
