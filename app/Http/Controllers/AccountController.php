@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\URL;
 
 use App\User;
+use App\Models\Profile_Image;
 use DateTime;
 
 class AccountController extends Controller
@@ -32,7 +33,7 @@ class AccountController extends Controller
             "name" => $user->name,
             "moderator" => $user->hasRole('moderator'),
             "bio" => ($user->bio) ? $user->bio : false,
-            "age" => ($user->age) ? $user->bio :false,
+            "age" => ($user->age) ? $user->age :false,
             'birthday' => ($user->birthday) ? $user->birthday : false,
             "email" => $user->email,
             "posts" => $user->posts()->paginate(5),
@@ -50,7 +51,12 @@ class AccountController extends Controller
     */
     public function display_edit_profile() {
         $user = Auth::user();
-        return view('pages.profile_edit', $user);
+        $profile_images = Profile_Image::all();
+        return view('pages.profile_edit', [
+            "user" => $user,
+            "profile_images" => $profile_images
+            ]
+        );
     }
 
     /**
@@ -120,6 +126,18 @@ class AccountController extends Controller
 
         // grab the current user
         $user = Auth::user();
+
+        // Make validator
+        $validator = Validator::make($request->all(), [
+            'birthday_day' => 'integer|between:1,31',
+            'birthday_month' => 'integer|between:1,12',
+            'birthday_year' => 'integer',
+            'profile_image' => 'integer',
+        ]);
+
+        // validate, if call fails redirect back
+        $validator->validate();
+ 
         $birthday = new DateTime((string)$request['birthday_month'] . "/" . (string)$request['birthday_day'] . "/" . (string)$request['birthday_year']);
         $current = new DateTime("now");
         $interval = $birthday->diff($current);
@@ -127,6 +145,7 @@ class AccountController extends Controller
         $user->bio = $request['bio'];
         $user->birthday = $birthday;
         $user->age = $interval->y;
+        $user->profile_image_id = $request['profile_image'];
 
         $user->save();
         $message = [
