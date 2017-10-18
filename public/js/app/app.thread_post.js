@@ -10,20 +10,15 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor'], function($, UI,
 
             Editor.initEditor();
 
+            // update form textarea before submit so that we can submit
             $('#reply-editor').on('submit', function(){
-                
-                // grab the content of the editor and add to textarea
                 var editorContent = Editor.tinyMCE.activeEditor.getContent({'format' : 'raw'})
                 $('#body').html(editorContent);
             });
 
-            // on click event for preview section
+            // on click event for preview section update its preview section
             $('#preview-button').on('click', function(){
-
-                
-                // update preview section
                 $("#preview-content").html(Editor.tinyMCE.activeEditor.getContent({'format' : 'raw'}));
-
             });
 
             // initialize content for page
@@ -35,20 +30,17 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor'], function($, UI,
                 autoOpen: false,
             });
 
-            // note may not use dialog because there is a chance it will
-            // not appear well on phone
+            // note may not use dialog because there is a chance it will not appear well on phone
+            // open dialog for edited post
             $('#post-edited').on('click', function(){
-
                 $('#post-edited-dialog').dialog('open');
-
             });
 
-            // initialize links for editing
+            // initialize links for edited replies
             $('a.edited-reply-link').on('click', function(){
 
                 // go up a level and find the closest dialog
                 $("#" + $(this).attr('dialog-link')).dialog('open')
-
             });
 
             // link for replying, generates quote in reply section
@@ -57,7 +49,7 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor'], function($, UI,
                 var replyContent = $(this).siblings('div.reply-content').html();
                 var replyUser = $(this).siblings('table.profile-info').find('a.reply-user').text();
                 replyContent = "<blockquote>" + replyContent + "<br>From: " + replyUser  + "</blockquote>\n\n"
-                $("#body").val(replyContent);
+                Editor.tinyMCE.activeEditor.setContent(replyContent);
 
                 // scroll to body element
                 $("html, body").animate({ scrollTop: $('#body').offset().top }, 1000);
@@ -69,6 +61,7 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor'], function($, UI,
 
 });
 
+// start app on page load
 require(['app.thread_post'], function(app){
     app.start();
 });
