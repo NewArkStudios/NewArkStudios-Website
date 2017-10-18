@@ -20,8 +20,9 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor'], function($, UI,
             // on click event for preview section
             $('#preview-button').on('click', function(){
 
+                
                 // update preview section
-                $("#preview-content").html($("#body").val());
+                $("#preview-content").html(Editor.tinyMCE.activeEditor.getContent({'format' : 'raw'}));
 
             });
 

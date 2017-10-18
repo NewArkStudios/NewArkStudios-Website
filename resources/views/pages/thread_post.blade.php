@@ -192,7 +192,7 @@
             @endfor
             <!-- pagination links -->
             {{ $replies->links() }}
-            <div class="panel panel-default">
+            <div class="row panel panel-default">
             @if(Auth::guest())
                To Reply please login 
             @elseif(Auth::user() && $post->closed)
@@ -228,7 +228,7 @@
                     </div>
 
                     <!-- Preview section -->
-                    <div id="preview-content">
+                    <div class="col-md-12" id="preview-content">
                     </div>
                 </form>
             @endif
