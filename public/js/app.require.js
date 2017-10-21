@@ -14,18 +14,22 @@ requirejs.config({
         // is using jQuery 1.9.0 located at
         // js/lib/jquery-1.9.0.js, relative to
         // the HTML page.
-        jquery: '/js/jquery-1.12.4.min',
-        jquery_ui: '/js/jquery-ui.min',
-        tinyMCE: '../tinymce/tinymce.min',
+        'jquery': '/js/jquery-1.12.4.min',
+        'jquery-datatables': '../DataTables/datatables.min',
+        'jquery_ui': '/js/jquery-ui.min',
+        'tinyMCE': '../tinymce/tinymce.min',
         /**bootstrap : '/js/bootstrap.min'**/
     },
     shim: {
-        tinyMCE: {
+        'tinyMCE': {
             exports: 'tinyMCE',
             init: function () {
                 this.tinyMCE.DOM.events.domLoaded = true;
                 return this.tinyMCE;
             }
+        },
+        'jquery-datatables' : {
+            deps: ['jquery']
         }
     },
     packages: [{

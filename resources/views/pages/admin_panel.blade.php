@@ -79,6 +79,6 @@
 @endsection
 @section('custom-javascripts')
 
-    <script type="text/javascript" src="{{URL::asset('js/DataTables/datatables.min.js')}}"></script>
-    <script src="{{ asset('js/app/admin_panel.js') }}"></script>
+    <!--<script type="text/javascript" src="{{URL::asset('js/DataTables/datatables.min.js')}}"></script>-->
+    <script src="{{ asset('js/app/app.admin_panel.js') }}"></script>
 @endsection
