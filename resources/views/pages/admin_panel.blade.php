@@ -29,8 +29,8 @@
                                     <input name="id" type="hidden" value="{{$announcement->id}}"></input>
                                     <textarea rows="10" id="body" class="form-control" name="body" required>{{$announcement->body}}</textarea>
                                     <br>
-                                    <button type="submit" class="btn btn-primary">
-                                        Submit
+                                    <button id="commit-button" type="submit" class="btn btn-primary">
+                                        Commit
                                     </button>
 
                                     <!-- type button to remove default submit type -->
@@ -47,12 +47,12 @@
                                 if we plan to allow any type of injection
                             </p>
                             <div class="form-group">
-                                <form role="form" method="POST" action="{{ route('make_announcement') }}">
+                                <form id="announcement-form" class="form-horizontal" role="form" method="POST" action="{{ route('make_announcement') }}">
                                     {{ csrf_field() }}
                                     <textarea rows="10" id="body" class="form-control" name="body" required></textarea>
                                     <br>
-                                    <button type="submit" class="btn btn-primary">
-                                        Submit
+                                    <button id="commit-button" type="submit" class="btn btn-primary">
+                                        Commit
                                     </button>
 
                                     <!-- type button to remove default submit type -->

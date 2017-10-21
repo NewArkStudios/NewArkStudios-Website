@@ -9,9 +9,17 @@ define('app.admin_panel', ['jquery', 'datatables', 'lib.editor'], function($, DT
 
             Editor.initEditor("#body");
 
+            // update textarea before submit so that information can be sent
+            // could not figure out why submit would not trigger
+            $("#announcement-form").on('click', function(){
+                var editorContent = Editor.tinyMCE.activeEditor.getContent({'format' : 'raw'})
+                $('#body').html(editorContent);
+            });
+
             // on click event for preview section
             $('#preview-button').on('click', function(){
-                $("#preview-content").html($("#body").val());
+                var editorContent = Editor.tinyMCE.activeEditor.getContent({'format' : 'raw'})
+                $("#preview-content").html(editorContent);
             });
 
             // AJAX to get moderators on start of application
