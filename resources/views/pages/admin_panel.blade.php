@@ -1,6 +1,7 @@
 @extends('layouts.masters.main')
 @section('custom-css')
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('js/DataTables/datatables.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('js/DataTables/css/dataTables.bootstrap.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/lib.datatables.css')}}"/>
 @endsection
 @section('page-content')
 <div class="container">

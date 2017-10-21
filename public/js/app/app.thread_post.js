@@ -8,7 +8,7 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor'], function($, UI,
 
         'start' : function() {
 
-            Editor.initEditor();
+            Editor.initEditor("#body");
 
             // update form textarea before submit so that we can submit
             $('#reply-editor').on('submit', function(){

@@ -3,7 +3,12 @@ define('lib.editor', ['jquery', 'tinyMCE'], function($, tinyMCE){
 
         // tinyMCE instance that we store here
         'tinyMCE' : tinyMCE,
-        'initEditor' : function() {
+
+        /**
+        * Initialize text-editor
+        * @param selector : String containing the jquery selector
+        */
+        'initEditor' : function(selector) {
 
             // base options to include with every editor
             var toolbarOptions = 'undo redo | fontsizeselect | bold italic underline | link image | forecolor | ' +
@@ -12,7 +17,7 @@ define('lib.editor', ['jquery', 'tinyMCE'], function($, tinyMCE){
             // initialize text-editor
             // note that certain menus only appear when plugin is specified
             tinyMCE.init({
-                selector: '#body',
+                selector: selector,
                 branding: false,
                 plugins: 'code, image, textcolor, link',
                 menubar: 'edit insert view format table tools help',

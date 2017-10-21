@@ -1,10 +1,5 @@
 requirejs.config({
     baseUrl: '/js/app',
-    shim : {
-        /**"jquery_ui" : { "deps" :['jquery'] },
-        "bootstrap" : { "deps" :['jquery'] },**/
-        /**"jquery"    : { "exports": '$'}*/
-    },
     paths: {
         // the left side is the module ID,
         // the right side is the path to
@@ -15,9 +10,11 @@ requirejs.config({
         // js/lib/jquery-1.9.0.js, relative to
         // the HTML page.
         'jquery': '/js/jquery-1.12.4.min',
-        'jquery-datatables': '../DataTables/datatables.min',
+        'datatables': '../DataTables/js/jquery.dataTables.min',
+        'datatables.net': '../DataTables/js/jquery.dataTables',
         'jquery_ui': '/js/jquery-ui.min',
         'tinyMCE': '../tinymce/tinymce.min',
+        'moment': '../moment-with-local.min'
         /**bootstrap : '/js/bootstrap.min'**/
     },
     shim: {
@@ -28,17 +25,8 @@ requirejs.config({
                 return this.tinyMCE;
             }
         },
-        'jquery-datatables' : {
-            deps: ['jquery']
-        }
+        'dataTables' : ['jquery']
     },
-    packages: [{
-        name: 'moment',
-        // This location is relative to baseUrl. Choose bower_components
-        // or node_modules, depending on how moment was installed.
-        location: '../',
-        main: 'moment-with-local.min'
-    }]
 });
 
 require(['jquery','app'], function($,app){

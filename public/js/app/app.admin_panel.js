@@ -1,4 +1,4 @@
-define('app.admin_panel', ['jquery', 'jquery-datatables'], function($, DT){
+define('app.admin_panel', ['jquery', 'datatables', 'lib.editor'], function($, DT, Editor){
 
     var application = {
 
@@ -7,11 +7,12 @@ define('app.admin_panel', ['jquery', 'jquery-datatables'], function($, DT){
             // alias
             var self = this;
 
+            Editor.initEditor("#body");
+
             // on click event for preview section
             $('#preview-button').on('click', function(){
                 $("#preview-content").html($("#body").val());
             });
-
 
             // AJAX to get moderators on start of application
             // then initialize components based off this
@@ -64,7 +65,6 @@ define('app.admin_panel', ['jquery', 'jquery-datatables'], function($, DT){
 
                         if (data.success && data.success == true)
                             console.log(data);
-                    
                     });
                 });
             });
