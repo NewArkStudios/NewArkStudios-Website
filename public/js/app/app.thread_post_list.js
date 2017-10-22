@@ -28,9 +28,12 @@ define('app.thread_post_list', ['jquery', 'jquery_ui'], function($, UI){
             var self = this;
             
             // Go through all text and update appropriately
-            $("p.post-list-content").each(function(index, element){
-                var content = $(this).text();
-                var collapsedtext = content.substring(0, 50) + "...";
+            $("div.post-list-content").each(function(index, element){
+                var content = $(element).text();
+                if (content.length > 50)
+                    var collapsedtext = content.substring(0, 50) + "...";
+                else
+                    var collapsedtext = content;
                 $(this).text(collapsedtext);
             });
         }

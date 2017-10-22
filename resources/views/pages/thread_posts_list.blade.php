@@ -35,7 +35,7 @@
                                 @if($post->pinned > 0)
                                     <span style="color:green">Pinned *</span>
                                 @endif
-                                <p class="post-list-content">{!! $post->body !!}</p>
+                                <div class="post-list-content">{!! $post->body !!}</div>
                                 Started by: <a href="{{url('/profile/' . $post->user->name)}}">{{$post->user->name}}</a>, Views: {{$post->views}}, Replies: {{count($post->replies)}}
                                 <br>
                                 Created at: {{$post->created_at->format('F d, Y g:i:s a')}},
