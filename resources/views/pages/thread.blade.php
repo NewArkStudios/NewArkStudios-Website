@@ -42,7 +42,7 @@
                                 <label for="body" class="col-md-2 control-label">Body</label>
 
                                 <div class="col-md-10">
-                                    <textarea id="body" class="form-control" name="body" required></textarea>
+                                    <textarea rows="15" id="body" class="form-control" name="body" required></textarea>
 
                                     @if ($errors->has('body'))
                                         <span class="help-block">
