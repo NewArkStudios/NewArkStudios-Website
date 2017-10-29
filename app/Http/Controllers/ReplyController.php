@@ -49,6 +49,12 @@ class ReplyController extends Controller
         // they made the reply
         $unique_users = [Auth::user()->id];
 
+        // notify original poster if thery are not replier
+        if (Auth::user()->id != $postUser->id) {
+            $postUser->notify(new Forum($post, $reply));
+            array_push($unique_users, $postUser->id);
+        }
+
         foreach($postreplies as $postreply) {
             if(!(in_array($postreply->user_id, $unique_users))) {
                 $postreply->user->notify(new Forum($post, $reply));
