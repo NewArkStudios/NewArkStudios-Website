@@ -16,9 +16,9 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">First Name</label>
+                            <label for="name" class="col-md-2 control-label">First Name</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required autofocus>
 
                                 @if ($errors->has('first_name'))
@@ -30,9 +30,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                            <label for="last_name" class="col-md-4 control-label">Last Name</label>
+                            <label for="last_name" class="col-md-2 control-label">Last Name</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('first_name') }}" required autofocus>
 
                                 @if ($errors->has('last_name'))
@@ -44,9 +44,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-2 control-label">E-Mail Address</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
@@ -58,9 +58,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('subject') ? ' has-error' : '' }}">
-                            <label for="subject" class="col-md-4 control-label">Subject</label>
+                            <label for="subject" class="col-md-2 control-label">Subject</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <input id="subject" type="subject" class="form-control" name="subject" value="{{ old('subject') }}" required>
 
                                 @if ($errors->has('subject'))
@@ -72,9 +72,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
-                            <label for="message" class="col-md-4 control-label">Message</label>
-                            <div class="col-md-6">
-                            <textarea id="message" class="form-control" name="message" required></textarea>
+                            <label for="message" class="col-md-2 control-label">Message</label>
+                            <div class="col-md-10">
+                            <textarea id="message" rows="14" class="form-control" name="message" required></textarea>
 
                             @if ($errors->has('message'))
                                 <span class="help-block">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">
+                        <button id="send-button" type="submit" class="btn btn-primary">
                             Send
                         </button>
 
@@ -94,4 +94,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('custom-javascripts')
+    <script src="{{ asset('js/app/app.contact.js') }}"></script>
 @endsection

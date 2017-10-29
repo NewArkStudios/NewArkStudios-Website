@@ -41,6 +41,10 @@ class ContactMailable extends Mailable
      */
     public function build()
     {
+
+        // although not important yet TODO need to set html view for email
+        // antm its sanitized text
+
         // note we use bodymessage here because message is an occupied var
         return $this->view('email.email_contact')
             ->from($this->email)
