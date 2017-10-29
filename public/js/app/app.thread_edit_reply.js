@@ -44,6 +44,6 @@ define('app.thread_edit_reply', ['jquery', 'lib.editor'], function($, Editor){
 });
 
 // start app on page load
-require(['app.thread_edit_post'], function(app){
+require(['app.thread_edit_reply'], function(app){
     app.start();
 });
