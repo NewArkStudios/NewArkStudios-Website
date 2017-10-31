@@ -36,6 +36,10 @@ Route::get('/edit_social_user', 'Auth\SocialAuthController@editSocialUser')->nam
 Route::get('/get_all_notifications', 'NotificationController@getAllNotifications')->name('get_all_notifications');
 Route::get('/clear_all_notifications', 'NotificationController@clearAllNotifications')->name('clear_all_notifications');
 
+// Display dev team page
+Route::get('/dev_team', function(){
+    return view('pages.devteam');
+});
 
 // Display UI for reporting user based on post or reply
 Route::post('display_report_user', 'ReportController@display_report_user')
@@ -80,6 +84,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function(){
     Route::post('delete_moderator', 'AdminController@delete_moderator')->name('delete_moderator');
 
 });
+
 /**
 * Grouped routing for threads
 */
