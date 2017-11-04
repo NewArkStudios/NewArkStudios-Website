@@ -1,3 +1,6 @@
+// Note that we must run this app.require.js on every page
+// it holds all the configs and must be loaded before app.* files
+// This way if we do need to run js on every page this module will help us with that
 requirejs.config({
     baseUrl: '/js/app',
     paths: {
@@ -14,7 +17,8 @@ requirejs.config({
         'datatables.net': '../DataTables/js/jquery.dataTables',
         'jquery_ui': '/js/jquery-ui.min',
         'tinyMCE': '../tinymce/tinymce.min',
-        'moment': '../moment-with-local.min'
+        'moment': '../moment-with-local.min',
+        'anime': '../anime.min'
         /**bootstrap : '/js/bootstrap.min'**/
     },
     shim: {
@@ -29,6 +33,12 @@ requirejs.config({
     },
 });
 
-require(['jquery','app'], function($,app){
+require(['jquery','app', 'anime'], function($,app, anime){
+    
+    // temp test
+    var cssSelector = anime({
+        targets: '#navbar',
+        translateX: 250
+    });
     app.start();
 });
