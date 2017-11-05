@@ -16,6 +16,7 @@
             <div class='col-md-6 member_section'>
                <div class="member_img">
                    <img class="member_picture"></img>
+                   <br>
                    <img src="{{ URL::asset('img/icon/youtube.png') }}" class="social_media"></img>
                    <img src="{{ URL::asset('img/icon/twitter.png') }}" class="social_media"></img>
                </div>
@@ -37,6 +38,7 @@
             <div class='col-md-6 member_section'>
                <div class="member_img">
                    <img class="member_picture"></img>
+                   <br>
                    <img src="{{ URL::asset('img/icon/twitter.png') }}" class="social_media"></img>
                </div>
                <div class='member_bio'>
@@ -61,6 +63,7 @@
             <div class='col-md-6 member_section'>
                <div class="member_img">
                    <img class="member_picture"></img>
+                   <br>
                    <img src="{{ URL::asset('img/icon/twitter.png') }}" class="social_media"></img>
                </div>
                <div class='member_bio'>
@@ -81,6 +84,7 @@
             <div class='col-md-6 member_section'>
                <div class="member_img">
                    <img class="member_picture"></img>
+                   <br>
                    <img src="{{ URL::asset('img/icon/twitter.png') }}" class="social_media"></img>
                </div>
                <div class='member_bio'>
