@@ -33,12 +33,6 @@ requirejs.config({
     },
 });
 
-require(['jquery','app', 'anime'], function($,app, anime){
-    
-    // temp test
-    var cssSelector = anime({
-        targets: '#navbar',
-        translateX: 250
-    });
+require(['jquery','app'], function($,app){
     app.start();
 });
