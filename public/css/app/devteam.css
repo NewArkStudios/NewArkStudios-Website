@@ -1,0 +1,42 @@
+img.member_picture {
+    width:120px;
+    height:160px;
+    border: 1px solid black;
+}
+
+img.social_media {
+    width:32px;
+    height:32px;
+}
+
+.member_title {
+    margin-top:0;
+}
+
+.member_role {
+    margin-top:0;
+}
+
+small.member_description {
+
+}
+
+/* Why we set overflow hidden*/
+/*https://stackoverflow.com/questions/5369954/why-is-my-divs-height-zero*/
+div.member_section {
+    margin-top:1em;
+    overflow:hidden;
+}
+
+div.member_bio {
+    display:inline;
+    float:left;
+    padding-left:1em;
+    width:70%;
+}
+
+div.member_img {
+    float:left;
+    padding-left:1em;
+    width:30%;
+}
