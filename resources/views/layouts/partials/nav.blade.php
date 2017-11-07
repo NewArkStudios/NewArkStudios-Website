@@ -12,7 +12,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ url('/announcements') }}">Annoucements</a></li>
-            <li> <a href="{{ url('/games') }}">Games</a></li>
+            <li> <a href="{{ route('display_all_games') }}">Games</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 About us<span class="caret"></span>
