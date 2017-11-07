@@ -49,6 +49,10 @@ Route::post('display_report_user', 'ReportController@display_report_user')
 Route::get('display_contact', 'ContactController@display_contact_page');
 Route::post('send_contact_mail', 'ContactController@send_mail')->name("send_contact_mail");
 
+// Routes to display games
+Route::group(['prefix' => 'games'], function(){
+    Route::get('/_all', 'GamesController@display_all_games')->name('display_all_games');
+});
 
 /**
 * Routing for threading categories, display all posts under the category
