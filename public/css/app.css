@@ -276,3 +276,20 @@ footer p {
         text-align: center
     }
 }
+
+/*Social media links used on the entirity of website*/
+img.social_facebook {
+    width:30px;
+    height:30px;
+    content:url("/img/icon/facebook.ico");
+}
+img.social_youtube {
+    width:38px;
+    height:38px;
+    content:url("/img/icon/youtube.png");
+}
+img.social_twitter {
+    width:32px;
+    height:32px;
+    content:url("/img/icon/twitter.png");
+}
