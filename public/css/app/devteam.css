@@ -4,17 +4,16 @@ img.member_picture {
     border: 1px solid black;
 }
 
-img.social_media {
-    width:32px;
-    height:32px;
-}
-
 .member_title {
     margin-top:0;
 }
 
 .member_role {
     margin-top:0;
+}
+
+div.member_social {
+    margin-top:0.25em;
 }
 
 small.member_description {
@@ -26,6 +25,7 @@ small.member_description {
 div.member_section {
     margin-top:1em;
     overflow:hidden;
+    margin-bottom:3em;
 }
 
 div.member_bio {
