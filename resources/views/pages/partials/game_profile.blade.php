@@ -8,14 +8,15 @@
         <small class="game_description">
             {{$game_description}}
         </small>
+        <br>
        @if(!empty($twitter))
-           <img data-link="{{$twitter}}" class="social_twitter"></img>
+           <a href="{{$twitter}}"><img class="social_twitter"></img></a>
        @endif
        @if(!empty($youtube))
-           <img data-link="{{$youtube}}" class="social_youtube"></img>
+           <a href="{{$youtube}}"><img class="social_youtube"></img></a>
        @endif
        @if(!empty($facebook))
-           <img data-link="{{$facebook}}" class="social_facebook"></img>
+           <a href="{{$facebook}}"><img class="social_facebook"></img></a>
        @endif
     </div>
 </div>

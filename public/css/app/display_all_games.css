@@ -2,6 +2,7 @@ img.game_img {
     width:325px;
     height:190px;
     border: 1px solid black;
+    cursor:pointer;
 }
 
 h3.game_title {
