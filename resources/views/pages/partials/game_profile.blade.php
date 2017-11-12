@@ -1,10 +1,12 @@
 
 <div class="row">
     <div class="game_div col-md-5">
-        <img class="game_img" src="{{$game_img}}"></img>
+        <a href="{{$game_url}}">
+            <img class="game_img" src="{{$game_img}}"></img>
+        </a>
     </div>
     <div class="game_div col-md-7">
-        <h3 class="game_title">{{$game_title}}</h3>
+        <h3 class="game_title"><a href="{{$game_url}}">{{$game_title}}</a></h3>
         <small class="game_description">
             {{$game_description}}
         </small>
