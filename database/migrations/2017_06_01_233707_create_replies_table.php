@@ -21,6 +21,8 @@ class CreateRepliesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('warned')->unsigned()->default(0); // indicate whether user was warned, banned, etc for post
             $table->boolean('edited')->default(false);
+            $table->integer('likes')->unsigned()->default(0); 
+            $table->integer('dislikes')->unsigned()->default(0); 
             $table->text('body'); // 0 for none, 1 for suspended, 2 for banned, 3 for warned
             $table->timestamps();
         });
