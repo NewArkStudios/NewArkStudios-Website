@@ -83,6 +83,12 @@ If run into errors delete migrations table and already existing tables
 Updates to .env file needed for mail server
 example - note this is mailtrap server, we need to update to legitimate email in future
 
+#### PHP 7.0 issues
+https://stackoverflow.com/questions/45132635/php-warning-php-startup-unable-to-load-dynamic-library
+```
+sudo apt-get install --reinstall `dpkg -l | grep 'ii  php7' | awk '{ printf($2" "); next}'
+```
+
 **Note I tried to use gmail server but ran into issue with bluehost not allowing outgoing messages**
 
 ```
