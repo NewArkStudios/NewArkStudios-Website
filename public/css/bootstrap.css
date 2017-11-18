@@ -5,8 +5,8 @@
  */
 
 /*!
- * Generated using the Bootstrap Customizer (http://getbootstrap.com/docs/3.3/customize/?id=d86b3db73dc9c66c8fbfae832e6b459f)
- * Config saved to config.json and https://gist.github.com/d86b3db73dc9c66c8fbfae832e6b459f
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/docs/3.3/customize/?id=c8b4a21d01142204ecd4c1f582be66ec)
+ * Config saved to config.json and https://gist.github.com/c8b4a21d01142204ecd4c1f582be66ec
  */
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -5488,7 +5488,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel-footer {
   padding: 10px 15px;
-  background-color: #f5f5f5;
+  background-color: #8ec7d8;
   border-top: 1px solid #dddddd;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -5692,16 +5692,16 @@ button.list-group-item-danger.active:focus {
   border-color: #dddddd;
 }
 .panel-default > .panel-heading {
-  color: #333333;
-  background-color: #f5f5f5;
+  color: #ffffff;
+  background-color: #8ec7d8;
   border-color: #dddddd;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #dddddd;
 }
 .panel-default > .panel-heading .badge {
-  color: #f5f5f5;
-  background-color: #333333;
+  color: #8ec7d8;
+  background-color: #ffffff;
 }
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #dddddd;
