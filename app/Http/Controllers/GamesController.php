@@ -10,4 +10,9 @@ class GamesController extends Controller
     public function display_all_games() {
         return view('pages.display_all_games');
     }
+
+    // route to display all games
+    public function display_foldrum() {
+        return view('pages.display_foldrum');
+    }
 }
