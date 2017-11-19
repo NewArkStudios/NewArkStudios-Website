@@ -1,9 +1,9 @@
 /* sharp corners for all elements in bootstrap */
-/* * {
+ * {
   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
           border-radius: 0 !important;
-}*/
+}
 
 /*Update link to have unique color at some time*/
 a {
@@ -36,7 +36,7 @@ img.icon-image {
 
 
 body {
-    padding-top: 50px
+    padding-top: 50px;
 }
 
 body>.navbar {
