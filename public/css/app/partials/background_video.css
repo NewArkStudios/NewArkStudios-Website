@@ -1,8 +1,5 @@
-body {
-  margin: 0;
-  background: #000; 
-}
 .video-container {
+  margin:0;
   position: relative;
   top: 0;
   bottom: 0;

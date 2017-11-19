@@ -4,6 +4,9 @@ define('lib.background_video', [], function(){
     var app = {
         'start' : function() {
 
+            // remove padding on top of video container
+            $("div.theme-showcase").css("padding", "0");
+
             var vid = document.getElementById("bgvid");
             var pauseButton = document.querySelector("#polina button");
 
