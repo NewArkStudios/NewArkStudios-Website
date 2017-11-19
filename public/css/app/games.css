@@ -1,0 +1,12 @@
+/* General css for all pages */
+img.description_img {
+    width:250px;
+    height:350px;
+    border:1px solid black;
+    margin-top:2em;
+    margin-left:1em;
+}
+
+div.description_right {
+    margin-top:2em;
+}
