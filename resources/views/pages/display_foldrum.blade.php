@@ -32,6 +32,30 @@
         "indie_db" => "http://www.indiedb.com/games/foldrum",
 ]
 )
+<hr>
+<div style="margin-top:1em;" class="container">
+    @include(
+            'pages.partials.features_smallsection',
+                    [
+                        "image" => "bob",
+                        "description" => "Aenean pharetra convallis pellentesque. Vestibulum et metus lectus. Nunc consectetur, ipsum in viverra eleifend, erat erat ultricies felis, at ultricies mi massa eu ligula. Suspendisse in justo dapibus metus sollicitudin ultrices id sed nisl.",
+                    ]
+    )
+    @include(
+            'pages.partials.features_smallsection',
+                    [
+                        "image" => "bob",
+                        "description" => "Aenean pharetra convallis pellentesque. Vestibulum et metus lectus. Nunc consectetur, ipsum in viverra eleifend, erat erat ultricies felis, at ultricies mi massa eu ligula. Suspendisse in justo dapibus metus sollicitudin ultrices id sed nisl.",
+                    ]
+    )
+    @include(
+            'pages.partials.features_smallsection',
+                    [
+                        "image" => "bob",
+                        "description" => "Aenean pharetra convallis pellentesque. Vestibulum et metus lectus. Nunc consectetur, ipsum in viverra eleifend, erat erat ultricies felis, at ultricies mi massa eu ligula. Suspendisse in justo dapibus metus sollicitudin ultrices id sed nisl.",
+                    ]
+    )
+</div>
 
 @endsection
 @section('custom-javascripts')

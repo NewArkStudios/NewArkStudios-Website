@@ -10,3 +10,27 @@ img.description_img {
 div.description_right {
     margin-top:2em;
 }
+
+/* Small features section*/
+div.feature-smallsection > div.feature-img {
+    width: 100%;
+    height: 200px;
+    border: 1px black solid;
+}
+
+div.feature-smallsection > div.feature-description {
+    width: 100%;
+    height: 200px;
+    border-bottom: 1px black solid;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+    padding:5%;
+}
+
+hr {
+    margin-top : 5%;
+    margin-bottom : 5%;
+    margin-left : 15%;
+    margin-right : 15%;
+    border:1px #0a94bc73 solid;
+}
