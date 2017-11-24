@@ -35,6 +35,9 @@
 ]
 )
 <hr>
+<div class="text-center">
+    <h1>Features</h1>
+</div>
 <div class="container">
     @include(
             'pages.partials.features_smallsection',
@@ -58,7 +61,48 @@
                     ]
     )
 </div>
-
+<hr>
+<div class="text-center">
+    <h1>Media</h1>
+</div>
+<div class="container">
+    @include(
+        'pages.partials.gallery_image',
+        [
+           'image' => 'bob'
+        ]
+    )
+    @include(
+        'pages.partials.gallery_image',
+        [
+           'image' => 'bob'
+        ]
+    )
+    @include(
+        'pages.partials.gallery_image',
+        [
+           'image' => 'bob'
+        ]
+    )
+    @include(
+        'pages.partials.gallery_image',
+        [
+           'image' => 'bob'
+        ]
+    )
+    @include(
+        'pages.partials.gallery_image',
+        [
+           'image' => 'bob'
+        ]
+    )
+    @include(
+        'pages.partials.gallery_image',
+        [
+           'image' => 'bob'
+        ]
+    )
+</div>
 @endsection
 @section('custom-javascripts')
 <script src="{{ asset('js/app/app.display_foldrum.js') }}"></script>

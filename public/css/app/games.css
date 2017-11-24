@@ -34,3 +34,15 @@ hr {
     margin-right : 15%;
     border:1px #0a94bc73 solid;
 }
+
+/* Gallery Element */
+
+div.gallery_element {
+    max-width:100%;
+    padding:2%;
+}
+img.gallery_img {
+    height:200px;
+    width:100%;
+    border:1px solid black;
+}

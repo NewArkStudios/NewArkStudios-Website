@@ -40,3 +40,10 @@ div.member_img {
     padding-left:1em;
     width:30%;
 }
+
+@media screen and (max-width: 500px) { 
+    div.member_img img.member_picture{
+        width:80px;
+        height:108px;
+    }
+}
