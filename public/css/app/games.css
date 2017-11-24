@@ -46,3 +46,21 @@ img.gallery_img {
     width:100%;
     border:1px solid black;
 }
+
+/* Banner element */
+div.games_banner {
+    overflow:hidden;
+    color:white;
+    height:500px;
+    width:100%;
+    padding-top:10%;
+    padding-bottom:10%;
+    padding-left:5%;
+    padding-right:5%;
+    background-size:cover;
+    margin:0;
+}
+
+div.games_banner div.banner_content{
+    
+}

@@ -103,6 +103,19 @@
         ]
     )
 </div>
+<hr>
+@include(
+    'pages.partials.banner',
+    [
+       'image' => '/img/general/cathedraledit.jpg',
+       'title' => 'Up for the challenge?',
+       'subtitle' => 'Begin you adventure here.',
+       'buttons' => [
+            ['text'=>'Try out the demo', 'link'=>'/']
+        ]
+        
+    ]
+)
 @endsection
 @section('custom-javascripts')
 <script src="{{ asset('js/app/app.display_foldrum.js') }}"></script>
