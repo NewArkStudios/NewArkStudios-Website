@@ -11,6 +11,8 @@
     @include(
         'pages.partials.background_video',
                 [
+                    "title" => "Foldrum",
+                    "subtitle" => "a game by newarkstudios",
                     "screenshot" => "https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg",
                     "webm" => "http://thenewcode.com/assets/videos/polina.webm",
                     "mp4" => "http://thenewcode.com/assets/videos/polina.mp4",
@@ -33,7 +35,7 @@
 ]
 )
 <hr>
-<div style="margin-top:1em;" class="container">
+<div class="container">
     @include(
             'pages.partials.features_smallsection',
                     [

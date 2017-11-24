@@ -33,14 +33,21 @@
   padding: 2rem;
   width: 33%;
   margin:2rem;
-  float: right;
+  float: left;
+  position:relative;
+  top:45%;
+  left:35%;
   font-size: 1.2rem;
 }
-h1 {
+#polina h1 {
   font-size: 3rem;
   text-transform: uppercase;
   margin-top: 0;
   letter-spacing: .3rem;
+  text-align:center;
+}
+#polina p {
+  text-align:center;
 }
 #polina button { 
   display: block;
@@ -59,21 +66,16 @@ h1 {
    background: rgba(0,0,0,0.5);
 }
 
-/*a {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  background:rgba(0,0,0,0.5);
-  padding: .5rem;
-  transition: .6s background; 
-}
-a:hover{
-  background:rgba(0,0,0,0.9);
-}*/
+
 @media screen and (max-width: 500px) { 
-  div{width:70%;} 
+  #polina {
+    width:50%;
+  }
 }
 @media screen and (max-device-width: 800px) {
-  html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+  html { background: url('//demosthenes.info/assets/images/polina.jpg') #000 no-repeat center center fixed; }
   #bgvid { display: none; }
+  #polina {
+    width:50%;
+  }
 }
