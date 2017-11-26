@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Report;
 use App\Models\Message;
+use App\Models\Post;
 use App\Users;
 use Illuminate\Support\Facades\Auth;
 use \Carbon\Carbon;
