@@ -1,4 +1,4 @@
-define('app.admin_panel', ['jquery', 'datatables', 'lib.editor'], function($, DT, Editor){
+define('app.admin_panel', ['jquery', 'datatables', 'lib.editor', 'lib.ajax'], function($, DT, Editor, AJAX){
 
     var application = {
 
@@ -26,40 +26,7 @@ define('app.admin_panel', ['jquery', 'datatables', 'lib.editor'], function($, DT
             // then initialize components based off this
             $.get('/admin/get_moderators', function(data, status) {
 
-                // start data table initialization
-                $('#moderator-table').DataTable({
-                    "columns" : [
-                        {
-                            "data": "name",
-                            "title": "User-Name",
-                            "render": function(data, type, full, meta) {
-
-                                return "<a target='blank' href='/profile/" + data + "'>" + data + "</a>"
-                            }
-                        },
-                        {
-                            "data": "first_name",
-                            "title": "First Name",
-                        },
-                        {
-                            "data": "last_name",
-                            "title": "Last Name",
-                        },
-                        {
-                            "data": "email",
-                            "title": "Email",
-                        },
-                        {
-                            "data": "removebutton",
-                            "title": "Remove",
-                            "render" : function (data, type, full, meta) {
-                                return "<button data-user='" + full['id'] + "' class='removemod-btn btn btn-default'>Remove Moderator</button>";
-                            },
-                        },
-                    ],
-                    "data" : self.transformData(data)
-                });
-
+                self.initTable(data);
 
                 // add event listener
                 $('button.removemod-btn').on('click', function(){
@@ -67,12 +34,14 @@ define('app.admin_panel', ['jquery', 'datatables', 'lib.editor'], function($, DT
                     // AJAX call to delete moderators
                     var url = '/admin/delete_moderator';
                     var id = $(this).attr('data-user');
-                    var _token = $('input[name="_token"]').val();
 
-                    $.post(url,{'mod_id': id, '_token': _token}, function(data, status){
+                    $.post(url,{'mod_id': id}, function(data, status){
 
-                        if (data.success && data.success == true)
-                            console.log(data);
+                        if (data.success && data.success == true) {
+                            $.get('/admin/get_moderators', function(data, status) {
+                                self.initTable(data);
+                            });
+                        }
                     });
                 });
             });
@@ -89,6 +58,50 @@ define('app.admin_panel', ['jquery', 'datatables', 'lib.editor'], function($, DT
             });
 
             return data;
+        },
+
+
+        'initTable' : function(data) {
+        
+            // alias
+            var self = this;
+
+            if ($.fn.dataTable.isDataTable('#moderator-table'))
+               $('#moderator-table').DataTable().destroy();
+
+            // start data table initialization
+            $('#moderator-table').DataTable({
+                "columns" : [
+                    {
+                        "data": "name",
+                        "title": "User-Name",
+                        "render": function(data, type, full, meta) {
+
+                            return "<a target='blank' href='/profile/" + data + "'>" + data + "</a>"
+                        }
+                    },
+                    {
+                        "data": "first_name",
+                        "title": "First Name",
+                    },
+                    {
+                        "data": "last_name",
+                        "title": "Last Name",
+                    },
+                    {
+                        "data": "email",
+                        "title": "Email",
+                    },
+                    {
+                        "data": "removebutton",
+                        "title": "Remove",
+                        "render" : function (data, type, full, meta) {
+                            return "<button data-user='" + full['id'] + "' class='removemod-btn btn btn-default'>Remove Moderator</button>";
+                        },
+                    },
+                ],
+                "data" : self.transformData(data)
+            });
         }
     };
 

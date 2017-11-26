@@ -60,7 +60,7 @@ class User extends Authen implements AuthenticatableContract, CanResetPasswordCo
     */
     public function roles(){
        
-       return $this->belongsToMany('App\Models\Roles', 'user_roles', 'role_id', 'user_id');
+       return $this->belongsToMany('App\Models\Roles', 'user_roles', 'user_id', 'role_id');
     }
 
     /**
