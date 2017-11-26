@@ -2,7 +2,7 @@
 * Javascript meant to update the posts
 * with appropriate UI elements
 */
-define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor'], function($, UI, Editor){
+define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor', 'lib.ajax'], function($, UI, Editor, AJAX){
 
     var app = {
 
@@ -53,6 +53,60 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor'], function($, UI,
 
                 // scroll to body element
                 $("html, body").animate({ scrollTop: $('#body').offset().top }, 1000);
+            });
+
+            // icon for liking post
+            var postLikeIcon = $('span.post_like');
+            if (!postLikeIcon.hasClass('disabled')) {
+                postLikeIcon.on('click', function() {
+
+                    var icon = $(this);
+
+                    icon.addClass('disabled');
+                    // note all post_ids are the same anyways, on click disable button
+                    $.post('/thread/like_post', {'post_id' : $('input[name="post_id"]').val()},  function(data) {
+                       var liketext = icon.closest('.panel-body').find('div.meta_data .likes_count');
+                       var likescount = parseInt(liketext.attr('data-count')) + 1;
+                       liketext.attr('data-count', likescount);
+                       liketext.text("Likes: " + likescount);
+
+
+                       var sibling = icon.parent().find('span.post_dislike')
+
+                       if (sibling.hasClass('disabled')) {
+                           var disliketext = icon.closest('.panel-body').find('div.meta_data .dislikes_count');
+                           var dislikescount = parseInt(disliketext.attr('data-count')) - 1;
+                           disliketext.text("Dislikes: " + dislikescount);
+                           disliketext.attr('data-count', dislikescount);
+                           sibling.removeClass('disabled');
+                       }
+                    })
+                });
+            }
+
+            // icon for disliking post
+            $('span.post_dislike').on('click', function() {
+
+                var icon = $(this);
+
+                icon.addClass('disabled');
+                // note all post_ids are the same anyways
+                $.post('/thread/dislike_post', {'post_id' : $('input[name="post_id"]').val()},  function(data) {
+
+                     var disliketext = icon.closest('.panel-body').find('div.meta_data .dislikes_count');
+                     var dislikescount = parseInt(disliketext.attr('data-count')) + 1;
+                     disliketext.attr('data-count', dislikescount);
+                     disliketext.text("Dislikes: " + dislikescount);
+
+                     var sibling = icon.parent().find('span.post_like')
+                     if (sibling.hasClass('disabled')) {
+                         var liketext = icon.closest('.panel-body').find('div.meta_data .likes_count');
+                         var likescount = parseInt(liketext.attr('data-count')) - 1;
+                         liketext.attr('data-count', likescount);
+                         liketext.text("Likes: " + likescount);
+                         sibling.removeClass('disabled');
+                     }
+                })
             });
         }
     }

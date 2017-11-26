@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Post_Like;
+use App\Models\Post_Dislike;
 use App\Models\Archive_Posts;
 use App\Models\Reply;
 use Illuminate\Support\Facades\Auth;
@@ -32,9 +34,13 @@ class PostController extends Controller
         if (is_null(Auth::user())) {
             $moderator = false;
             $admin = false;
+            $liked_post = false;
+            $disliked_post = false;
         } else {
-           $moderator = Auth::user()->hasRole('moderator');
-           $admin = Auth::user()->hasRole('admin');
+            $moderator = Auth::user()->hasRole('moderator');
+            $admin = Auth::user()->hasRole('admin');
+            $liked_post = $this->determine_if_user_liked_post($post);
+            $disliked_post = $this->determine_if_user_disliked_post($post);
         }
 
         return view('pages.thread_post', [
@@ -43,6 +49,8 @@ class PostController extends Controller
             "replies"=>$replies,
             "moderator"=>$moderator,
             "admin"=>$admin,
+            "liked_post"=>$liked_post,
+            "disliked_post"=>$disliked_post,
         ]);
     }
 
@@ -126,6 +134,106 @@ class PostController extends Controller
         $post->save();
 
         return redirect('post/' . $post->slug);
+    }
+
+
+    /**
+    * Like a post
+    */
+    public function like_post(Request $request) {
+
+        $post = Post::where('id', $request['post_id'])->first();
+        $liked = $this->determine_if_user_liked_post($post);
+
+        if (!$liked) {
+            $like = new Post_Like();
+            $like->user_id = Auth::user()->id;
+            $like->post_id = $request['post_id'];
+            $like->save();
+
+            // determine if user disliked so that we can remove
+            $disliked = $this->determine_if_user_disliked_post($post);
+            if ($disliked) {
+                $disliked->delete();    
+            }
+            
+            return response()->json([
+                'success' => true
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'reason' => "You can't like this post"
+            ]);
+        }
+    }
+
+    /**
+    * Like a post
+    */
+    public function dislike_post(Request $request) {
+
+        $post = Post::where('id', $request['post_id'])->first();
+        $disliked = $this->determine_if_user_disliked_post($post);
+
+        if (!$disliked) {
+            $dislike = new Post_Dislike();
+            $dislike->user_id = Auth::user()->id;
+            $dislike->post_id = $request['post_id'];
+            $dislike->save();
+
+            // determine if user disliked so that we can remove
+            $liked = $this->determine_if_user_liked_post($post);
+            if ($liked) {
+                $liked->delete();    
+            }
+            
+            return response()->json([
+                'success' => true
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'reason' => "You can't dislike this post"
+            ]);
+        }
+    }
+
+
+    /**
+    * Determine whether user has liked post
+    */
+    private function determine_if_user_liked_post(Post $post) {
+
+        if (Auth::guest()) {
+            return false;
+        } else {
+            $likes = $post->likes(); 
+            $liked = $likes->where('user_id', Auth::user()->id)->first();
+            if ($liked === null)
+                return false;
+            else
+                return $liked;
+        }
+        
+    }
+
+    /**
+    * Determine whether user has disliked post
+    */
+    private function determine_if_user_disliked_post(Post $post) {
+
+        if (Auth::guest()) {
+            return false;
+        } else {
+            $dislikes = $post->dislikes(); 
+            $disliked = $dislikes->where('user_id', Auth::user()->id)->first();
+            if ($disliked === null)
+                return false;
+            else
+                return $disliked;
+        }
+        
     }
 
     /*

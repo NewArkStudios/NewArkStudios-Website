@@ -1,3 +1,24 @@
 blockquote {
     font-size:13px;
 }
+
+h6.likes_count, h6.dislikes_count, h6.view_count {
+    display:inline;
+    margin-right:0.5em;
+}
+
+span.post_icon{
+    font-size: 1.25em;
+    margin-right:1em;
+    cursor: pointer;
+}
+
+span.post_icon:hover:not(.disabled){
+    color:#0a94bc;
+}
+
+span.post_icon.disabled {
+    cursor:default;
+    opacity:0.4;
+}
+

@@ -41,7 +41,17 @@
                     <tr>
                 </table>
                 <p style="margin-top:1em;">{!! $post->body !!}<p>
-                <h6>Views: {{$post->views}}</h6>
+                @if(Auth::user())
+                <div class="icons-section">
+                    <span class="glyphicon {{$liked_post == true ? "disabled" : "" }} glyphicon-thumbs-up post_icon post_like"></span>
+                    <span class="glyphicon {{$disliked_post == true ? "disabled" : "" }} glyphicon-thumbs-down post_icon post_dislike"></span>
+                </div>
+                @endif
+                <div class="meta_data">
+                    <h6 class="view_count">Views: {{$post->views}}</h6>
+                    <h6 data-count="{{$post->likes()->count()}}" class="likes_count">Likes: {{$post->likes()->count()}}</h6>
+                    <h6 data-count="{{$post->dislikes()->count()}}" class="dislikes_count">Dislikes: {{$post->dislikes()->count()}}</h6>
+                </div>
                 <!-- Content of post end --> 
 
                 @if($post->warned == 1)

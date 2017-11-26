@@ -127,6 +127,12 @@ Route::group(['prefix' => 'thread'], function(){
     Route::post('pin_post', 'ModeratorController@pin_post')
     ->name('pin_post')->middleware('moderator');
 
+    Route::post('like_post', 'PostController@like_post')
+    ->middleware('logged_in')->name('like_post');
+
+    Route::post('dislike_post', 'PostController@dislike_post')
+    ->middleware('logged_in')->name('dislike_post');
+
     Route::get('display_edit_post/{post_slug}', 'PostController@display_edit_post')
     ->middleware('logged_in');
 
@@ -138,6 +144,7 @@ Route::group(['prefix' => 'thread'], function(){
     
     Route::post('edit_reply', 'ReplyController@edit_reply')
     ->middleware('logged_in')->name('edit_reply');
+
 });
 
 /**

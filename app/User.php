@@ -117,4 +117,12 @@ class User extends Authen implements AuthenticatableContract, CanResetPasswordCo
     public function profile_image() {
         return $this->hasOne('App\Models\Profile_Image', 'id', 'profile_image_id');
     }
+
+    public function likes() {
+        return $this->hasMany('App\Models\Post_Like');
+    }
+
+    public function dislikes() {
+        return $this->hasMany('App\Models\Post_Dislike');
+    }
 }

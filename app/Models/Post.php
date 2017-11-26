@@ -24,4 +24,12 @@ class Post extends Model
     public function archive_posts() {
         return $this->hasMany('App\Models\Archive_Posts', 'post_id');
     }
+
+    public function likes() {
+        return $this->hasMany('App\Models\Post_Like');
+    }
+
+    public function dislikes() {
+        return $this->hasMany('App\Models\Post_Dislike');
+    }
 }
