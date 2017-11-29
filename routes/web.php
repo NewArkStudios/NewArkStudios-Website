@@ -55,6 +55,9 @@ Route::group(['prefix' => 'games'], function(){
     Route::get('/foldrum', 'GamesController@display_foldrum')->name('display_foldrum');
 });
 
+// outside games route to easily access public resources
+Route::get('/demo_foldrum', 'GamesController@demo_foldrum')->name('demo_foldrum');
+
 /**
 * Routing for threading categories, display all posts under the category
 * TODO possibly do pinned posts
