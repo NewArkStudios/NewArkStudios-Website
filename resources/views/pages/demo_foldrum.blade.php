@@ -18,7 +18,7 @@
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Desktop.json", {onProgress: UnityProgress});
     </script>
   <body>
-    <div class="webgl-content">
+    <div style="margin-top:10%;" class="webgl-content">
       <div id="gameContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
         <div class="webgl-logo"></div>
@@ -29,4 +29,5 @@
   </body>
 @endsection
 @section('custom-javascripts')
+    <script src="{{ asset('js/demo_foldrum/customscrollbar.js') }}"></script>
 @endsection
