@@ -1,15 +1,17 @@
 
 @extends('layouts.masters.main')
 
+@section('custom-title')
+    Foldrum Offical Demo
+@endsection
+
 @section('custom-css')
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="stylesheet" href="{{ URL::asset('css/app/display_foldrum.css') }}" />
 @endsection
 
 @section('page-content')
-
-    <title>Unity WebGL Player | Foldrum Offical</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>  
     <script src="Build/UnityLoader.js"></script>
     <script>
