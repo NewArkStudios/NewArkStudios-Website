@@ -60,7 +60,6 @@ Route::get('/demo_foldrum', 'GamesController@demo_foldrum')->name('demo_foldrum'
 
 /**
 * Routing for threading categories, display all posts under the category
-* TODO possibly do pinned posts
 */
 Route::get('thread_category/{slug}', 'ForumController@get_post_list');
 

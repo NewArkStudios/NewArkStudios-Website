@@ -163,6 +163,7 @@ class ModeratorController extends Controller
         $post_id = $request['post_id'];
         $post = Post::where('id', $post_id)->first();
         $post->pinned = 1;
+        $post->save();
 
         return redirect()->back();
     }

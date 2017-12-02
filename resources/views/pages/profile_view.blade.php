@@ -61,7 +61,7 @@
                         @foreach($posts as $post)
                             <div class="well">
                                 <a href="{{url('post/' . $post->slug)}}">{{$post->title}}</a>
-                                <p>Content: {{$post->body}}</p>
+                                <p>Content: {!!$post->body!!}</p>
                                 <p>Created at: {{$post->created_at}}</p>
                                 <p>Updated at: {{$post->updated_at}}</p>
                             </div>
