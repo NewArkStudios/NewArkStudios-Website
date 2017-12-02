@@ -44,7 +44,7 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor', 'lib.ajax'], fun
             $('button.reply-link').on('click', function(){
 
                 var replyContent = $(this).siblings('div.reply-content').html();
-                var replyUser = $(this).siblings('table.profile-info').find('a.reply-user').text();
+                var replyUser = $(this).attr('data-reply-user');
                 replyContent = "<blockquote style='background-color:#f5f5f5;'>" + replyContent + "<br>From: " + replyUser  + "</blockquote><p></p>\n\n"
                 Editor.tinyMCE.activeEditor.setContent(replyContent);
 

@@ -24,12 +24,25 @@ span.post_icon.disabled {
 
 a.edit_link {
     float:right;
-    padding:1em;
+}
+
+div.post_operations {
 }
 
 div.panel.panel-default {
     border-color:#0a94bc;
 }
+
+div.reply-content {
+    margin-bottom:1em;
+}
+
+div.reply-section {
+    background-color:#e1ebf2;
+    padding:1em;
+    margin-bottom:1.5em;
+}
+
 
 hr {
     border:0.5px solid #0a94bc;

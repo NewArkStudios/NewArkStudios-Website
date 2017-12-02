@@ -136,37 +136,35 @@
     <!-- Note foreach is bugged for gathering replies normally -->
     <!--reply content -->
     @for ($i = 0; $i < count($replies); $i++)
-    <div id="reply-section-{{$i}}">
+    <div class="col-md-12 reply-section" id="reply-section-{{$i}}">
         <!--reply content start -->
         @if(Auth::user())
             @if(Auth::user()->id == $replies[$i]->user->id)
-            <br>
             <a class="edit_link" href="{{url('thread/display_edit_reply/' . $replies[$i]->id)}}">Edit</a>
             @endif
         @endif
-        <table class='profile-info'>
-            <tr>
-                <td>
-                    <img src="{{ URL::asset($replies[$i]->user->profile_image->location) }}"  class="profile-image"></img>
-                </td>
-                <td>
-                    <div>
-                        <p>
+        <div class="col-md-2">
+            <table class='profile-info'>
+                <tr>
+                    <td>
+                        <p class="text-center">
                             <a class='reply-user' href="{{url('/profile/' . $replies[$i]->user->name)}}">
                                 {{$replies[$i]->user->name}}
                             </a>
                         </p>
-                        <p>
-                            Created at: {{$post->created_at}}
-                        </p>
-                        <p>
-                            Updated at: {{$post->updated_at}}
-                        </p>
-                    </div>
-                </td>
-            </tr>
-        </table>
-            <div class='reply-content'>{!! $replies[$i]->body !!} </div>
+                        <img src="{{ URL::asset($replies[$i]->user->profile_image->location) }}"  class="profile-image"></img>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-9">
+            <div class='reply-content'>
+                {!! $replies[$i]->body !!}
+                <small>
+                    Created at: {{$post->created_at}}, 
+                    Updated at: {{$post->updated_at}}
+                </small>
+            </div>
         @if($replies[$i]->warned == 1)
             <p><small style="color:red">User was suspended for reply</small></p>
         @elseif($replies[$i]->warned == 2)
@@ -188,7 +186,7 @@
             </div>
         @endif
         @if(Auth::user())
-            <button class='btn btn-primary reply-link'>reply</button>
+            <button data-reply-user="{{$replies[$i]->user->name}}" class='btn btn-primary reply-link'>Quote</button>
         @endif
         <form style="display:inline-table;" role="form" method="POST" action="{{ url('/display_report_user') }}">
             {{ csrf_field() }}
@@ -199,6 +197,7 @@
                 Report User
             </button>
         </form>
+        </div>
     </div>
     <hr>
     @endfor
