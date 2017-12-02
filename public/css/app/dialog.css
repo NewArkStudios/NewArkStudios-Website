@@ -1,0 +1,16 @@
+div.ui-dialog-titlebar {
+    background-color:#8ec7d8;
+}
+
+div.edited_dialog {
+    max-height:400px;
+}
+
+div.post_operations {
+    margin-bottom:1em;
+    margin-left:1em;
+}
+
+button.ui-dialog-titlebar-close:hover {
+   background-color:#0a94bc; 
+}

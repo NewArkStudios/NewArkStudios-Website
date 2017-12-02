@@ -1,5 +1,8 @@
 @extends('layouts.masters.main')
 
+@section('custom-css')
+    <link rel="stylesheet" href="{{ URL::asset('css/app/thread_posts_list.css') }}" />
+@endsection
 @section('page-content')
 <div class="row">
     <div class="col-md-8 col-md-offset-2">

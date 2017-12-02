@@ -8,7 +8,7 @@
 
                 @foreach($users as $user)
                     <!-- once we have more user information we can post --> 
-                    <div class="col-md-12">
+                    <div style="margin-top:1em;" class="col-md-12">
                         <a href="{{ url('profile/' . $user->name) }}">{{ $user->name }}</a>
                     </div>
                 @endforeach                

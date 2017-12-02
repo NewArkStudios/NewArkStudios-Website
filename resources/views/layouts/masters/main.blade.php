@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ URL::asset('css/app/notification.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
-        <link rel="stylesheet" href="{{ URL::asset('css/jquery-ui.css') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('css/jquery-ui.min.css') }}" />
         @yield('custom-css')
 
     </head>

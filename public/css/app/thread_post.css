@@ -22,3 +22,16 @@ span.post_icon.disabled {
     opacity:0.4;
 }
 
+a.edit_link {
+    float:right;
+    padding:1em;
+}
+
+div.panel.panel-default {
+    border-color:#0a94bc;
+}
+
+hr {
+    border:0.5px solid #0a94bc;
+    width:75%;
+}

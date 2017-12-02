@@ -22,12 +22,9 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor', 'lib.ajax'], fun
             });
 
             // initialize content for page
-            $("#post-edited-dialog").dialog({
+            $("div.edited_dialog").dialog({
                 autoOpen: false,
-            });
-
-            $("div.reply-edited-dialog").dialog({
-                autoOpen: false,
+                maxHeight: 500, 
             });
 
             // note may not use dialog because there is a chance it will not appear well on phone
@@ -48,7 +45,7 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor', 'lib.ajax'], fun
 
                 var replyContent = $(this).siblings('div.reply-content').html();
                 var replyUser = $(this).siblings('table.profile-info').find('a.reply-user').text();
-                replyContent = "<blockquote>" + replyContent + "<br>From: " + replyUser  + "</blockquote>\n\n"
+                replyContent = "<blockquote style='background-color:#f5f5f5;'>" + replyContent + "<br>From: " + replyUser  + "</blockquote><p></p>\n\n"
                 Editor.tinyMCE.activeEditor.setContent(replyContent);
 
                 // scroll to body element
