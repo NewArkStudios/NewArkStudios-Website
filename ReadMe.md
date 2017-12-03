@@ -59,6 +59,7 @@ Create the seed with
 
 Note if one cannot seed then we need to update our autload files
 as they may not be synced
+This fixes as it removes cached classes
 
 ```
 composer dump-autoload
