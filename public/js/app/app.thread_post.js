@@ -105,6 +105,57 @@ define('app.thread_post', ['jquery', 'jquery_ui', 'lib.editor', 'lib.ajax'], fun
                      }
                 })
             });
+
+            // icon for disliking post
+            $('span.reply_dislike').on('click', function() {
+
+                var icon = $(this);
+
+                icon.addClass('disabled');
+                // note all post_ids are the same anyways
+                $.post('/thread/dislike_reply', {'reply_id' : $(this).attr("data-reply-id")},  function(data) {
+
+                     var disliketext = icon.parent().parent().find('div.meta_data .dislikes_count');
+                     var dislikescount = parseInt(disliketext.attr('data-count')) + 1;
+                     disliketext.attr('data-count', dislikescount);
+                     disliketext.text("Dislikes: " + dislikescount);
+
+                     var sibling = icon.parent().find('span.reply_like');
+                     if (sibling.hasClass('disabled')) {
+                         var liketext = icon.parent().parent().find('div.meta_data .likes_count');
+                         var likescount = parseInt(liketext.attr('data-count')) - 1;
+                         liketext.attr('data-count', likescount);
+                         liketext.text("Likes: " + likescount);
+                         sibling.removeClass('disabled');
+                     }
+                })
+            });
+
+            // icon for disliking post
+            $('span.reply_like').on('click', function() {
+
+                var icon = $(this);
+
+                icon.addClass('disabled');
+                // note all post_ids are the same anyways
+                $.post('/thread/like_reply', {'reply_id' : $(this).attr("data-reply-id")},  function(data) {
+
+                     var liketext = icon.parent().parent().find('div.meta_data .likes_count');
+                     var likescount = parseInt(liketext.attr('data-count')) + 1;
+                     liketext.attr('data-count', likescount);
+                     liketext.text("Likes: " + likescount);
+
+                     var sibling = icon.parent().find('span.reply_dislike');
+                     if (sibling.hasClass('disabled')) {
+
+                         var disliketext = icon.parent().parent().find('div.meta_data .dislikes_count');
+                         var dislikescount = parseInt(disliketext.attr('data-count')) - 1;
+                         disliketext.attr('data-count', dislikescount);
+                         disliketext.text("Dislikes: " + dislikescount);
+                         sibling.removeClass('disabled');
+                     }
+                })
+            });
         }
     }
 

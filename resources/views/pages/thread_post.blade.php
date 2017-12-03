@@ -165,6 +165,16 @@
                     Updated at: {{$post->updated_at}}
                 </small>
             </div>
+        @if(Auth::user())
+        <div class="icons-section">
+                <span data-reply-id="{{$replies[$i]->id}}" class="glyphicon {{$replies[$i]->likes()->where('user_id', '=', Auth::user()->id)->first() != null ? "disabled" : "" }} glyphicon-thumbs-up post_icon reply_like"></span>
+                <span data-reply-id="{{$replies[$i]->id}}" class="glyphicon {{$replies[$i]->dislikes()->where('user_id', '=', Auth::user()->id)->first() != null ? "disabled" : "" }} glyphicon-thumbs-down post_icon reply_dislike"></span>
+        </div>
+        <div class="meta_data">
+            <h6 data-count="{{$replies[$i]->likes()->count()}}" class="likes_count">Likes: {{$replies[$i]->likes()->count()}}</h6>
+            <h6 data-count="{{$replies[$i]->dislikes()->count()}}" class="dislikes_count">Dislikes: {{$replies[$i]->dislikes()->count()}}</h6>
+        </div>
+        @endif
         @if($replies[$i]->warned == 1)
             <p><small style="color:red">User was suspended for reply</small></p>
         @elseif($replies[$i]->warned == 2)
@@ -199,11 +209,10 @@
         </form>
         </div>
     </div>
-    <hr>
     @endfor
     <!-- pagination links -->
     {{ $replies->links() }}
-    <div class="panel panel-default">
+    <div class="col-md-12 panel panel-default">
     @if(Auth::guest())
        To Reply please login 
     @elseif(Auth::user() && $post->closed)

@@ -7,6 +7,8 @@ use App\User;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Reply;
+use App\Models\Reply_Like;
+use App\Models\Reply_Dislike;
 use App\Notifications\Forum;
 use App\Models\Archive_Replies;
 use Illuminate\Support\Facades\Auth;
@@ -108,5 +110,100 @@ class ReplyController extends Controller
         return redirect('post/' . $reply->post->slug);
     }
 
+    /**
+    * Like a reply
+    */
+    public function dislike_reply(Request $request) {
 
+        $reply = Reply::where('id', $request['reply_id'])->first();
+        $disliked = $this->determine_if_user_disliked_reply($reply);
+
+        if (!$disliked) {
+            $dislike = new Reply_Dislike();
+            $dislike->user_id = Auth::user()->id;
+            $dislike->reply_id = $request['reply_id'];
+            $dislike->save();
+
+            // determine if user disliked so that we can remove
+            $liked = $this->determine_if_user_liked_reply($reply);
+            if ($liked) {
+                $liked->delete();    
+            }
+            
+            return response()->json([
+                'success' => true
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'reason' => "You can't dislike this reply"
+            ]);
+        }
+    }
+
+    /**
+    * Like a reply
+    */
+    public function like_reply(Request $request) {
+
+        $reply = Reply::where('id', $request['reply_id'])->first();
+        $liked = $this->determine_if_user_liked_reply($reply);
+
+        if (!$liked) {
+            $like = new Reply_like();
+            $like->user_id = Auth::user()->id;
+            $like->reply_id = $request['reply_id'];
+            $like->save();
+
+            // determine if user disliked so that we can remove
+            $disliked = $this->determine_if_user_disliked_reply($reply);
+            if ($disliked) {
+                $disliked->delete();    
+            }
+            
+            return response()->json([
+                'success' => true
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'reason' => "You can't like this reply"
+            ]);
+        }
+    }
+
+    /**
+    * Determine whether user has disliked post
+    */
+    private function determine_if_user_disliked_reply(Reply $reply) {
+
+        if (Auth::guest()) {
+            return false;
+        } else {
+            $dislikes = $reply->dislikes(); 
+            $disliked = $dislikes->where('user_id', Auth::user()->id)->first();
+            if ($disliked === null)
+                return false;
+            else
+                return $disliked;
+        }
+        
+    }
+
+    /**
+    * Determine whether user has disliked post
+    */
+    private function determine_if_user_liked_reply(Reply $reply) {
+
+        if (Auth::guest()) {
+            return false;
+        } else {
+            $likes = $reply->likes(); 
+            $liked = $likes->where('user_id', Auth::user()->id)->first();
+            if ($liked === null)
+                return false;
+            else
+                return $liked;
+        }
+    }
 }

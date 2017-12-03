@@ -135,6 +135,12 @@ Route::group(['prefix' => 'thread'], function(){
     Route::post('dislike_post', 'PostController@dislike_post')
     ->middleware('logged_in')->name('dislike_post');
 
+    Route::post('like_reply', 'ReplyController@like_reply')
+    ->middleware('logged_in')->name('like_reply');
+
+    Route::post('dislike_reply', 'ReplyController@dislike_reply')
+    ->middleware('logged_in')->name('dislike_reply');
+
     Route::get('display_edit_post/{post_slug}', 'PostController@display_edit_post')
     ->middleware('logged_in');
 

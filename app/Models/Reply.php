@@ -26,4 +26,12 @@ class Reply extends Model
     public function archive_replies() {
         return $this->hasMany('App\Models\Archive_Replies', 'reply_id');
     }
+
+    public function likes() {
+        return $this->hasMany('App\Models\Reply_Like');
+    }
+
+    public function dislikes() {
+        return $this->hasMany('App\Models\Reply_Dislike');
+    }
 }
