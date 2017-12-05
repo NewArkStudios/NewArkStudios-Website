@@ -49,8 +49,8 @@ class ForumController extends Controller
 
         $category = Category::where('slug', $slug)->first();
         $posts = Post::where('category_id', $category->id)
-        ->orderBy('updated_at', 'desc')
         ->orderBy('pinned', 'desc')
+        ->orderBy('updated_at', 'desc')
         ->paginate(5);
 
         //TODO CHECK FOR EMPTY CATEGEORIES

@@ -67,7 +67,7 @@
                             {{ csrf_field() }}
                             <input type="hidden" name="report_id" value="{{$report->id}}"></input>
                             <button type="submit" class="btn btn-primary">
-                                Innocent User
+                                Dismiss Report
                             </button>
                         </form>
                     </div>
