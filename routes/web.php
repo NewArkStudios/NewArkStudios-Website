@@ -213,6 +213,7 @@ Route::group(['prefix' => 'moderator', 'middleware' => ['moderator']], function(
     Route::post('ban_user', 'ModeratorController@ban_user')->name('ban_user');
     Route::post('warn_user', 'ModeratorController@warn_user')->name('warn_user');
     Route::post('suspend_user', 'ModeratorController@suspend_user')->name('suspend_user');
+    Route::post('delete_report', 'ModeratorController@delete_report')->name('delete_report');
 });
 
 

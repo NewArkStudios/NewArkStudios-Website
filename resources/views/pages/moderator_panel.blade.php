@@ -8,8 +8,8 @@
             <!-- This will change of course -->
             <!--Suggestion might use Jquery datatables-->
             <div class="panel-body">
-                Reports    
-                @foreach($reports as $report)
+                <h3>Reports</h3>
+                @forelse($reports as $report)
                     <div class="col-md-12 well">
                         <p>Number: {{$loop->iteration}}</p>
                         <p>Reason: {{$report->reason}}</p>
@@ -63,8 +63,17 @@
                                 Warn User
                             </button>
                         </form>
+                        <form style="display:inline-table;" role="form" method="POST" action="{{ route('delete_report') }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="report_id" value="{{$report->id}}"></input>
+                            <button type="submit" class="btn btn-primary">
+                                Innocent User
+                            </button>
+                        </form>
                     </div>
-                @endforeach
+                @empty
+                    <p>No reports, the world is at peace let's hope the fire nation doesn't attack.</p>
+                @endforelse
             </div>
             <!-- pagination links -->
             {{ $reports->links() }}

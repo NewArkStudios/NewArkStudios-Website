@@ -117,6 +117,21 @@ class ModeratorController extends Controller
     }
 
     /**
+    * Delete report as useless or unfounded, suspect was found innocent
+    */
+    public function delete_report(Request $request) {
+
+        // grab the user from the report
+        $report = Report::where('id', $request['report_id'])->first();
+
+        // delete the report as it will be of no use
+        $report->delete();
+
+        return redirect()->back();        
+  
+    }
+
+    /**
     * Close a post so people can no longer post to it
     * @param Request query, contains all info passed for request
     */
