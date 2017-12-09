@@ -1,5 +1,9 @@
 @extends('layouts.masters.main')
 
+@section('custom-css')
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/app/app.profile.css')}}"/>
+@endsection
+
 @section('page-content')
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -22,7 +26,7 @@
                             <br>
                             <br>
                             <p>Joined : {{$joined}}</p>
-                            <p>Last active : {{$last_active}}</p>
+                            <p>Last active : <span class="timestamp-moment">{{$last_active}}</span></p>
                         </div>
                         <div class="col-md-8">
                             <h1>{{$name}}</h1>
@@ -60,16 +64,29 @@
                     <div id="posts-section" class="tab-pane fade">
                         @foreach($posts as $post)
                             <div class="well">
-                                <a href="{{url('post/' . $post->slug)}}">{{$post->title}}</a>
-                                <p>Content: {!!$post->body!!}</p>
-                                <p>Created at: {{$post->created_at}}</p>
-                                <p>Updated at: {{$post->updated_at}}</p>
+                                <a class="postlink" href="{{url('post/' . $post->slug)}}">{{$post->title}}</a>
+                                <p>Content:</p>
+                                <blockquote>{!!$post->body!!}</blockquote>
+                                <p>Created at: <span class="timestamp-moment">{{$post->created_at}}</span>, Updated at: <span class="timestamp-moment">{{$post->updated_at}}</span></p>
                             </div>
                         @endforeach
                         <!-- Pagination links -->
                         {{ $posts->links() }}
                     </div>
                     <div id="activity-section" class="tab-pane fade">
+                        <h5>Replies</h5>
+                        @foreach($replies as $reply)
+                            <div class="well">
+                                <a class="replylink" href="{{url('post/' . $reply->post->slug)}}">{{$reply->post->title}}</a>
+                                <p>Content:</p>
+                                <blockquote>
+                                    {!!$reply->body!!}
+                                </blockquote>
+                                <p>Created at: <span class="timestamp-moment">{{$reply->created_at}}</span>, Updated at: <span class="timestamp-moment">{{$reply->updated_at}}</span></p>
+                            </div>
+                        @endforeach
+                        <!-- Pagination links -->
+                        {{ $posts->links() }}
                     </div>
                 </div>
             @endif

@@ -18,6 +18,8 @@ requirejs.config({
         'jquery_ui': '/js/jquery-ui.min',
         'tinyMCE': '../tinymce/tinymce.min',
         'moment': '../moment-with-local.min',
+        'moment-timezone' : '../moment-timezone',
+        'moment-timezone-with-data.min' : '../moment-timezone-with-data.min',
         'anime': '../anime.min'
         /**bootstrap : '/js/bootstrap.min'**/
     },

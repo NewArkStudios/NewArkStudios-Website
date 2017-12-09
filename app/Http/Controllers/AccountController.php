@@ -37,8 +37,9 @@ class AccountController extends Controller
             'birthday' => ($user->birthday) ? $user->birthday : false,
             "email" => $user->email,
             "posts" => $user->posts()->paginate(5),
+            "replies" => $user->replies()->paginate(5),
             "joined" => $user->created_at->format('F-d-Y'),
-            "last_active" => $user->last_active->format('F d, Y g:i:s a'),
+            "last_active" => $user->last_active,
             "profile_image_url" => $profile_image->location
         ];
 

@@ -111,6 +111,13 @@ class User extends Authen implements AuthenticatableContract, CanResetPasswordCo
         return $this->hasMany('App\Models\Post', 'user_id');
     }
 
+     /*
+    * Get all the posts associated with the user
+    */
+    public function replies() {
+        return $this->hasMany('App\Models\Reply', 'user_id');
+    }
+
     /*
     * Get the object representing the profile image assigned to the user
     */

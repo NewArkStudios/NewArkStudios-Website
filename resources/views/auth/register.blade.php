@@ -96,6 +96,9 @@
                                 <a href="{{route('login')}}">Have an account? Login</a>
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            Note* the forums are in BETA and subject to changes as we go...
+                        </div>
                     </form>
                 </div>
             </div>
