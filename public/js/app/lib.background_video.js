@@ -8,6 +8,11 @@ define('lib.background_video', [], function(){
             $("div.theme-showcase").css("padding", "0");
 
             var vid = document.getElementById("bgvid");
+            
+            // sanity check 
+            if (!vid)
+                return;
+
             var pauseButton = document.querySelector("#polina button");
 
             if (window.matchMedia('(prefers-reduced-motion)').matches) {

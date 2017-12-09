@@ -3,6 +3,7 @@
         <img src="{{$image}}"></img>
     </div>
     <div class="feature-description">
-        {{ $description }}
+    	<h1 class="feature-title">{{ $title }}</h1>
+        <p>{{ $description }}</p>
     </div>
 </div>

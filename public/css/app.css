@@ -280,9 +280,9 @@ footer p {
 
 /*Social media links used on the entirity of website*/
 img.social_facebook {
-    width:30px;
-    height:30px;
-    content:url("/img/icon/facebook.ico");
+    width:28px;
+    height:28px;
+    content:url("/img/icon/facebook.png");
 }
 img.social_facebook:hover {
     width:36px;

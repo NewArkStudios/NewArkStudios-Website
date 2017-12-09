@@ -1,7 +1,8 @@
+/*CSS for displaying foldrum game page*/
+
 img.game_img {
     width:325px;
     height:190px;
-    border: 1px solid black;
     cursor:pointer;
 }
 
@@ -12,4 +13,30 @@ h3.game_title {
 div.game_div {
     margin-top:1em;
     margin-bottom:3em;
+}
+
+#global-navbar {
+	background-color: #63060e;
+	border-color: #63060e;
+}
+
+body {
+	color:white;
+	background-color:#110909;
+	overflow-x: hidden
+}
+
+hr {
+	border:6px solid;
+	border-image:url('/img/foldrum/border_template.png') 6 repeat;
+}
+
+button.btn.btn-default {
+	background-color:#63060e;
+	border:1px solid #63060e;
+	color:white;
+}
+
+button.btn.btn-default:hover{
+	background-color:#3a0308;
 }

@@ -7,7 +7,7 @@
 @endsection
 
 @section('page-content')
-<div class="video-container">
+{{-- <div class="video-container">
     @include(
         'pages.partials.background_video',
                 [
@@ -18,15 +18,30 @@
                     "mp4" => "http://thenewcode.com/assets/videos/polina.mp4",
                 ]
     )
-</div>
+</div>--}}
+@include(
+    'pages.partials.banner',
+    [
+       'image' => '/img/foldrum/group_banner.png',
+       'title' => 'Foldrum',
+       'subtitle' => 'insert-slogan here',
+       'buttons' =>[],
+       'center' => true,
+    ]
+)
+<hr>
 @include(
     'pages.partials.desc_right_img_left',
     [
-        "image" => "bob",
-        "title" => "Absolute Strategy",
-        "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.
-       <br> 
-        Aenean pharetra convallis pellentesque. Vestibulum et metus lectus. Nunc consectetur, ipsum in viverra eleifend, erat erat ultricies felis, at ultricies mi massa eu ligula. Suspendisse in justo dapibus metus sollicitudin ultrices id sed nisl.",
+        "image" => "/img/foldrum/spearman_alpha.png",
+        "title" => "Forward to Foldrum!",
+        "description" => "
+        Life is hard in the once republic of Madev. The war has brought devastation to the region and with victory ending on the side of the Principality of Kos, people of that region thought that things would begin to be normal again even if there home country was no more. However many of the Kosian commanders who fought so cunningly and ferociously to win the territory of Madev realized something while their soldiers were out drinking and celebrating their victory.
+        <br>
+        The resources required to win this war had all but depleted their most important resource, food. So as the winter approaches, the great leaders of Kos retreat inwards to their castles and keeps and let the people of both nations fend for themselves.
+        <br>
+        In this desperate time a Mercenary by the name of Berslav is sent to steal an artifact from Kos with the promise that he will be awarded a noble position and his own house. Considering the circumstances, what person could refuse such an offer? So Berslav sets out on the most terrifying journey of his life, for he will soon realize just how dangerous the Foldrum really is.
+        <br>" ,
 
         "twitter" => "https://twitter.com/foldrumgame",
         "youtube" => "https://www.youtube.com/channel/UCtBWmVYP_1AueqwYjysmGmw",
@@ -36,28 +51,31 @@
 )
 <hr>
 <div class="text-center">
-    <h1>Features</h1>
+    <h1>Mechanics</h1>
 </div>
 <div class="container">
     @include(
             'pages.partials.features_smallsection',
                     [
                         "image" => "bob",
-                        "description" => "Aenean pharetra convallis pellentesque. Vestibulum et metus lectus. Nunc consectetur, ipsum in viverra eleifend, erat erat ultricies felis, at ultricies mi massa eu ligula. Suspendisse in justo dapibus metus sollicitudin ultrices id sed nisl.",
+                        "title" => "Terrain Tiles",
+                        "description" => "Tiles are the ground below your feet. In many tactics games the terrain might slow you down or speed you up, but in Foldrum most tiles are like a Faustian bargain; they come with their own pros and cons. You would do well to watch what is below your feet.",
                     ]
     )
     @include(
             'pages.partials.features_smallsection',
                     [
                         "image" => "bob",
-                        "description" => "Aenean pharetra convallis pellentesque. Vestibulum et metus lectus. Nunc consectetur, ipsum in viverra eleifend, erat erat ultricies felis, at ultricies mi massa eu ligula. Suspendisse in justo dapibus metus sollicitudin ultrices id sed nisl.",
+                        "title" => "Weapons",
+                        "description" => "Weapons are the staple of combat in Foldrum. They are your main source of offense and come with their own varied ranges and abilities. Much of each weapons usefulness depends on your play style. If you desire to finish your fights up close and personal the bardiche, sword and axe are your friend, but if you want to handle things at range then the bow and spear might be more to your liking.",
                     ]
     )
     @include(
             'pages.partials.features_smallsection',
                     [
                         "image" => "bob",
-                        "description" => "Aenean pharetra convallis pellentesque. Vestibulum et metus lectus. Nunc consectetur, ipsum in viverra eleifend, erat erat ultricies felis, at ultricies mi massa eu ligula. Suspendisse in justo dapibus metus sollicitudin ultrices id sed nisl.",
+                        "title" => "Items",
+                        "description" => "Items can be the difference between victory and defeat in a battle. They tend to buff your relations with the two previously mentioned elements. Either they will make you better at dealing with tiles or they will add some additional punch to your weaponry, or even act like a weapon themselves.",
                     ]
     )
 </div>
@@ -107,13 +125,13 @@
 @include(
     'pages.partials.banner',
     [
-       'image' => '/img/general/cathedraledit.jpg',
+       'image' => '/img/foldrum/horses_banner.png',
        'title' => 'Up for the challenge?',
        'subtitle' => 'Begin you adventure here.',
        'buttons' => [
-            ['text'=>'Try out the demo', 'link'=>'/']
-        ]
-        
+            ['text'=>'Try out the demo', 'link'=>'/demo_foldrum']
+        ],
+        'center' => false
     ]
 )
 @endsection
