@@ -22,9 +22,10 @@
 @include(
     'pages.partials.banner',
     [
+       "id" => "top-banner",
        'image' => '/img/foldrum/group_banner.png',
        'title' => 'Foldrum',
-       'subtitle' => 'insert-slogan here',
+       'subtitle' => "<h4>a game by newarkstudios</h4><img class='icon' src='/img/foldrum/foldrum_icon.png'/>",
        'buttons' =>[],
        'center' => true,
     ]
@@ -33,6 +34,7 @@
 @include(
     'pages.partials.desc_right_img_left',
     [
+        "id" => "main-description",
         "image" => "/img/foldrum/spearman_alpha.png",
         "title" => "Forward to Foldrum!",
         "description" => "
@@ -50,10 +52,10 @@
 ]
 )
 <hr>
-<div class="text-center">
+<div id="mechanics-title" class="text-center">
     <h1>Mechanics</h1>
 </div>
-<div class="container">
+<div id="mechanics-section" class="container">
     @include(
             'pages.partials.features_smallsection',
                     [
@@ -83,7 +85,7 @@
 <div class="text-center">
     <h1>Media</h1>
 </div>
-<div class="container">
+<div id="gallery-section" class="container">
     @include(
         'pages.partials.gallery_image',
         [
@@ -125,9 +127,10 @@
 @include(
     'pages.partials.banner',
     [
+       "id" => "bottom-banner",
        'image' => '/img/foldrum/horses_banner.png',
        'title' => 'Up for the challenge?',
-       'subtitle' => 'Begin you adventure here.',
+       'subtitle' => '<h4>Begin you adventure here.</h4>',
        'buttons' => [
             ['text'=>'Try out the demo', 'link'=>'/demo_foldrum']
         ],

@@ -13,15 +13,15 @@ div.description_right {
 div.feature-smallsection > div.feature-img {
     width: 100%;
     height: 200px;
-    border: 2px #63060e solid;
+    border: 2px black solid;
 }
 
 div.feature-smallsection > div.feature-description {
     width: 100%;
     height: 300px;
-    border-bottom: 2px #63060e solid;
-    border-left: 2px #63060e solid;
-    border-right: 2px #63060e solid;
+    border-bottom: 2px black solid;
+    border-left: 2px black solid;
+    border-right: 2px black solid;
     padding:5%;
 }
 .feature-title {

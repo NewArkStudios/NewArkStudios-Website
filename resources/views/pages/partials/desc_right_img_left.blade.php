@@ -1,8 +1,8 @@
-<div class="container">
-    <div class="text-center col-md-4">
+<div id="{{$id}}" class="container">
+    <div class="left-cont text-center col-md-4">
         <img src="{{$image}}" class="description_img"></img>
     </div>
-    <div class="text-center col-md-8 description_right">
+    <div class="right-cont text-center col-md-8 description_right">
         <h2 class="text-left">{{$title}}</h2>
         <p class="text-left">{!!$description!!}</p>
         <div style="padding-left: 1em;" class="text-left row">

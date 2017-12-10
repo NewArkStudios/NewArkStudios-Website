@@ -40,3 +40,49 @@ button.btn.btn-default {
 button.btn.btn-default:hover{
 	background-color:#3a0308;
 }
+
+/* Small features section*/
+div.feature-smallsection > div.feature-img {
+    border: 2px #63060e solid;
+}
+
+div.feature-smallsection > div.feature-description {
+    border-bottom: 2px #63060e solid;
+    border-left: 2px #63060e solid;
+    border-right: 2px #63060e solid;
+}
+
+img.gallery_img {
+    border:1px solid #63060e;
+}
+
+/*Animation starts for css*/
+#top-banner h1, #top-banner h4 {
+	opacity: 0;
+}
+
+#top-banner img.icon {
+	opacity:0;
+	width:200px;
+	height:200px;
+}
+
+#main-description div.left-cont {
+	transform: translateX(-500px);
+}
+
+#main-description div.right-cont {
+	transform: translateX(1000px);
+}
+
+#mechanics-section > div{
+	opacity: 0;
+}
+
+#gallery-section > div{
+	opacity: 0;
+}
+
+#bottom-banner h1, #bottom-banner h4, #bottom-banner button{
+	opacity: 0;
+}
