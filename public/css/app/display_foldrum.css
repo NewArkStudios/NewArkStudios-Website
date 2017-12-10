@@ -86,3 +86,7 @@ img.gallery_img {
 #bottom-banner h1, #bottom-banner h4, #bottom-banner button{
 	opacity: 0;
 }
+
+html {
+	overflow-x: hidden;
+}
