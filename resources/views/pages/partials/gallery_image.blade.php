@@ -1,3 +1,6 @@
 <div class="col-sm-4 gallery_element">
-    <img class="gallery_img" src="{{$image}}"></img>
+	<span class='gallery_hover'>
+	    <img class="gallery_img" src="{{$image}}"></img>
+    </span>
+    <span class="glyphicon glyphicon-zoom-in"></span>
 </div>
