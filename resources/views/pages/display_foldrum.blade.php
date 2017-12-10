@@ -23,7 +23,7 @@
     'pages.partials.banner',
     [
        "id" => "top-banner",
-       'image' => '/img/foldrum/group_banner.png',
+       'image' => '/img/foldrum/compressed_group_banner.jpg',
        'title' => 'Foldrum',
        'subtitle' => "<h4>a game by newarkstudios</h4><img class='icon' src='/img/foldrum/foldrum_icon.png'/>",
        'buttons' =>[],
@@ -128,7 +128,7 @@
     'pages.partials.banner',
     [
        "id" => "bottom-banner",
-       'image' => '/img/foldrum/horses_banner.png',
+       'image' => '/img/foldrum/compressed_horses_banner.jpg',
        'title' => 'Up for the challenge?',
        'subtitle' => '<h4>Begin you adventure here.</h4>',
        'buttons' => [
