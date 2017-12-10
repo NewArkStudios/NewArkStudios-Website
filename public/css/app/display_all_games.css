@@ -12,3 +12,17 @@ div.game_div {
     margin-top:1em;
     margin-bottom:3em;
 }
+
+div.game_div.col-md-5 {
+	transform : translateX(-1000px);
+}
+
+div.game_div.col-md-7 {
+	transform : translateY(1000px);
+}
+
+hr {
+    border:0.5px solid #0a94bc;
+    margin:1em;
+}
+

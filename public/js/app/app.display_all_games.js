@@ -1,8 +1,32 @@
-define('app.display_all_games', ['jquery'], function($){
+define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
     var app = {
 
         'start' : function(){
-            console.log("test");
+
+        	// alias
+        	self = this;
+
+        	$(document).ready(function(){
+        		self.animations();
+        	})
+
+
+        },
+
+        'animations' : function(){
+        	Anime({
+			  targets: 'div.game_div.col-md-5',
+			  translateX: [-1000, 0],
+			  duration: 1000,
+			  easing : "easeInOutQuint"
+			});
+
+        	Anime({
+			  targets: 'div.game_div.col-md-7',
+			  translateX: [1000, 0],
+			  duration: 1000,
+			  easing : "easeInOutQuint"
+			});
         }
     }
 
