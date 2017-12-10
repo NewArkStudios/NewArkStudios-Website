@@ -56,6 +56,10 @@ img.gallery_img {
     border:1px solid #63060e;
 }
 
+div.gallery_element {
+	cursor:pointer;
+}
+
 span.gallery_hover{
 	width: 100%;
 	height: 100%;
@@ -64,14 +68,12 @@ span.gallery_hover{
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
-    cursor:pointer;
 }
-span.gallery_hover:hover {
+div.gallery_element:hover > span.gallery_hover {
     background-color:#63060e;
-
 }
 
-span.gallery_hover + span.glyphicon.glyphicon-zoom-in{
+div.gallery_element > span.glyphicon.glyphicon-zoom-in{
 	opacity:0;
 	font-size: 200%;
 	position:relative;
@@ -80,7 +82,7 @@ span.gallery_hover + span.glyphicon.glyphicon-zoom-in{
 	display:inline;
 }
 
-span.gallery_hover:hover + span.glyphicon.glyphicon-zoom-in {
+div.gallery_element:hover > span.glyphicon.glyphicon-zoom-in {
   	opacity:1;
 }
 
