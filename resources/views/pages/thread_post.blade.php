@@ -31,10 +31,10 @@
                                 </a>
                             </p>
                             <p>
-                                Created at: {{$post->created_at}}
+                                Created at: <span class="timestamp-moment">{{$post->created_at}}</span>
                             </p>
                             <p>
-                                Updated at: {{$post->updated_at}}
+                                Updated at: <span class="timestamp-moment">{{$post->updated_at}}</span>
                             </p>
                         </div>
                     </td>
@@ -70,7 +70,7 @@
                     <div class="well">
                             <h6>Title: {{$archive_post->title}}</h6>
                             <p>Post: {!!$archive_post->body!!}</h6>
-                            <p>Edited at: {{$archive_post->created_at}}</p>
+                            <p>Edited at: <span class="timestamp-moment">{{$archive_post->created_at}}</span></p>
                     </div>
                     @endforeach
                 </div>
@@ -161,8 +161,8 @@
             <div class='reply-content'>
                 {!! $replies[$i]->body !!}
                 <small>
-                    Created at: {{$post->created_at}}, 
-                    Updated at: {{$post->updated_at}}
+                    Created at: <span class="timestamp-moment">{{$replies[$i]->created_at}}</span>, 
+                    Updated at: <span class="timestamp-moment">{{$replies[$i]->updated_at}}</span>
                 </small>
             </div>
         @if(Auth::user())
@@ -190,7 +190,7 @@
                 @foreach ($replies[$i]->archive_replies as $archive_reply)
                 <div class="well">
                         <p>Post: {{$archive_reply->body}}</h6>
-                        <p>Edited at: {{$archive_reply->created_at}}</p>
+                        <p>Edited at: <span class="timestamp-moment">{{$archive_reply->created_at}}</span></p>
                 </div>
                 @endforeach
             </div>
