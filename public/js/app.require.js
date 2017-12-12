@@ -15,6 +15,7 @@ requirejs.config({
         'jquery': '/js/jquery-1.12.4.min',
         'datatables': '../DataTables/js/jquery.dataTables.min',
         'datatables.net': '../DataTables/js/jquery.dataTables',
+        'bootstrap' : '/js/bootstrap.min',
         'jquery_ui': '/js/jquery-ui.min',
         'tinyMCE': '../tinymce/tinymce.min',
         'moment': '../moment-with-local.min',
@@ -31,10 +32,18 @@ requirejs.config({
                 return this.tinyMCE;
             }
         },
-        'dataTables' : ['jquery']
+        'dataTables' : {
+            'deps':['jquery']
+        },
+        'jquery_ui' : {
+            'deps':['jquery']
+        },
+        'bootstrap' : {
+            'deps' : ['jquery']
+        },
     },
 });
 
-require(['jquery','app'], function($,app){
+require(['jquery','jquery_ui','bootstrap','app'], function($,UI,B,app){
     app.start();
 });

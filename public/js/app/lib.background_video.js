@@ -1,5 +1,5 @@
 
-define('lib.background_video', [], function(){
+define('lib.background_video', ['jquery'], function($){
 
     var app = {
         'start' : function() {

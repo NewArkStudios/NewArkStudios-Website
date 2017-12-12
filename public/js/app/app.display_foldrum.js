@@ -13,7 +13,12 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
         	// alias
         	var self = this;
 
+        	// run animations on start
         	self.animations();
+
+        	// run event-listeners
+        	self.addEventListeners();
+
 
         	// Trigger animations through scroll
 			$(window).on('scroll', self.onScroll.bind(self)); 
@@ -137,6 +142,52 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 				  delay: 1000,
 				  duration: 9000
 				});
+        	});
+        },
+
+        /**
+		* Add event-listeners to page
+        */
+        'addEventListeners' : function() {
+
+        	// alias
+        	var self = this;
+
+        	// click 
+        	$("div.gallery_element span.gallery_hover").on('click', function(){
+
+        		// grab file src and load image
+        		var fulldata = $(this).find("img.gallery_img").attr("data-full");
+
+        		// if modal does not exist
+        		if($('#myModal').length == 0){
+        			var html = [
+	        			'<div class="modal fade" id="myModal" role="dialog">',
+					   	'<div class="modal-dialog">',
+					    
+					      '<div class="modal-content">',
+					        '<div class="modal-header">',
+					          '<button type="button" class="close" data-dismiss="modal">&times;</button>',
+					          '<h4 class="modal-title">Modal Header</h4>',
+					        '</div>',
+					        '<div class="modal-body">',
+					          '<p>Some text in the modal.</p>',
+					        '</div>',
+					        '<div class="modal-footer">',
+					          '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>',
+					        '</div>',
+					      '</div>',
+					      
+					      '</div>',
+					    '</div>',
+        			].join("");
+
+	        		// load html onto page
+	        		$('body').append(html);
+        		}
+
+
+	        	$('#myModal').modal();
         	});
         }
     }

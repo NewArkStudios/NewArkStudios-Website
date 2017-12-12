@@ -89,37 +89,43 @@
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob'
+           'image' => 'bob',
+           'full_image' => 'bob',
         ]
     )
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob'
+           'image' => 'bob',
+           'full_image' => 'bob',
         ]
     )
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob'
+           'image' => 'bob',
+           'full_image' => 'bob',
         ]
     )
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob'
+           'image' => 'bob',
+           'full_image' => 'bob',
         ]
     )
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob'
+           'image' => 'bob',
+           'full_image' => 'bob',
         ]
     )
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob'
+           'image' => 'bob',
+           'full_image' => 'bob',
         ]
     )
 </div>
