@@ -22,7 +22,7 @@
                         <!-- Note because we move over the object we get the string instance of time -->
                         <p>{{$category->description}}</p>
                         <p> Topics: {{$category->postcount}} ,&nbsp; Last Post: 
-                        {{ Carbon\Carbon::parse($category->newest_post['updated_at'])->format('F d, Y g:i:s a') }}</p>
+                        <span class="timestamp-moment">{{$category->newest_post['updated_at']}}</span></p>
                         <hr>
                     </td>
                     </tr>

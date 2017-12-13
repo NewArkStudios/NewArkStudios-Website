@@ -40,8 +40,8 @@
                             <div class="post-list-content">{!! $post->body !!}</div>
                             Started by: <a href="{{url('/profile/' . $post->user->name)}}">{{$post->user->name}}</a>, Views: {{$post->views}}, Replies: {{count($post->replies)}}
                             <br>
-                            Created at: {{$post->created_at->format('F d, Y g:i:s a')}},
-                            Last post: {{$post->updated_at->format('F d, Y g:i:s a') }}
+                            Created at: <span class="timestamp-moment">{{$post->created_at}}</span>,
+                            Last post: <span class="timestamp-moment">{{$post->updated_at}}</span>
                         <hr>
                         </div>
                     @endforeach
