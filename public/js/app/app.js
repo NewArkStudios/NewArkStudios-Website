@@ -34,10 +34,30 @@ define(['jquery', 'notification', 'moment-timezone-with-data.min'], function($, 
             $('.timestamp-moment').each(function(index) {
                 var timestamp = $(this).text();
 
+                if(!self.validateTimestamp(timestamp)) {
+                    $(this).text("");
+                    return true; // note return true in each is continue;
+                }
+
                 // convert to universal object then to local time
                 var gmtDateTime = Moment.utc(timestamp, "YYYY-MMM-DD h:mm A");
                 $(this).text(gmtDateTime.local().format('YYYY-MMM-DD h:mm A'));
             });
+        },
+
+        /**
+        * Make sure that timestamp is valid
+        * if not return false
+        * @param timestamp : String containing the timestamp we want to validate
+        * @returns false if timestamp html is not valid
+        */
+        'validateTimestamp' : function(timestamp){
+        
+            // alias
+            var self = this;
+
+            var date = Moment(timestamp);
+            return date.isValid();
         }
     }
 

@@ -32,18 +32,26 @@ requirejs.config({
                 return this.tinyMCE;
             }
         },
-        'dataTables' : {
-            'deps':['jquery']
-        },
-        'jquery_ui' : {
-            'deps':['jquery']
-        },
+       // 'dataTables' : {
+       //     'deps':['jquery']
+       // },
+       // 'jquery_ui' : {
+       //     'deps':['jquery']
+       // },
         'bootstrap' : {
-            'deps' : ['jquery']
+            'deps' : ['jquery'],
         },
     },
 });
 
-require(['jquery','jquery_ui','bootstrap','app'], function($,UI,B,app){
-    app.start();
+// Note this gurantees bootstrap loads after jquery
+// shim sometimes not dependable
+require(['jquery','jquery_ui'], function($,UI){
+    
+    // load jquery in window, because bootstrap requires global or else it errors out
+    window.jQuery = $;
+
+    require(['bootstrap','app'], function(B, app){
+        app.start();
+    })
 });
