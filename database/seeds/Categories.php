@@ -22,14 +22,22 @@ class Categories extends Seeder
 
         DB::table('categories')->insert([
             'id' => '2',
-            'name' => 'Bug Reports',
-            'slug' => 'Bug-Reports',
-            'description' => 'Report any bugs that are found within our games, we will do our best to respond',
-            'image' => 'img/icon/bug.png',
+            'name' => 'Foldrum',
+            'slug' => 'Foldrum',
+            'description' => 'Everything Foldrum, strategies, questions, fanart',
+            'image' => '/img/foldrum/foldrum_icon.png',
         ]);
 
         DB::table('categories')->insert([
             'id' => '3',
+            'name' => 'Bug Reports',
+            'slug' => 'Bug-Reports',
+            'description' => 'Report any bugs that are found within our games/website, we will do our best to respond',
+            'image' => 'img/icon/bug.png',
+        ]);
+
+        DB::table('categories')->insert([
+            'id' => '4',
             'name' => 'Easter Egg Hunt',
             'slug' => 'Easter-Egg-Hunt',
             'description' => 'Find cool stuff within our games? Tell others here',
