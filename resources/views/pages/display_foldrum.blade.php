@@ -36,7 +36,7 @@
     [
         "id" => "main-description",
         "image" => "/img/foldrum/spearman_alpha.png",
-        "title" => "Forward to Foldrum!",
+        "title" => "Story",
         "description" => "
         Life is hard in the once republic of Madev. The war has brought devastation to the region and with victory ending on the side of the Principality of Kos, people of that region thought that things would begin to be normal again even if there home country was no more. However many of the Kosian commanders who fought so cunningly and ferociously to win the territory of Madev realized something while their soldiers were out drinking and celebrating their victory.
         <br>

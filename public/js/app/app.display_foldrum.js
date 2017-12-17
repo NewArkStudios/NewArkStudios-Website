@@ -38,15 +38,15 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 			 	Anime({
 				  targets: '#main-description div.left-cont',
 				  translateX: [-500, 0],
-				  duration: 6000,
-				  elasticity: 400,
+				  duration: 500,
+				  easing : "linear"
 				});
 
 				Anime({
 				  targets: '#main-description div.right-cont',
 				  translateX: [1000, 0],
-				  duration: 6000,
-				  elasticity: 200,
+				  duration: 500,
+				  easing : "linear"
 				});
 
 				self.triggerAnimations['main-description'] = true;
@@ -62,12 +62,13 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 					  targets: '#mechanics-section div.feature-smallsection:nth-of-type(' + (index + 1) + ')',
 					  translateY: {
 					      value : [1000, 0],
-					      duration: 2000,
-					  	  elasticity: 500,
+					      duration: 500,
+					  	  easing : "linear"
 					  },
 					  opacity : {
 					  	  value : [0, 1],
-					  	  duration: 6000,
+					  	  duration: 1000,
+					  	  easing : "linear"
 					  },
 					  offset: 1000 * index
 					})
@@ -85,18 +86,10 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 			 	$('#gallery-section div.gallery_element').each(function(index){
 					onebyoneTimelineRotate.add({
 					  targets: '#gallery-section div.gallery_element:nth-of-type(' + (index + 1) + ')',
-					  rotate: {
-					      value : [360, 0],
-					      duration: 2000,
-					  	  elasticity: 500,
-					  },
 					  opacity : {
 					  	  value : [0, 1],
-					  	  duration: 6000,
-					  },
-					  scale : {
-					  	  value : [0, 1],
-					  	  duration: 6000,
+					  	  duration: 2000,
+					  	  easing : "linear"
 					  },
 					  offset: 300 * index 
 					})
