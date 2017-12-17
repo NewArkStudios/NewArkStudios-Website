@@ -11,7 +11,7 @@
                 <hr>
                     {!! $announcement->body !!}
                 <p>
-                    Posted on: {{ $announcement->created_at }}
+                    Posted on: <span class="timestamp-moment">{{ $announcement->created_at }}</span>
                 </p>
                 @if(Auth::user())
                     @if(Auth::user()->hasRole("admin"))
