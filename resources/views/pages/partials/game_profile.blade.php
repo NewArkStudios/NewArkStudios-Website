@@ -5,12 +5,11 @@
             <img class="game_img" src="{{$game_img}}"></img>
         </a>
     </div>
-    <div class="game_div col-md-7">
+    <div style="padding-top:2em;" class="game_div col-md-7">
         <h3 class="game_title"><a href="{{$game_url}}">{{$game_title}}</a></h3>
-        <small class="game_description">
+        <p class="game_description">
             {{$game_description}}
-        </small>
-        <br>
+        </p>
        @if(!empty($twitter))
            <a target="_blank" href="{{$twitter}}"><img class="social_twitter"></img></a>
        @endif

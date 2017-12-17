@@ -1,7 +1,12 @@
 img.game_img {
-    width:325px;
-    height:190px;
+    width:100%;
+    height:auto;
     cursor:pointer;
+}
+
+.page_title {
+    color:#0a94bc;
+    text-decoration: underline;
 }
 
 h3.game_title {
