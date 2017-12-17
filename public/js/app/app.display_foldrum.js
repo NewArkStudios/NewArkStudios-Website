@@ -169,6 +169,12 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
         	// alias
         	var self = this;
 
+        	// trigger hover element click if clicking on magnify
+        	$("div.gallery_element span.glyphicon").on('click', function(){
+
+        		$(this).siblings('span.gallery_hover').trigger('click')
+        	});
+
         	// click 
         	$("div.gallery_element span.gallery_hover").on('click', function(){
 
