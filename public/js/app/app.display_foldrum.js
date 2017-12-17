@@ -8,10 +8,14 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
     		'bottom' : false
     	},
 
+    	'resolutionOffset' : 500,
+
         'start' : function(){
             
         	// alias
         	var self = this;
+
+        	self.updateOffset();
 
         	// run animations on start
         	self.animations();
@@ -24,6 +28,23 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 			$(window).on('scroll', self.onScroll.bind(self)); 
         },
 
+		/**
+		* Update resolution on offset based on window size for triggers
+		* 
+		*/
+        'updateOffset' : function(){
+
+        	// alias
+        	var self = this;
+
+        	// Get resolution
+        	var resolutionWidth = $(window).width();
+
+        	if (resolutionWidth > 1500)
+        		self.resolutionOffset = 800;
+
+        },
+
         /**
 		* Function to call when scrolling
         */
@@ -32,7 +53,7 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
         	// alias
         	var self = this;
 
-			if ($(window).scrollTop() + 500 > $("#main-description").position().top && !self.triggerAnimations['main-description']) {
+			if ($(window).scrollTop() + self.resolutionOffset > $("#main-description").position().top && !self.triggerAnimations['main-description']) {
 
 			 	// animate main description, 
 			 	Anime({
@@ -53,7 +74,7 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 			} 
 
 			 // mechanics section
-			 if ($(window).scrollTop() + 500 > $("#mechanics-title").position().top && !self.triggerAnimations['mechanics']){
+			 if ($(window).scrollTop() + self.resolutionOffset > $("#mechanics-title").position().top && !self.triggerAnimations['mechanics']){
 
 			 	// animation timeline
 			 	var onebyoneTimeline = Anime.timeline();
@@ -77,7 +98,7 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 			 	self.triggerAnimations['mechanics'] = true;
 			}
 
-			if ($(window).scrollTop() + 500 > $("#gallery-section").position().top && !self.triggerAnimations['gallery']){
+			if ($(window).scrollTop() + self.resolutionOffset > $("#gallery-section").position().top && !self.triggerAnimations['gallery']){
 
 			 	// animation timeline
 			 	var onebyoneTimelineRotate = Anime.timeline();
@@ -98,7 +119,7 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 			 	self.triggerAnimations['gallery'] = true;
 			}
 
-			if ($(window).scrollTop() + 500 > $("#bottom-banner").position().top && !self.triggerAnimations['bottom']){
+			if ($(window).scrollTop() + self.resolutionOffset > $("#bottom-banner").position().top && !self.triggerAnimations['bottom']){
 
 			 	Anime({
 				  targets: '#bottom-banner h1, #bottom-banner h4, #bottom-banner button',
