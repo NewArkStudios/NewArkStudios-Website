@@ -49,7 +49,7 @@ class ContactMailable extends Mailable
         return $this->view('email.email_contact')
             ->from($this->email)
             ->subject($this->subject)
-            ->to(env('MAIL_FROM_ADDRESS', "NewArkStudiosOffical@gmail.com"))
+            ->to(env('MAIL_FROM_ADDRESS', "newarkst@newarkstudios.net"))
             ->with([
                 'title' => $this->title,
                 'bodymessage' => $this->message,
