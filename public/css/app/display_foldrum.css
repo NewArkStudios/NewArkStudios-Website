@@ -44,6 +44,8 @@ button.btn.btn-default:hover{
 /* Small features section*/
 div.feature-smallsection > div.feature-img {
     border: 2px #63060e solid;
+    text-align: center;
+    padding-top: 10%;
 }
 
 div.feature-smallsection > div.feature-description {

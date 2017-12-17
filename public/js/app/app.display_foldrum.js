@@ -163,8 +163,9 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
         		var image = "<img class='modal_img' src='" + src + "'></img>"
 
         		// if modal already exists  
-        		if ($('#gallery_modal').length != 0)
+        		if ($('#gallery_modal').length != 0){
         			$('#gallery_modal').remove();
+        		} 
 
     			var html = [
         			'<div class="modal fade" id="gallery_modal" role="dialog">',
@@ -188,8 +189,6 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 
         		// load html onto page
         		$('body').append(html);
-        		
-
 
 	        	$('#gallery_modal').modal();
         	});

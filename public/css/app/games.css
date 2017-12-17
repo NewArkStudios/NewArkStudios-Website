@@ -54,6 +54,10 @@ img.modal_img {
     height: auto;
 }
 
+#gallery_modal > div.modal-dialog {
+     margin-top: 0.5em;
+}
+
 /* Banner element */
 div.games_banner {
     overflow:hidden;

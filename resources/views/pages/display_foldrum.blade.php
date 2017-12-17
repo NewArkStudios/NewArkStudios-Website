@@ -59,7 +59,7 @@
     @include(
             'pages.partials.features_smallsection',
                     [
-                        "image" => "bob",
+                        "image" => "/img/foldrum/mountain_tile128.png",
                         "title" => "Terrain Tiles",
                         "description" => "Tiles are the ground below your feet. In many tactics games the terrain might slow you down or speed you up, but in Foldrum most tiles are like a Faustian bargain; they come with their own pros and cons. You would do well to watch what is below your feet.",
                     ]
@@ -67,7 +67,7 @@
     @include(
             'pages.partials.features_smallsection',
                     [
-                        "image" => "bob",
+                        "image" => "/img/foldrum/bardiche.png",
                         "title" => "Weapons",
                         "description" => "Weapons are the staple of combat in Foldrum. They are your main source of offense and come with their own varied ranges and abilities. Much of each weapons usefulness depends on your play style. If you desire to finish your fights up close and personal the bardiche, sword and axe are your friend, but if you want to handle things at range then the bow and spear might be more to your liking.",
                     ]
@@ -75,7 +75,7 @@
     @include(
             'pages.partials.features_smallsection',
                     [
-                        "image" => "bob",
+                        "image" => "/img/foldrum/bearTrap.png",
                         "title" => "Items",
                         "description" => "Items can be the difference between victory and defeat in a battle. They tend to buff your relations with the two previously mentioned elements. Either they will make you better at dealing with tiles or they will add some additional punch to your weaponry, or even act like a weapon themselves.",
                     ]
