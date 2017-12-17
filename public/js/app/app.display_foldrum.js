@@ -23,9 +23,12 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
         	// run event-listeners
         	self.addEventListeners();
 
-
         	// Trigger animations through scroll
 			$(window).on('scroll', self.onScroll.bind(self)); 
+
+			// trigger scroll event on start so that users starting from old scroll position trigger
+			// animations still
+			$(window).scroll();
         },
 
 		/**
@@ -124,8 +127,7 @@ define('app.display_all_games', ['jquery', 'anime'], function($, Anime){
 			 	Anime({
 				  targets: '#bottom-banner h1, #bottom-banner h4, #bottom-banner button',
 				  opacity: [0,1],
-				  delay: 1000,
-				  duration: 9000
+				  duration: 5000
 				});
 
 			 	self.triggerAnimations['bottom'] = true;
