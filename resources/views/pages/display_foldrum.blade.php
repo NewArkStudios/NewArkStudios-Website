@@ -89,43 +89,36 @@
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob',
-           'full_image' => 'bob',
+           'image' => '/img/foldrum/screen2.jpg',
         ]
     )
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob',
-           'full_image' => 'bob',
+           'image' => '/img/foldrum/tutorial.jpg',        ]
+    )
+    @include(
+        'pages.partials.gallery_image',
+        [
+           'image' => '/img/foldrum/screen1.jpg',
         ]
     )
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob',
-           'full_image' => 'bob',
+           'image' => '/img/foldrum/randomMap.jpg',
         ]
     )
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob',
-           'full_image' => 'bob',
+           'image' => '/img/foldrum/Capture_ROADS_1.jpg',
         ]
     )
     @include(
         'pages.partials.gallery_image',
         [
-           'image' => 'bob',
-           'full_image' => 'bob',
-        ]
-    )
-    @include(
-        'pages.partials.gallery_image',
-        [
-           'image' => 'bob',
-           'full_image' => 'bob',
+           'image' => '/img/foldrum/006.jpg',
         ]
     )
 </div>
