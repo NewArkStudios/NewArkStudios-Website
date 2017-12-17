@@ -1,3 +1,4 @@
+$ = window.$;
 console.log($);
 console.log(gameInstance);
 var downloadDone = setInterval(function(){
