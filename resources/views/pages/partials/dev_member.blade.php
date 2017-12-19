@@ -3,13 +3,13 @@
            <img class="member_picture"></img>
            <div class="member_social">
            @if(!empty($twitter))
-               <a href="{{$twitter}}"><img class="social_twitter"></img></a>
+               <a href="{{$twitter}}"><img class="social_twitter" src="/img/icon/twitter.png"></img></a>
            @endif
            @if(!empty($youtube))
-               <a href="{{$youtube}}"><img class="social_youtube"></img></a>
+               <a href="{{$youtube}}"><img class="social_youtube" src="/img/icon/youtube.png"></img></a>
            @endif
            @if(!empty($facebook))
-               <a href="{{$facebook}}"><img class="social_facebook"></img></a>
+               <a href="{{$facebook}}"><img class="social_facebook" src="/img/icon/facebook.png"></img></a>
            @endif
            </div>
        </div>

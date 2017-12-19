@@ -282,7 +282,6 @@ footer p {
 img.social_facebook {
     width:28px;
     height:28px;
-    content:url("/img/icon/facebook.png");
 }
 img.social_facebook:hover {
     width:36px;
@@ -292,7 +291,6 @@ img.social_facebook:hover {
 img.social_youtube {
     width:38px;
     height:38px;
-    content:url("/img/icon/youtube.png");
 }
 img.social_youtube:hover {
     width:44px;
@@ -302,7 +300,6 @@ img.social_youtube:hover {
 img.social_twitter {
     width:32px;
     height:32px;
-    content:url("/img/icon/twitter.png");
 }
 img.social_twitter:hover {
     width:38px;
@@ -312,7 +309,6 @@ img.social_twitter:hover {
 img.social_indie_db {
     width:28px;
     height:28px;
-    content:url("/img/icon/logoIndieDB.png");
 }
 img.social_indie_db:hover {
     width:36px;
