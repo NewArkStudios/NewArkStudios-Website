@@ -14,6 +14,18 @@
                 <form class="form-horizontal" role="form" method="POST" action="{{route('send_contact_mail')}}">
                     {{ csrf_field() }}
 
+                    <!-- Used to prevent bots from coming in and spamming forms-->
+                    <!-- There are composer packages for this, however is the general form -->
+                    <!-- https://www.thryv.com/blog/honeypot-technique/ -->
+                    <div class='honey_pot' style="display:none;">
+                        @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
+                        <input id="name" type="text" class="form-control" name="name">
+                    </div>
+
                     <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                         <label for="name" class="col-md-2 control-label">First Name</label>
 
@@ -32,7 +44,7 @@
                         <label for="last_name" class="col-md-2 control-label">Last Name</label>
 
                         <div class="col-md-10">
-                            <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('first_name') }}" required autofocus>
+                            <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required autofocus>
 
                             @if ($errors->has('last_name'))
                                 <span class="help-block">
@@ -73,7 +85,9 @@
                     <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
                         <label for="message" class="col-md-2 control-label">Message</label>
                         <div class="col-md-10">
-                        <textarea id="message" rows="14" class="form-control" name="message" required></textarea>
+                        <textarea id="message" rows="14" class="form-control" name="message" required>
+                            {{ old('message') }}
+                        </textarea>
 
                         @if ($errors->has('message'))
                             <span class="help-block">

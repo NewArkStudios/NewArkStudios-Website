@@ -20,6 +20,7 @@ class ContactController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'name' => 'must_be_empty',// honeypot trap for bots
             'first_name' => 'required|string|alpha_dash|max:255',
             'last_name' => 'required|string|alpha_dash|max:255',
             'email' => 'required|string|email|max:255',

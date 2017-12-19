@@ -84,6 +84,8 @@ If run into errors delete migrations table and already existing tables
 Updates to .env file needed for mail server
 example - note this is mailtrap server, we need to update to legitimate email in future
 
+Note* Bluehost email address at the moment not set up to receive items
+
 #### PHP 7.0 issues
 https://stackoverflow.com/questions/45132635/php-warning-php-startup-unable-to-load-dynamic-library
 ```

@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('alphanum_space', function ($attribute, $value, $parameters, $validator) {
             return preg_match('/^[\w ]+$/', $value);
         });
+
+        Validator::extend('must_be_empty', function ($attribute, $value, $parameters, $validator) {
+            return preg_match('/^$/i', $value);
+        });
     }
 
     /**
