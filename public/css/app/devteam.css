@@ -1,15 +1,26 @@
+
+h1 {
+    color:#0a94bc;
+    text-decoration:underline;
+}
+
 img.member_picture {
     width:120px;
     height:160px;
-    border: 1px solid black;
+    object-fit:cover;
+    border: 1px solid #0a94bc;
 }
 
 .member_title {
     margin-top:0;
+    color:#0a94bc;
+    font-weight:bold;
 }
 
 .member_role {
     margin-top:0;
+    color:#0a94bc;
+    font-weight:bold;
 }
 
 div.member_social {

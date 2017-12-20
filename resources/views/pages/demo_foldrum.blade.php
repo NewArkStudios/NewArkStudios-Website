@@ -17,7 +17,7 @@
     <script>
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Desktop.json", {onProgress: UnityProgress});
     </script>
-  <body>
+  <body style="background-image:url('/img/foldrum/general_russia.jpg'); background-repeat: no-repeat;">
     <div style="margin-top:10%;" class="webgl-content">
       <div id="gameContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">

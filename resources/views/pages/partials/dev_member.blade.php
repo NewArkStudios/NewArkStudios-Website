@@ -1,6 +1,6 @@
 <div class='col-md-6 member_section'>
        <div class="member_img">
-           <img class="member_picture"></img>
+           <img src="{{$member_img}}" class="member_picture"></img>
            <div class="member_social">
            @if(!empty($twitter))
                <a href="{{$twitter}}"><img class="social_twitter" src="/img/icon/twitter.png"></img></a>
