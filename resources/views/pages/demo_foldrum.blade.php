@@ -8,7 +8,7 @@
 @section('custom-css')
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="stylesheet" href="{{ URL::asset('css/app/display_foldrum.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/app/demo_foldrum.css') }}" />
 @endsection
 
 @section('page-content')
@@ -17,7 +17,7 @@
     <script>
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Desktop.json", {onProgress: UnityProgress});
     </script>
-  <body style="background-image:url('/img/foldrum/general_russia.jpg'); background-repeat: no-repeat;">
+  <body>
     <div style="margin-top:10%;" class="webgl-content">
       <div id="gameContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
