@@ -45,7 +45,7 @@
                 'member_name' => "Jim",
                 'member_img' => "/img/devteam/jim.jpg",
                 'member_role' => "Artist",
-                'member_description' => "Jim has had the most interesting transition on the team since when he joined he was totally new to game art development. He had been a traditional artist working on safety posters for coal miners most of his working life but games had never been something he worked on. He has really taken to the subject matter now though and is enjoying working with the new tools of the trade that he never had the opportunity to use during his working life before. ", 
+                'member_description' => "Jim has had the most interesting transition on the team since when he joined he was totally new to game art development. He had been a traditional artist working on safety posters for nickel miners most of his working life but games had never been something he worked on. He has really taken to the subject matter now though and is enjoying working with the new tools of the trade that he never had the opportunity to use during his working life before. ", 
             ]
         )
     </div>
