@@ -1,21 +1,29 @@
 @extends('layouts.masters.main')
 
 @section('page-content')
+@section('custom-css')
+    <link rel="stylesheet" href="{{ URL::asset('css/app/carousel.css') }}" />
+@endsection
+@include(
+    'pages.partials.carousel',
+    [
+        'images' => [
+            "/img/foldrum/general_russia.jpg",
+            "/img/foldrum/general_russia.jpg",
+            "/img/foldrum/general_russia.jpg",
+        ],
+        'captions' => [
+            "Caption 1",
+            "Caption 2",
+            "Caption 3",
+        ],
+    ]
+)
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
 
-                <div class="panel-body">
-                    @if (Auth::guest())
-                        You are NOT LOGGED IN
-                    @else
-                        You are logged in!
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+@endsection
+
+@section('custom-javascripts')
+<script src="{{ asset('js/app/carousel.js') }}"></script>
 @endsection
