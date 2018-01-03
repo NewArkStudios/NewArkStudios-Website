@@ -5,6 +5,10 @@
           border-radius: 0 !important;
 }
 
+.main-container {
+    padding-top:1em;
+}
+
 /*Update link to have unique color at some time*/
 a {
     cursor:pointer;
