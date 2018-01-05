@@ -24,6 +24,3 @@
 </div>
 @endsection
 
-@section('custom-javascripts')
-<script src="{{ asset('js/app/carousel.js') }}"></script>
-@endsection
