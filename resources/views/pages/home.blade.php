@@ -8,9 +8,9 @@
     'pages.partials.carousel',
     [
         'images' => [
+            "/img/foldrum/horses.jpg",
             "/img/foldrum/general_russia.jpg",
-            "/img/foldrum/general_russia.jpg",
-            "/img/foldrum/general_russia.jpg",
+            "/img/foldrum/mountains.jpg",
         ],
         'captions' => [
             "Caption 1",
@@ -24,3 +24,6 @@
 </div>
 @endsection
 
+@section('custom-javascripts')
+<script src="{{ asset('js/app/carousel.js') }}"></script>
+@endsection

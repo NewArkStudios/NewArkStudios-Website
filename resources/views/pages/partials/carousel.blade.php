@@ -1,32 +1,25 @@
 <!-- Note remember to include carousel.css and carousel.js -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
+      <!-- Full-width images with number and caption text -->
       @foreach ($images as $image)
-        <div class='item {{($loop->index == 0) ? "active": ""}}'>
-          <img src="{{$image}}">
-          <div class="carousel-caption">
-            <h3>NewArkStudios</h3>
-            <p>{{$captions[$loop->index]}}</p>
+          <div class="mySlides fade-carousel">
+            <div class="numbertext">1 / 3</div>
+            <img src="{{$image}}" style="width:100%">
+            <div class="text">{{$captions[$loop->index]}}</div>
           </div>
-        </div>
       @endforeach
-  </div>
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+      @foreach ($images as $image)
+          <span class="dot" onclick="currentSlide({{$loop->index}})"></span> 
+      @endforeach
+    </div>
