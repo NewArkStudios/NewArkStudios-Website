@@ -23,7 +23,7 @@
     <body>
     @include('layouts.partials.nav')   
 	  <!-- Header End -->
-    <div class="main-container" role="main">
+    <div style="padding-top:1em;" class="theme-showcase" role="main">
         @yield('page-content')
     </div> <!-- /container -->
 

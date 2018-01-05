@@ -8,9 +8,9 @@
     'pages.partials.carousel',
     [
         'images' => [
-            "/img/foldrum/horses.jpg",
             "/img/foldrum/general_russia.jpg",
-            "/img/foldrum/mountains.jpg",
+            "/img/foldrum/general_russia.jpg",
+            "/img/foldrum/general_russia.jpg",
         ],
         'captions' => [
             "Caption 1",

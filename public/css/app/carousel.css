@@ -1,24 +1,12 @@
 * {box-sizing:border-box}
 
-.main-container {
-    padding-top:0em;
-}
-
 /* Slideshow container */
 .slideshow-container {
-  width: 100%;
-  height: 500px; /*Note we may change height in js code depending on height of window*/
+  max-width: 1000px;
   position: relative;
   margin: auto;
-  overflow:hidden;
 }
 
-/* Transform is for centering purposes */
-.slideshow-container img {
-   height:100%;
-   width:100%;
-   transform: translate(0%, -25%);
-}
 /* Hide the images by default */
 .mySlides {
     display: none;
@@ -37,7 +25,6 @@
   font-size: 18px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-  background-color:rgba(0,0,0,0.3);
 }
 
 /* Position the "next button" to the right */
@@ -49,7 +36,6 @@
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
-  text-decoration:none;
 }
 
 /* Caption text */
