@@ -7,7 +7,7 @@
 /* Slideshow container */
 .slideshow-container {
   width: 100%;
-  height: 500px; /*Note we may change height in js code depending on height of window*/
+  height: 400px; /*Note we may change height in js code depending on height of window*/
   position: relative;
   margin: auto;
   overflow:hidden;
@@ -62,18 +62,16 @@
   position: absolute;
   bottom: 8px;
   width: 100%;
-  text-align: center;
+  top:20%; /*Default*/
+  left:15%;
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+.slideshow-caption .text{
 }
 
+.slideshow-caption .slideshow-title{
+    font-weight:bold;
+}
 /* The dots/bullets/indicators */
 .dot {
   cursor:pointer;
@@ -92,7 +90,7 @@
 
 .slideshow-footer {
     position:absolute;
-    top:450px; /*Default*/
+    top:85%; /*Default*/
     text-align:center;
     z-index:100;
     width:100%;
@@ -104,25 +102,71 @@
     cursor:pointer;
 }
 
-.slideshow-caption {
-    position:absolute;
-    top:400px; /*Default*/
+/* Fading animation from the right*/
+.fade-carousel-right img {
+  -webkit-animation-name: fade-right;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade-right;
+  animation-duration: 1.5s;
+  float:right;
 }
 
-/* Fading animation */
-.fade-carousel {
-  -webkit-animation-name: fade;
+/* Chrome and Safari */
+@-webkit-keyframes fade-right {
+  from {
+    opacity: .4;
+    width: 150%; 
+  } 
+  to {
+    opacity: 1;
+    width: 100%; 
+  }
+}
+
+/* Firefox and IE */
+@keyframes fade-right {
+  from {
+    opacity: .4;
+    width: 150%; 
+  } 
+
+  to {
+    opacity: 1;
+    width: 100%; 
+  }
+}
+
+
+
+/* Fading animation from the left*/
+.fade-carousel-left img{
+  -webkit-animation-name: fade-left;
   -webkit-animation-duration: 1.5s;
-  animation-name: fade;
+  animation-name: fade-left;
   animation-duration: 1.5s;
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+/* Chrome and Safari */
+@-webkit-keyframes fade-left {
+  from {
+    opacity: .4;
+    width: 150%; 
+  } 
+  to {
+    opacity: 1;
+    width: 100%; 
+  }
 }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+/* Firefox and IE */
+@keyframes fade-left {
+  from {
+    opacity: .4;
+    width: 150%; 
+  } 
+
+  to {
+    opacity: 1;
+    width: 100%; 
+  }
 }

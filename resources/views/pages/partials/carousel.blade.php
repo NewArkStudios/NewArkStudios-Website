@@ -10,10 +10,11 @@
         </div>
       <!-- Full-width images with number and caption text -->
       @foreach ($images as $image)
-          <div class="mySlides fade-carousel">
+          <div class="mySlides fade-carousel-left">
             <img src="{{$image}}" style="width:100%">
             <div class="slideshow-caption">
-                <p>{{$captions[$loop->index]}}</p>
+                <h1 class="slideshow-title">{{$titles[$loop->index]}}</h1>
+                <p class="slideshow-text">{{$captions[$loop->index]}}</p>
             </div>
           </div>
       @endforeach

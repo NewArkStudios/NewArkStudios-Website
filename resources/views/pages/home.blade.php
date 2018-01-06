@@ -4,6 +4,8 @@
 @section('custom-css')
     <link rel="stylesheet" href="{{ URL::asset('css/app/carousel.css') }}" />
 @endsection
+
+<!-- Note elements in carousel are one to one -->
 @include(
     'pages.partials.carousel',
     [
@@ -17,10 +19,23 @@
             "Caption 2",
             "Caption 3",
         ],
+        'titles' => [
+            "Title 1",
+            "Title 2",
+            "Title 3",
+        ]
     ]
 )
 <div class="container">
-
+    <h1>This is the home page</h1>
+    <h1>This is the home page</h1>
+    <h1>This is the home page</h1>
+    <h1>This is the home page</h1>
+    <h1>This is the home page</h1>
+    <h1>This is the home page</h1>
+    <h1>This is the home page</h1>
+    <h1>This is the home page</h1>
+    <h1>This is the home page</h1>
 </div>
 @endsection
 
