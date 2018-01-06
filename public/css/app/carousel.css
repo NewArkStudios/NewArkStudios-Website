@@ -15,13 +15,15 @@
 
 /* Transform is for centering purposes */
 .slideshow-container img {
-   height:100%;
-   width:100%;
-   transform: translate(0%, -25%);
+    height:auto;
+    width:100%;
+    display:inline-block;
+    transform: translate(0%, -25%);
 }
 /* Hide the images by default */
 .mySlides {
     display: none;
+    height:100%;
 }
 
 /* Next & previous buttons */
@@ -53,7 +55,7 @@
 }
 
 /* Caption text */
-.text {
+.slideshow-caption {
   color: #f2f2f2;
   font-size: 15px;
   padding: 8px 12px;
@@ -86,6 +88,25 @@
 
 .active, .dot:hover {
   background-color: #717171;
+}
+
+.slideshow-footer {
+    position:absolute;
+    top:450px; /*Default*/
+    text-align:center;
+    z-index:100;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.slideshow-footer .dots {
+    cursor:pointer;
+}
+
+.slideshow-caption {
+    position:absolute;
+    top:400px; /*Default*/
 }
 
 /* Fading animation */
