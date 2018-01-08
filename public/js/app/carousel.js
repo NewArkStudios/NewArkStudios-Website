@@ -2,7 +2,13 @@ define('carousel', ['jquery'], function($){
 
    var application = {
 
+        /**
+        * Start of the carousel application
+        */
         'start' : function(){
+
+            // alias
+            var self = this;
 
             this.slideIndex = 1;
             
@@ -119,6 +125,7 @@ define('carousel', ['jquery'], function($){
 
         /**
         * Function used to show the slides
+        * @param direction - String indicating the direction we are moving the slides
         */
         'showSlides': function(direction) {
             
@@ -131,6 +138,7 @@ define('carousel', ['jquery'], function($){
                 if (self.slideIndex > slides.length) {
               self.slideIndex = 1
             } 
+
             if (self.slideIndex < 1) {
               self.slideIndex = slides.length
             }
@@ -157,7 +165,6 @@ define('carousel', ['jquery'], function($){
             // display the slides
             slides.get(self.slideIndex-1).style.display = "block"; 
             dots.get(self.slideIndex-1).className += " active";
-
 
         }
    } 
