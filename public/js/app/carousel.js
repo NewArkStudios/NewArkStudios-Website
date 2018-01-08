@@ -19,6 +19,9 @@ define('carousel', ['jquery'], function($){
             this.resizeElementsOnCarousel();
         
             this.showSlides("left");
+
+            // set interval four how long we toggle the auto change
+            self.autoInterval = setInterval(self.moveSlides.bind(self), 5000, 1);
         },
 
         /**
@@ -32,17 +35,20 @@ define('carousel', ['jquery'], function($){
             // previous button
             $(".slideshow-container a.prev").on('click', function(){
                 self.moveSlides(-1);
+                self.resetInterval();
             });
 
             // next button
             $(".slideshow-container a.next").on('click', function(){
                 self.moveSlides(1);
+                self.resetInterval();
             });
             
             // buttons at the bottom
             $('.slideshow-container span.dot').on('click', function(){
                 var index = $(this).index() + 1;
                 self.currentSlide(index);
+                self.resetInterval();
             });
 
             // on resize of window update carousel appropriately
@@ -50,8 +56,20 @@ define('carousel', ['jquery'], function($){
                 self.resizeElementsOnCarousel(); 
             });
 
-            // set interval four how long we toggle the auto change
-            setInterval(self.moveSlides.bind(self), 5000, 1);
+        },
+
+
+        /*
+        * Reset the auto change interval to start again
+        */
+        'resetInterval' : function() {
+
+            // alias
+            var self = this; 
+
+            clearInterval(self.autoInterval);
+            self.autoInterval = setInterval(self.moveSlides.bind(self), 5000, 1)
+
         },
 
         /**
