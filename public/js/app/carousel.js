@@ -43,6 +43,9 @@ define('carousel', ['jquery'], function($){
             $(window).on('resize', function(){
                 self.resizeElementsOnCarousel(); 
             });
+
+            // set interval four how long we toggle the auto change
+            setInterval(self.moveSlides.bind(self), 5000, 1);
         },
 
         /**
@@ -89,6 +92,10 @@ define('carousel', ['jquery'], function($){
         * negative backwards and positive for forwards
         */
         'moveSlides' : function(n){
+
+            // alias
+            var self = this;
+
             this.slideIndex += n
 
             // indicate direction of showing slides
