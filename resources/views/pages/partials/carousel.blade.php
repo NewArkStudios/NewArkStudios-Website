@@ -14,7 +14,7 @@
             <img src="{{$image}}" style="width:100%">
             <div class="slideshow-caption">
                 <h1 class="slideshow-title">{{$titles[$loop->index]}}</h1>
-                <p class="slideshow-text">{{$captions[$loop->index]}}</p>
+                <button class="btn btn-primary slideshow-button">{{$buttontext[$loop->index]}}</button>
             </div>
           </div>
       @endforeach

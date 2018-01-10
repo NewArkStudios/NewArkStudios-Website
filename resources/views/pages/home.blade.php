@@ -14,15 +14,15 @@
             "/img/foldrum/general_russia.jpg",
             "/img/foldrum/mountains.jpg",
         ],
-        'captions' => [
-            "Caption 1",
-            "Caption 2",
-            "Caption 3",
-        ],
         'titles' => [
             "Title 1",
             "Title 2",
             "Title 3",
+        ],
+        'buttontext' => [
+            "Learn More",
+            "Learn More",
+            "Learn More",
         ]
     ]
 )

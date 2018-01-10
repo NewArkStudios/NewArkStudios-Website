@@ -13,6 +13,7 @@
   overflow:hidden;
 }
 
+
 /* Transform is for centering purposes */
 .slideshow-container img {
     height:auto;
@@ -66,8 +67,6 @@
   left:15%;
 }
 
-.slideshow-caption .text{
-}
 
 .slideshow-caption .slideshow-title{
     font-weight:bold;
@@ -168,5 +167,92 @@
   to {
     opacity: 1;
     width: 100%; 
+  }
+}
+
+/* Fading animation for text from the caption elements*/
+.fade-caption-left {
+  -webkit-animation-name: fade-text-left;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade-text-left;
+  animation-duration: 1.5s;
+}
+.fade-caption-left-delay {
+  opacity:0;
+  -webkit-animation-name: fade-text-left;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: fade-text-left;
+  animation-duration: 1.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+/* Chrome and Safari */
+@-webkit-keyframes fade-text-left {
+  0% {
+    opacity: .4;
+    width: 150%; 
+    transform : translateX(2em);
+  } 
+  100% {
+    opacity: 1;
+    transform : translateX(0em);
+  }
+}
+
+/* Firefox and IE */
+@keyframes fade-text-left {
+  0% {
+    opacity: .4;
+    transform : translateX(2em);
+  } 
+
+  100% {
+    opacity: 1;
+    transform : translateX(0em);
+  }
+}
+
+.fade-caption-right {
+  -webkit-animation-name: fade-text-right;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade-text-right;
+  animation-duration: 1.5s;
+}
+.fade-caption-right-delay {
+  opacity:0;
+  -webkit-animation-name: fade-text-right;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: fade-text-right;
+  animation-duration: 1.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+/* Chrome and Safari */
+@-webkit-keyframes fade-text-right {
+  0% {
+    opacity: .4;
+    width: 150%; 
+    transform : translateX(-2em);
+  } 
+  100% {
+    opacity: 1;
+    transform : translateX(0em);
+  }
+}
+
+/* Firefox and IE */
+@keyframes fade-text-right {
+  0% {
+    opacity: .4;
+    transform : translateX(-2em);
+  } 
+
+  100% {
+    opacity: 1;
+    transform : translateX(0em);
   }
 }

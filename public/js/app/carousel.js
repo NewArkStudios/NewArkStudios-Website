@@ -18,7 +18,7 @@ define('carousel', ['jquery'], function($){
             // init initial size
             this.resizeElementsOnCarousel();
         
-            this.showSlides("left");
+            this.showSlides("right");
 
             // set interval four how long we toggle the auto change
             self.autoInterval = setInterval(self.moveSlides.bind(self), 5000, 1);
@@ -88,22 +88,26 @@ define('carousel', ['jquery'], function($){
             // handle based on view-port
             if (wWidth > 1350) {
                 sHeight = 500;
-                cTop = "40%";
+                cTop = "30%";
             } else if (wWidth > 800) {
                 sHeight = 450;
-                cTop = "40%";
+                cTop = "30%";
             } else if (wWidth > 700)
                 sHeight = 400;
             else if (wWidth > 600)
                 sHeight = 300;
             else if (wWidth > 500)
                 sHeight = 250;
-            else if (wWidth > 400)
+            else if (wWidth > 400){
                 sHeight = 200;
-            else if (wWidth > 350)
+                cTop = "0%";
+            } else if (wWidth > 350) {
                 sHeight = 180;
-            else
+                cTop = "0%";
+            } else {
                 sHeight = 160;
+                cTop = "0%";
+            }
                 
             // set the new height for the sliding container
             $('.slideshow-container').height(sHeight);
@@ -153,7 +157,9 @@ define('carousel', ['jquery'], function($){
             var i;
             var slides = $(".mySlides");
             var dots = $(".dot");
-                if (self.slideIndex > slides.length) {
+            var title = $(".slideshow-title");
+            var button = $(".slideshow-button");
+            if (self.slideIndex > slides.length) {
               self.slideIndex = 1
             } 
 
@@ -172,11 +178,23 @@ define('carousel', ['jquery'], function($){
 
             // change direction
             if(direction == "left") {
-                $(slides).addClass('fade-carousel-left');
-                $(slides).removeClass('fade-carousel-right');
+                slides.addClass('fade-carousel-left');
+                slides.removeClass('fade-carousel-right');
+
+                title.addClass('fade-caption-right');
+                title.removeClass('fade-caption-left');
+
+                button.addClass('fade-caption-right-delay');
+                button.removeClass('fade-caption-left-delay');
             } else {
-                $(slides).removeClass('fade-carousel-left');
-                $(slides).addClass('fade-carousel-right');
+                slides.removeClass('fade-carousel-left');
+                slides.addClass('fade-carousel-right');
+
+                title.addClass('fade-caption-left');
+                title.removeClass('fade-caption-right');
+
+                button.addClass('fade-caption-left-delay');
+                button.removeClass('fade-caption-right-delay');
             }
 
 
