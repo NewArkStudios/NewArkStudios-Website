@@ -14,4 +14,17 @@ class AnnouncementController extends Controller
         return view('pages.announcements', compact('announcements'));
         
     }
+    // display single announcement
+    public function display_announcement($id) {
+
+        $announcement = Announcement::where('id', $id)->first();
+
+        // grab the first 
+        $recent = Announcement::where('id', '!=', $id)->take(5)->get();
+
+        return view('pages.announcement', [
+            'announcement' => $announcement,
+            'recent' => $recent
+        ]);
+    }
 }

@@ -1,0 +1,34 @@
+.announcement-container {
+    margin-bottom:4em;
+}
+
+.recent-thumbnail {
+   cursor:pointer; 
+   min-width:100%;
+   min-height:100px;
+   background-repeat:no-repeat;
+   background-position: center top;
+}
+
+.recent-thumbnail:hover {
+    -moz-box-shadow: 1px 1px 5px #999;
+    -webkit-box-shadow: 1px 1px 5px #999;
+    box-shadow: 1px 1px 5px #999;
+    -webkit-transition: all .2s ease;
+    transform: scale(1.1);
+    transition: all .2s ease; 
+}
+
+.recent-articles {
+
+}
+
+.recent-articles-header {
+    text-decoration:underline;
+    color:#0a94bc;
+    font-weight:bold;
+}
+
+.load-more-button {
+    width:75%;
+}

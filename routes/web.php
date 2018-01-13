@@ -70,6 +70,7 @@ Route::get('create_post/{slug}', 'ForumController@display_create_post');
 Route::get('post/{slug}', 'PostController@display_post');
 
 Route::get('announcements', 'AnnouncementController@display_announcements');
+Route::get('announcement/{id}', 'AnnouncementController@display_announcement');
 
 // Route thanks for posting
 Route::get('/thanks_post', function() {

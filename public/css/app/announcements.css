@@ -1,0 +1,16 @@
+.announcement-thumbnail {
+    cursor:pointer; 
+    min-width:100%;
+    min-height:125px;
+    background-repeat:no-repeat;
+    background-position: center top;
+    margin-top:1em;
+}
+.announcement-thumbnail:hover {
+    -moz-box-shadow: 1px 1px 5px #999;
+    -webkit-box-shadow: 1px 1px 5px #999;
+    box-shadow: 1px 1px 5px #999;
+    -webkit-transition: all .2s ease;
+    transform: scale(1.1);
+    transition: all .2s ease; 
+}
