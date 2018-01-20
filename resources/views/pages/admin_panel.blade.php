@@ -46,9 +46,35 @@
                             if we plan to allow any type of injection
                         </p>
                         <div class="form-group">
-                            <form id="announcement-form" class="form-horizontal" role="form" method="POST" action="{{ route('make_announcement') }}">
+                            <form enctype="multipart/form-data" id="announcement-form" class="form-horizontal" role="form" method="POST" action="{{ route('make_announcement') }}">
                                 {{ csrf_field() }}
+                                <label for="title" class="control-label">Title</label>
+
+                                <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
+                                @if ($errors->has('title'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                @endif
+     
+                                <br>
+
+
+                                <label for="thumbnail" class="control-label">Thumbnail</label>
+                                <input name="thumbnail" type="file">
+                                <br>
+
+                                @if ($errors->has('thumbnail'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('thumbnail') }}</strong>
+                                    </span>
+                                @endif
                                 <textarea rows="10" id="body" class="form-control" name="body" required></textarea>
+                                @if ($errors->has('body'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('body') }}</strong>
+                                    </span>
+                                @endif
                                 <br>
                                 <button id="commit-button" type="submit" class="btn btn-primary">
                                     Commit

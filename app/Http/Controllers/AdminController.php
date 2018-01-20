@@ -10,6 +10,7 @@ use App\Models\User_Roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Storage;
 
 
 class AdminController extends Controller
@@ -35,8 +36,31 @@ class AdminController extends Controller
         // make announcement
         // note we dont sanitize because ADMINS
         // are trusted with injections including javascript
+        $this->validate($request, [
+            'title' => 'required',
+            'thumbnail' => 'required|image',
+            'body' => 'required'
+        ]);
+
+        // check if image is valid
+        $thumbnail = $request->file('thumbnail');
+
+        if (!($thumbnail->isValid())) {
+            return back()->withErrors(
+                [
+                    "thumbnail" => "There was an error in uploading your image"
+                ]
+            );
+        }
+
+        // store image
+        $path = Storage::disk('imageUploads')->putFile('announcements', $request->file('thumbnail') );
+        //$path = $request->file('thumbnail')->store('/public/img/announcements');
+
         $annoucement = new Announcement();
         $annoucement->body = $request['body'];
+        $annoucement->title = $request['title'];
+        $annoucement->thumbnail = $path;
         $annoucement->save();
 
         return redirect('/announcements');
