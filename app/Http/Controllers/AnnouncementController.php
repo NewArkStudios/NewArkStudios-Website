@@ -10,7 +10,7 @@ class AnnouncementController extends Controller
     // display announcements on page
     public function display_announcements() {
 
-        $announcements = Announcement::paginate(5);
+        $announcements = Announcement::orderBy('created_at', 'desc')->paginate(5);
         return view('pages.announcements', compact('announcements'));
         
     }
@@ -19,8 +19,8 @@ class AnnouncementController extends Controller
 
         $announcement = Announcement::where('id', $id)->first();
 
-        // grab the first 
-        $recent = Announcement::where('id', '!=', $id)->take(5)->get();
+        // grab the first five announcements
+        $recent = Announcement::orderBy('created_at', 'desc')->where('id', '!=', $id)->take(5)->get();
 
         return view('pages.announcement', [
             'announcement' => $announcement,
