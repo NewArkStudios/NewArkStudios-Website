@@ -34,7 +34,7 @@
                     @if( is_null($recentAnnounce->title ))
                         <div data-url='/announcement/{{$recentAnnounce->id}}' class='recent-thumbnail' style='background-image:url("/public/img/general/newark_full.png")'></div>
                     @else
-                        <img data-url="/announcement/{{$recentAnnounce->id}}" class="recent-thumbnail" src="{{$recentAnnounce->title}}"/>
+                        <img data-url="/announcement/{{$recentAnnounce->id}}" class="recent-thumbnail" src="{{$recentAnnounce->title}}" style='background-image:url("/public/img/uploads/{{$announcement->thumbnail}}")'/>
                     @endif
                 </div> 
                 <div class="col-md-7">

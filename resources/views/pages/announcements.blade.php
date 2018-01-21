@@ -13,10 +13,10 @@
                 @foreach($announcements as $announcement)
                 <hr>
                     <div class="col-md-2">
-                        @if( is_null($announcement->title ))
+                        @if( is_null($announcement->thumbnail ))
                             <div data-url='/announcement/{{$announcement->id}}' class='announcement-thumbnail' style='background-image:url("/public/img/general/newark_full.png")'></div>
                         @else
-                            <img data-url="/announcement/{{$announcement->id}}" class="announcement-thumbnail" src="{{$announcement->title}}"/>
+                            <img data-url="/announcement/{{$announcement->id}}" class="announcement-thumbnail" src="{{$announcement->title}}" style='background-image:url("public/img/uploads/{{$announcement->thumbnail}}")'/>
                         @endif
                     </div>
                     <div class="col-md-10">
