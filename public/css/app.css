@@ -325,3 +325,7 @@ img.navbar-logo{
     width:38px;
     height:42px;
 }
+
+#csrf_token {
+    display: none;
+}
