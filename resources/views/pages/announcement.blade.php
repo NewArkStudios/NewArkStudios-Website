@@ -28,10 +28,11 @@
     </div>
     <div class="recent-articles col-md-4" >
         <h4 class='recent-articles-header'>Recent Articles</h4>
+        <div class='recent-article-container'>
         @foreach ($recent as $recentAnnounce)
             <div class="row recent-article-element">
                 <div class="col-md-5">
-                    @if( is_null($recentAnnounce->title ))
+                    @if( is_null($recentAnnounce->thumbnail ))
                         <div data-url='/announcement/{{$recentAnnounce->id}}' class='recent-thumbnail' style='background-image:url("/public/img/general/newark_full.png")'></div>
                     @else
                         <img data-url="/announcement/{{$recentAnnounce->id}}" class="recent-thumbnail" src="{{$recentAnnounce->title}}" style='background-image:url("/public/img/uploads/{{$recentAnnounce->thumbnail}}")'/>
@@ -50,6 +51,7 @@
             </div>
             <hr>
         @endforeach
+        </div>
         <div class="text-center">
             <button id="loadmoreButton" class="load-more-button btn btn-primary">
                 Load More
