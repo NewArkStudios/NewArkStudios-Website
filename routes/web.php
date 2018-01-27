@@ -71,6 +71,7 @@ Route::get('post/{slug}', 'PostController@display_post');
 
 Route::get('announcements', 'AnnouncementController@display_announcements');
 Route::get('announcement/{id}', 'AnnouncementController@display_announcement');
+Route::post('announcement/get_more', 'AnnouncementController@get_more_announcements');
 
 // Route thanks for posting
 Route::get('/thanks_post', function() {

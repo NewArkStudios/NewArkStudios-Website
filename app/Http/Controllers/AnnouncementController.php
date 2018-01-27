@@ -27,4 +27,22 @@ class AnnouncementController extends Controller
             'recent' => $recent
         ]);
     }
+
+    /* get a set of new announcements
+     request contains
+     start : number representing where we want to start from to grab announcements
+     ammount : number of announcements we wish to grab
+     returns : JSON object representing the announcements
+    */
+    public function get_more_announcements(Request $request) {
+    
+        $start = $request['start'];
+        $amount = $request['amount'];
+
+        $announcement_count = Announcement::count();
+    
+        $announcements = Announcement::orderBy('created_at', 'desc')->where('id', '<=', $announcement_count - $start)->take($amount)->get();
+
+        return response()->json($announcements);
+    }
 }

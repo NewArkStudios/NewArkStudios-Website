@@ -29,7 +29,7 @@
     <div class="recent-articles col-md-4" >
         <h4 class='recent-articles-header'>Recent Articles</h4>
         @foreach ($recent as $recentAnnounce)
-            <div class="row">
+            <div class="row recent-article-element">
                 <div class="col-md-5">
                     @if( is_null($recentAnnounce->title ))
                         <div data-url='/announcement/{{$recentAnnounce->id}}' class='recent-thumbnail' style='background-image:url("/public/img/general/newark_full.png")'></div>
@@ -51,10 +51,14 @@
             <hr>
         @endforeach
         <div class="text-center">
-            <button class="load-more-button btn btn-primary">
+            <button id="loadmoreButton" class="load-more-button btn btn-primary">
                 Load More
             </button>
+            <span id="csrf_token">{{ csrf_token() }}</span>
         </div>
     </div>
 </div>
+@endsection
+@section('custom-javascripts')
+    <script src="{{ asset('js/app/app.announcement.js') }}"></script>
 @endsection
