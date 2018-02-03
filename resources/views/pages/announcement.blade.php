@@ -6,7 +6,7 @@
 @section('page-content')
 <br>
 <div class='container'>
-    <div class="announcement-container col-md-8" >
+    <div class="announcement-container col-md-8" announcement-id="{{$announcement->id}}"  >
         @if( is_null($announcement->title ))
             <h2 class="announcement-title"> No title available</h2> 
         @else
@@ -29,8 +29,8 @@
     <div class="recent-articles col-md-4" >
         <h4 class='recent-articles-header'>Recent Articles</h4>
         <div class='recent-article-container'>
-        @foreach ($recent as $recentAnnounce)
-            <div class="row recent-article-element">
+        @forelse ($recent as $recentAnnounce)
+            <div id="recent-article-{{$recentAnnounce->id}}" announcement-id="{{$announcement->id}}" class="row recent-article-element">
                 <div class="col-md-5">
                     @if( is_null($recentAnnounce->thumbnail ))
                         <div data-url='/announcement/{{$recentAnnounce->id}}' class='recent-thumbnail' style='background-image:url("/public/img/general/newark_full.png")'></div>
@@ -50,7 +50,9 @@
                 </div> 
             </div>
             <hr>
-        @endforeach
+        @empty
+            No Additional Announcements
+        @endforelse
         </div>
         <div class="text-center">
             <button id="loadmoreButton" class="load-more-button btn btn-primary">

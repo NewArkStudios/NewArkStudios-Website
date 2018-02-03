@@ -69,6 +69,8 @@
                                         <strong>{{ $errors->first('thumbnail') }}</strong>
                                     </span>
                                 @endif
+
+                                <label class="control-label">Announcement</label>
                                 <textarea rows="10" id="body" class="form-control" name="body" required></textarea>
                                 @if ($errors->has('body'))
                                     <span class="help-block">
