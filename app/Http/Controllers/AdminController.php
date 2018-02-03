@@ -57,11 +57,11 @@ class AdminController extends Controller
         $path = Storage::disk('imageUploads')->putFile('announcements', $request->file('thumbnail') );
         //$path = $request->file('thumbnail')->store('/public/img/announcements');
 
-        $annoucement = new Announcement();
-        $annoucement->body = $request['body'];
-        $annoucement->title = $request['title'];
-        $annoucement->thumbnail = $path;
-        $annoucement->save();
+        $announcement = new Announcement();
+        $announcement->body = $request['body'];
+        $announcement->title = $request['title'];
+        $announcement->thumbnail = $path;
+        $announcement->save();
 
         return redirect('/announcements');
     }
@@ -73,12 +73,40 @@ class AdminController extends Controller
     * body - text, edited announcement
     */
     public function edit_announcement(Request $request) {
-    
-         $announcement = Announcement::where('id', $request['id'])->first();
-         $announcement->body = $request['body'];
-         $announcement->save();
 
-         return redirect('/announcements');
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+    
+        
+        // check if image is valid
+        if(!is_null($request['thumbnail'])){
+        
+            $thumbnail = $request->file('thumbnail');
+        
+            if (!($thumbnail->isValid())) {
+                return back()->withErrors(
+                    [
+                        "thumbnail" => "There was an error in uploading your image"
+                    ]
+                );
+            }
+
+            $path = Storage::disk('imageUploads')->putFile('announcements', $request->file('thumbnail') );
+        }
+
+        $announcement = Announcement::where('id', $request['id'])->first();
+        $announcement->body = $request['body'];
+        $announcement->title = $request['title'];
+
+        // only if image is ther then add
+        if (!is_null($request['thumbnail']))
+            $announcement->thumbnail = $path;
+
+        $announcement->save();
+
+     return redirect('/announcements');
     }
 
     /**

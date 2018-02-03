@@ -23,9 +23,31 @@
                             if we plan to allow any type of injection
                         </p>
                         <div class="form-group">
-                            <form role="form" method="POST" action="{{ route('edit_announcement') }}">
+                            <form enctype="multipart/form-data" role="form" method="POST" action="{{ route('edit_announcement') }}">
                                 {{ csrf_field() }}
                                 <input name="id" type="hidden" value="{{$announcement->id}}"></input>
+
+                                <label for="title" class="control-label">Title</label>
+
+                                <input id="title" type="text" class="form-control" name="title" value="{{$announcement->title}}" required autofocus>
+                                @if ($errors->has('title'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                @endif
+     
+                                <br>
+
+                                <label for="thumbnail" class="control-label">Thumbnail</label>
+                                <input name="thumbnail" type="file">
+                                <br>
+
+                                @if ($errors->has('thumbnail'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('thumbnail') }}</strong>
+                                    </span>
+                                @endif
+
                                 <textarea rows="10" id="body" class="form-control" name="body" required>{{$announcement->body}}</textarea>
                                 <br>
                                 <button id="commit-button" type="submit" class="btn btn-primary">
