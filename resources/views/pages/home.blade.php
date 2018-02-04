@@ -27,15 +27,13 @@
     ]
 )
 <div class="container">
-    <h1>This is the home page</h1>
-    <h1>This is the home page</h1>
-    <h1>This is the home page</h1>
-    <h1>This is the home page</h1>
-    <h1>This is the home page</h1>
-    <h1>This is the home page</h1>
-    <h1>This is the home page</h1>
-    <h1>This is the home page</h1>
-    <h1>This is the home page</h1>
+    <!-- newarkstudios twitter-->
+    <div class="col-md-6">
+        <a class="twitter-timeline" data-height="500" href="https://twitter.com/NewArkStudios?ref_src=twsrc%5Etfw">Tweets by NewArkStudios</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <div class="col-md-6">
+        <a class="twitter-timeline" data-height="500" href="https://twitter.com/foldrumgame?ref_src=twsrc%5Etfw">Tweets by foldrumgame</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
 </div>
 @endsection
 
