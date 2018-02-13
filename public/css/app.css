@@ -319,6 +319,15 @@ img.social_indie_db:hover {
     height:36px;
     transition: 0.2s;
 }
+img.social_linkedin {
+    width:32px;
+    height:32px;
+}
+img.social_linkedin:hover {
+    width:38px;
+    height:38px;
+    transition: 0.2s;
+}
 
 img.navbar-logo{
     padding-top:2px;

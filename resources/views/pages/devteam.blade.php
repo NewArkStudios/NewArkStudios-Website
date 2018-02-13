@@ -64,6 +64,7 @@
                 'member_img' => "/img/devteam/peter.jpg",
                 'member_role' => "Web Designer",
                 'member_description' => "The all mighty Peter blesses us with his presence for only a few fleeting days but his stunning work ethic and spectacular ability is a credit and model to us all. But seriously now, there is a lot I can tell you about Peter and his ability to do great things in web design but I think this website speaks for itself since he built it", 
+                'linkedin'=> "https://www.linkedin.com/in/peterhoang1/"
             ]
         )
     </div>
