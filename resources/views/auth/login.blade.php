@@ -47,24 +47,29 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
-                                    <label>
+                                    <button type="submit" class="btn btn-primary">
+                                        Login
+                                    </button>
+                                    <label style="margin-left:1em;" >
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                                     </label>
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
+                            <div class="col-md-8 col-md-offset-3">
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    Register an Account
+                                </a>
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
-                                <a href="redirectSocial">FB Login</a>
                             </div>
+                        </div>
+                        <hr>
+                        <div class="col-md-12 text-center">
+                            <h4> Login with </h4>
+                            <a href="redirectSocial">Facebook</a>
                         </div>
                     </form>
                 </div>
